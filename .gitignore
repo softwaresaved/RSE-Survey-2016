@@ -1,3 +1,6 @@
+# Exclude raw data that may contain sensitive information
+data/Survey*
+
 # History files
 .Rhistory
 .Rapp.history
@@ -17,3 +20,7 @@ vignettes/*.pdf
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
+
+
+# Library folder generated with packrat
+Library/*
