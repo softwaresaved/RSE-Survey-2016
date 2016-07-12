@@ -30,6 +30,22 @@ Olivier PHILIPPE
 ```
 
 
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
 
 
 
@@ -41,18 +57,18 @@ Olivier PHILIPPE
 
 |   |Field of Education                         | Total Respondents| Percent|
 |:--|:------------------------------------------|-----------------:|-------:|
-|5  |Historical and Philosophical studies       |                 2|       0|
-|12 |Technologies                               |                 2|       0|
-|6  |Linguistics  Classics and related subjects |                 3|       1|
-|11 |Subjects allied to Medicine                |                 3|       1|
-|2  |Combined studies                           |                 7|       2|
-|10 |Social studies                             |                 8|       2|
-|8  |Other                                      |                12|       3|
-|4  |Engineering                                |                30|       8|
-|1  |Biological Sciences                        |                36|       9|
-|7  |Mathematical and Computer Sciences         |                46|      12|
-|3  |Computer Sciences                          |               101|      25|
-|9  |Physical Sciences                          |               150|      38|
+|5  |Historical and Philosophical studies       |                 2|    0.50|
+|12 |Technologies                               |                 2|    0.50|
+|6  |Linguistics  Classics and related subjects |                 3|    0.75|
+|11 |Subjects allied to Medicine                |                 3|    0.75|
+|2  |Combined studies                           |                 7|    1.75|
+|10 |Social studies                             |                 8|    2.00|
+|8  |Other                                      |                12|    3.00|
+|4  |Engineering                                |                30|    7.50|
+|1  |Biological Sciences                        |                36|    9.00|
+|7  |Mathematical and Computer Sciences         |                46|   11.50|
+|3  |Computer Sciences                          |               101|   25.25|
+|9  |Physical Sciences                          |               150|   37.50|
 
 ![](report_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
@@ -62,9 +78,9 @@ Olivier PHILIPPE
 
 |   |level of Education   | Total Respondents| Percent|
 |:--|:--------------------|-----------------:|-------:|
-|3  |Undergraduate/Others |                58|      14|
-|2  |Master Degree        |                78|      19|
-|1  |Doctorate            |               275|      67|
+|3  |Undergraduate/Others |                58|   14.11|
+|2  |Master Degree        |                78|   18.98|
+|1  |Doctorate            |               275|   66.91|
 
 ![](report_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
@@ -74,18 +90,32 @@ Olivier PHILIPPE
 
 |Salary             | Total Respondents| Percent|
 |:------------------|-----------------:|-------:|
-|Less than £25.000  |                11|       4|
-|70.000 to 99.000   |                 3|       1|
-|£100.000 or more   |                 1|       0|
-|£25.000 to £29.000 |                21|       7|
-|£30.000 to £34.000 |                86|      30|
-|£35.000 to £39.000 |                72|      25|
-|40.000 to 44.999   |                42|      15|
-|45.000 to 49.999   |                34|      12|
-|50.000 to 59.999   |                13|       5|
-|60.000 to 69.999   |                 4|       1|
+|Less than £25.000  |                11|    3.83|
+|70.000 to 99.000   |                 3|    1.05|
+|£100.000 or more   |                 1|    0.35|
+|£25.000 to £29.000 |                21|    7.32|
+|£30.000 to £34.000 |                86|   29.97|
+|£35.000 to £39.000 |                72|   25.09|
+|40.000 to 44.999   |                42|   14.63|
+|45.000 to 49.999   |                34|   11.85|
+|50.000 to 59.999   |                13|    4.53|
+|60.000 to 69.999   |                 4|    1.39|
 
 ![](report_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+
+### Comparison with the salary for academic staff in UK
+
+
+```
+##  [1] "Less than £25.000"  "70.000 to 99.000"   "£100.000 or more"  
+##  [4] "£25.000 to £29.000" "£30.000 to £34.000" "£35.000 to £39.000"
+##  [7] "40.000 to 44.999"   "45.000 to 49.999"   "50.000 to 59.999"  
+## [10] "60.000 to 69.999"
+```
+
+
+![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+
 
 ## Gender
 
@@ -95,10 +125,11 @@ Olivier PHILIPPE
 
 |Gender | Total Respondents| Percent|Discipline |
 |:------|-----------------:|-------:|:----------|
-|Female |                31|      11|RSE        |
-|Male   |               259|      89|RSE        |
+|Female |                31|   10.69|RSE        |
+|Male   |               259|   89.31|RSE        |
 
-![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+
 # Good practices
 
 ## Bus Factor
@@ -106,23 +137,23 @@ Olivier PHILIPPE
 
 |Bus Factor | Total Respondents| Percent|
 |:----------|-----------------:|-------:|
-|1          |               157|      45|
-|2          |               106|      30|
-|3          |                42|      12|
-|4          |                18|       5|
-|5          |                29|       8|
+|1          |               157|   44.60|
+|2          |               106|   30.11|
+|3          |                42|   11.93|
+|4          |                18|    5.11|
+|5          |                29|    8.24|
 
-![](report_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
 
 ## Technical hand over
 
 
 |   |Technical hand over | Total Respondents| Percent|
 |:--|:-------------------|-----------------:|-------:|
-|2  |Yes                 |                83|      23|
-|1  |No                  |               271|      77|
+|2  |Yes                 |                83|   23.45|
+|1  |No                  |               271|   76.55|
 
-![](report_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 
 ## Contribution papers
@@ -130,10 +161,10 @@ Olivier PHILIPPE
 
 |Contribution to paper | Total Respondents| Percent|
 |:---------------------|-----------------:|-------:|
-|No                    |                38|      11|
-|Yes                   |               316|      89|
+|No                    |                38|   10.73|
+|Yes                   |               316|   89.27|
 
-![](report_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 <!-- ## Work in University: find the number of universities that replied (from the original list) -->
 
@@ -165,14 +196,14 @@ Olivier PHILIPPE
 ## Warning: Removed 1380 rows containing missing values (geom_point).
 ```
 
-![](report_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
 
 # Word cloud
 
 
 
 
-![](report_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
 
 ```
 ## NULL
@@ -183,7 +214,7 @@ Olivier PHILIPPE
 
 
  
-![](report_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
 
 ```
 ## NULL
@@ -194,7 +225,7 @@ Olivier PHILIPPE
 
 
 
-![](report_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
 
 ```
 ## NULL

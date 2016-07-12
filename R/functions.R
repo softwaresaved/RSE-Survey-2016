@@ -18,7 +18,7 @@
     # the factor in data_row for the frequency
     # And being able to index only the value for the percentage
     QSummary <- cbind(as.data.frame(table_factor),
-                      as.data.frame(round(prop.table(table_factor)*100))[,2])
+                      as.data.frame(round(prop.table(table_factor)*100, digits = 2))[,2])
 
     #rename the column names
     colnames(QSummary) <- c(name, 'Total Respondents', 'Percent')
@@ -78,6 +78,7 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
            p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=4)
         }
     }
+    
     return (p)
 }
 
