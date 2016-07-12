@@ -2,8 +2,10 @@
 Olivier PHILIPPE  
 26 June 2016  
 
-
-#devtools::install_github("yihui/knitr")
+# ```{r package_options, include=FALSE}
+    <!-- # Specfy the output format -->
+    <!-- options(knitr.table.format = 'markdown') -->
+<!-- ``` -->
 
 
 
@@ -28,10 +30,6 @@ Olivier PHILIPPE
 ```
 
 
-
-###################################################################
-
-# Introduction
 
 
 
@@ -60,9 +58,6 @@ Olivier PHILIPPE
 
 ## Level of education
 
-```
-## [1] "Doctorate"            "Undergraduate/Others" "Master Degree"
-```
 
 
 |   |level of Education   | Total Respondents| Percent|
@@ -92,29 +87,6 @@ Olivier PHILIPPE
 
 ![](report_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
-## Bus Factor
-
-
-|Bus Factor | Total Respondents| Percent|
-|:----------|-----------------:|-------:|
-|1          |               157|      45|
-|2          |               106|      30|
-|3          |                42|      12|
-|4          |                18|       5|
-|5          |                29|       8|
-
-![](report_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
-
-## Technical hand over
-
-
-|   |Technical hand over | Total Respondents| Percent|
-|:--|:-------------------|-----------------:|-------:|
-|2  |Yes                 |                83|      23|
-|1  |No                  |               271|      77|
-
-![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
-
 ## Gender
 
 
@@ -126,7 +98,32 @@ Olivier PHILIPPE
 |Female |                31|      11|RSE        |
 |Male   |               259|      89|RSE        |
 
+![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+# Good practices
+
+## Bus Factor
+
+
+|Bus Factor | Total Respondents| Percent|
+|:----------|-----------------:|-------:|
+|1          |               157|      45|
+|2          |               106|      30|
+|3          |                42|      12|
+|4          |                18|       5|
+|5          |                29|       8|
+
+![](report_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+
+## Technical hand over
+
+
+|   |Technical hand over | Total Respondents| Percent|
+|:--|:-------------------|-----------------:|-------:|
+|2  |Yes                 |                83|      23|
+|1  |No                  |               271|      77|
+
 ![](report_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+
 
 ## Contribution papers
 
