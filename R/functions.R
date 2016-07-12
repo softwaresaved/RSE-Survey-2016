@@ -70,12 +70,13 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
     }
     p <- p + theme(legend.text=element_text(size=15))
     p <- p + theme(legend.title=element_blank())
+    p <- p + theme(axis.text.x =element_text(size=8))
     if (bar_label== TRUE){
        if (column=='Percent'){
-           p <- p + geom_text(aes(label=paste(dataframe[, index_column], '%')), vjust=-0.2, size=4)
+           p <- p + geom_text(aes(label=paste(dataframe[, index_column], '%')), vjust=-0.2, size=8)
         }
         else {
-           p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=4)
+           p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=8)
         }
     }
     

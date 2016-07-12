@@ -2,50 +2,13 @@
 Olivier PHILIPPE  
 26 June 2016  
 
-# ```{r package_options, include=FALSE}
-    <!-- # Specfy the output format -->
-    <!-- options(knitr.table.format = 'markdown') -->
-<!-- ``` -->
 
 
 
 
-```
-## Loading required package: NLP
-```
-
-```
-## 
-## Attaching package: 'NLP'
-```
-
-```
-## The following object is masked from 'package:ggplot2':
-## 
-##     annotate
-```
-
-```
-## Loading required package: RColorBrewer
-```
 
 
-```
-## 
-## Attaching package: 'dplyr'
-```
 
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
 
 
 
@@ -106,12 +69,6 @@ Olivier PHILIPPE
 ### Comparison with the salary for academic staff in UK
 
 
-```
-##  [1] "Less than £25.000"  "70.000 to 99.000"   "£100.000 or more"  
-##  [4] "£25.000 to £29.000" "£30.000 to £34.000" "£35.000 to £39.000"
-##  [7] "40.000 to 44.999"   "45.000 to 49.999"   "50.000 to 59.999"  
-## [10] "60.000 to 69.999"
-```
 
 
 ![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
@@ -166,19 +123,6 @@ Olivier PHILIPPE
 
 ![](report_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
-<!-- ## Work in University: find the number of universities that replied (from the original list) -->
-
-# ```{r echo=FALSE}
-    # Load the different universities used
-    <!-- list_universities <- read.csv('informations/list_universities.csv', header = FALSE) -->
-    <!-- list_ucl <- read.csv('informations/list_ucl.csv', header = FALSE) -->
-    <!-- fullUni <-  data.frame(c(as.character(list_ucl$V1), as.character(list_universities$V1))) -->
-    <!-- fullUni$In.Data <- fullUni$c.as.character.list_ucl.V1...as.character.list_universities.V1.. %in% levels(df$Job.uni.CLEAN) -->
-<!-- ``` -->
-
-# ```{r}
-    <!-- kable(fullUni$In.Data, digits=2, format='markdown') -->
-<!-- ``` -->
 
 ## Indicators
 
@@ -198,12 +142,28 @@ Olivier PHILIPPE
 
 ![](report_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
 
-# Word cloud
+## Contribution to papers
 
+```
+## Using Contribution, Acknowledged, Co.author, Lead.author as id variables
+```
 
+```
+## Using Paper as id variables
+```
 
 
 ![](report_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+
+
+# Word cloud
+
+## Important skills
+
+
+
+
+![](report_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
 
 ```
 ## NULL
@@ -214,7 +174,7 @@ Olivier PHILIPPE
 
 
  
-![](report_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
 
 ```
 ## NULL
@@ -225,7 +185,7 @@ Olivier PHILIPPE
 
 
 
-![](report_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
 
 ```
 ## NULL
