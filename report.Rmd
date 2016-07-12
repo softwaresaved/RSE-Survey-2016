@@ -55,8 +55,7 @@ output:
 ```{r fig.width=20, fig.height=10, echo=FALSE}
     sumQ <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
     kable(sumQ, digits=2, format = 'markdown')
-    p <- plotSingleFreq(sumQ, 'Field of Education', column= 'Percent', vertical_label=TRUE)
-    p
+    plotSingleFreq(sumQ, 'Field of Education', column= 'Percent', vertical_label=TRUE)
     # png('/figs/education_field.png', width=1400, height=1000)
     # p
     # dev.off()
