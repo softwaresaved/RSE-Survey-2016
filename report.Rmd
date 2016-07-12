@@ -4,9 +4,9 @@ author: "Olivier PHILIPPE"
 date: "26 June 2016"
 output:
     html_document:
-    keep_md: yes
-    number_sections: yes
-    toc_depth: 4
+        keep_md: yes
+        number_sections: yes
+        toc_depth: 4
     github_document:
         md_extensions: -autolink_bare_uris+hard_line_breaks
 ---
@@ -15,7 +15,7 @@ output:
     # Specfy the output format
     options(knitr.table.format = 'markdown')
 ```
-
+#devtools::install_github("yihui/knitr")
 
 ```{r echo=FALSE}
     # Setting up the directory
