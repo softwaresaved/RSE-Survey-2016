@@ -90,7 +90,7 @@ output:
 ```
 
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
+```{r fig.width=20, fig.height=15, echo=FALSE}
     kable(sumQ, digits=2, format = 'markdown')
     ggplot(data=genderDf[genderDf$variable =='Female',], aes(x=reorder(Discipline, value), y=value))+
         # geom_bar(stat='identity', position=position_dodge())+
