@@ -260,7 +260,7 @@ output:
     ## FIXME -- DONE IN A RUSH AND EVEN MANUALLY ENTER THE %. NEED TO REDO ALL THIS BIT
     dfContrib <- data.frame('Contribution'=df$Contrib.YN, 'Acknowledged'=df$Contrib.acknowledgedYN,
                             'Co-author'=df$Contrib.co.authorYN, 'Lead-author'=df$Contrib.leadYN)
-    summary(dfContrib$Contribution)
+    # summary(dfContrib$Contribution)
     dfContribMelt <- melt(dfContrib)
     contribSum <- singleTabFreq(df$Contrib.YN, 'Answer')
     contribSum$Type.Participation <- 'Contribution to paper' 
@@ -288,7 +288,7 @@ output:
                           (91/(91+139))*100)
     
     colnames(dfTestMelt) <- c('Participation', 'Answer', 'value', 'Percent')
-    dfTestMelt
+    # dfTestMelt
 ```
 
 

@@ -134,22 +134,6 @@ Olivier PHILIPPE
 ![](report_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 
-```
-##   No  Yes NA's 
-##   38  316  238
-```
-
-```
-##    Participation Answer value  Percent
-## 1 1.Contribution     No    38 10.50584
-## 2 2.Acknowledged     No    75 24.01747
-## 3    3.Co-author     No    93 31.30435
-## 4  4.Lead-author     No   182 60.43478
-## 5 1.Contribution    Yes   316 89.49416
-## 6 2.Acknowledged    Yes   239 75.98253
-## 7    3.Co-author    Yes   223 68.69565
-## 8  4.Lead-author    Yes   133 39.56522
-```
 
 
 ![](report_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
