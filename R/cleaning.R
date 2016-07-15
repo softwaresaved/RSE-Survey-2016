@@ -9,31 +9,37 @@
 ### This check just see if the number of records are the same. Not the ideal check, so in case of doubt
 ### Check the line of code having the index reference and carefully manually check them
 
-setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
 
+#### Setting up the directory #####
+    ## Work only on linux -- if it is not working needs to insert manually
+    this.dir = system("pwd", intern = T) 
+    setwd(this.dir)
+    setwd('~/git/ssi/RSE-Survey-2016/')
+    
+
+
+#### Source the functions.R file
+    source('./R/functions.R')
 
 #### library loadings ####
-  library('plyr')
-  #install.packages('plyr')
-  library('tm') # txt cleaning
-  #install.packages('tm')
+    library('plyr')
+    library('tm') # txt cleaning
+    
+    
 #### Load data ####
-
-    df <- read.csv('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/data/SurveyID18932.csv')
-    #df <- read.csv('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/input/SurveyID18932-1.csv')
-
+    df <- read.csv('./data/SurveyID18932.csv')
     # Write email address on a csv
-    write.csv(unique(df[107]), './results/emails_list.csv')
+    write.csv(unique(df[107]), './data/emails_list.csv')
     names(df)
-  ## Create a manual list of headers to drop. It is based on the order given when download the dataset from the isurvey and without
-  ### modifying the option of downloading. Need to be careful in case of the order change.
+    ## Create a manual list of headers to drop. It is based on the order given when download the dataset from the isurvey and without
+    ### modifying the option of downloading. Need to be careful in case of the order change.
     headers_to_drop = c(1, 2, 4, 6, 7, 8, 9, 10, 11, 17, 22, 30, 38, 44, 50, 51, 57, 68, 69, 80, 87, 88, 93, 97, 105, 106, 107)
     nameToDrop <- names(df)[headers_to_drop]
     # Read these values before subsetting
     nameToDrop
 
-  ## Subsetting the df to drop the unwanted columns
-    df <- df[, -which(names(df) %in% nameToDrop)]
+    ## Subsetting the df to drop the unwanted columns
+        df <- df[, -which(names(df) %in% nameToDrop)]
 
   ## Cleaning work directory
   #  rm(df, headers_to_drop, nameToDrop)
@@ -41,7 +47,7 @@ setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
 #### LAUNCH ME!!! - IMPORTANT ####
     # Check the number of record and see if it is the same as the one entered here. If not, go and check
     # Every code lines in this file to see where the change can have an impact.
-    LAST_CHECK_NUMBER <- 338
+    LAST_CHECK_NUMBER <- 592
     CURRENT_CSV_NUMBER <- nrow(df)
     try(if(LAST_CHECK_NUMBER != CURRENT_CSV_NUMBER) stop("The file is different than the last one checked"))
 
@@ -104,71 +110,6 @@ setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
 
 
 #### Functions ####
-  #  Function to recode the time into num
-    recodeLikert <- function(x, inverting=FALSE) {
-      # Remove spaces
-      if (is.na(x)) {
-        x <- NA
-      }
-      else{
-        x <- gsub("^\\s+|\\s+$", "", x)
-
-        if (x == ""){
-          x <- NA
-        }
-        else if (x == 'Never') {
-          x <- 0
-        }
-        else if (x == 'Sometime') {
-          x <- 1
-        }
-        else if (x == '1 (Strongly disagree)'){
-          x <- 1
-        }
-        else if (x == 'Often'){
-          x <- 2
-        }
-        else if (x == '2') {
-          x <- 2
-        }
-        else if (x == 'Very Often'){
-          x <- 3
-        }
-        else if (x == '3') {
-          x <- 3
-        }
-        else if (x == 'Always'){
-          x <- 4
-        }
-        else if (x == '4'){
-          x <- 4
-        }
-        else if (x == '5 (Strongly Agree)') {
-          x <- 5
-        }
-      }
-      if (inverting == TRUE) {
-        return(-x)
-      }
-      else{
-        return(x)
-      }
-    }
-
-  # Function to clean the percentages. If higher then 3, that means it is not percentages
-    # and need to be removed
-    removeValues <- function(variable) {
-      if (nchar(variable) >3) {
-        x <- NA
-      }
-      else if (nchar(variable) == 0) {
-        x <- NA
-      }
-      else {
-        x <- variable
-      }
-      return(x)
-    }
 #### Cleaning and Transformation ####
 
   # Survey.date
@@ -196,7 +137,7 @@ setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
   # Edu.academic_other
     # Load the file containing the list of subjects inputs in the survey to have the entire list
     # and make manual comparison to check the one that can be recode into an already coded
-    dfEdu <- read.csv('./informations/list_educations.csv', header = FALSE)
+    dfEdu <- read.csv('./data/information/list_educations.csv', header = FALSE)
     edu_list <- dfEdu$V1
     # Replace these values with appropriate one when a correspondance can be found
     df$Edu.academic.CLEAN <- df$Edu.academic_subject
@@ -395,8 +336,6 @@ setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
     df$ProgRSE.3.Recode <- mapply(df$ProgRSE.3.promotion, FUN=recodeLikert)
     df$ProgRSE.4.Recode <- mapply(df$ProgRSE.4.clear, FUN=recodeLikert)
     df$ProgRSE.5.Recode <- mapply(df$ProgRSE.5.many_opportunities, FUN=recodeLikert)
-    
-
   # Misc.imp_skills
     # Cleaning need to be done outside the data frame and it is done during analysis
 
@@ -443,16 +382,10 @@ setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
   # Write the entire dataset into a csv
     fullName <- paste('./data/', CURRENT_CSV_NUMBER, '_full_clean.csv', sep='')
     write.csv(df, file = fullName)
-
   # Write only useful and cleaned field
     # Create an empty dataset with the same amount ofrow for saving only the useful cleaned column
     dfOp <- data.frame(matrix(nrow = nrow(df), ncol = 0))
     # Select only the clean columns and the one to use in further
-    dfOp <- subset(df, select = c(3, 4, 7:12, 15:18, 20:28, 30:35, 67:length(df)))
-    opName <- paste('./data/', CURRENT_CSV_NUMBER, '_op_clean.csv', sep='')
-    write.csv(dfOp, file=opName)
-    
-    
-    
-    
-    
+    # dfOp <- subset(df, select = c(3, 4, 7:12, 15:18, 20:28, 30:35, 67:length(df)))
+    # opName <- paste('./data/', CURRENT_CSV_NUMBER, '_op_clean.csv', sep='')
+    # write.csv(dfOp, file=opName)

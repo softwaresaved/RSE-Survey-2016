@@ -47,33 +47,6 @@ Olivier PHILIPPE
 
 ![](report_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
-## Salary
-
-
-
-|Salary             | Total Respondents| Percent|
-|:------------------|-----------------:|-------:|
-|Less than £25.000  |                11|    3.83|
-|70.000 to 99.000   |                 3|    1.05|
-|£100.000 or more   |                 1|    0.35|
-|£25.000 to £29.000 |                21|    7.32|
-|£30.000 to £34.000 |                86|   29.97|
-|£35.000 to £39.000 |                72|   25.09|
-|40.000 to 44.999   |                42|   14.63|
-|45.000 to 49.999   |                34|   11.85|
-|50.000 to 59.999   |                13|    4.53|
-|60.000 to 69.999   |                 4|    1.39|
-
-![](report_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
-
-### Comparison with the salary for academic staff in UK
-
-
-
-
-![](report_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
-
-
 ## Gender
 
 
@@ -85,7 +58,44 @@ Olivier PHILIPPE
 |Female |                31|   10.69|RSE        |
 |Male   |               259|   89.31|RSE        |
 
+![](report_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+
+## Salary
+
+
+|Salary             | Total Respondents| Percent|
+|:------------------|-----------------:|-------:|
+|£100.000 or more   |                 1|    0.35|
+|£25.000 to £29.000 |                21|    7.32|
+|£30.000 to £34.000 |                86|   29.97|
+|£35.000 to £39.000 |                72|   25.09|
+|40.000 to 44.999   |                42|   14.63|
+|45.000 to 49.999   |                34|   11.85|
+|50.000 to 59.999   |                13|    4.53|
+|60.000 to 69.999   |                 4|    1.39|
+|70.000 to 99.000   |                 3|    1.05|
+|Less than £25.000  |                11|    3.83|
+
+![](report_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+
+### Comparison with the salary for academic staff in UK
+
+
+
+#### Data with line only (best to see the difference)
+
+![](report_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+
+#### Same data but with a mix of line and barplots
+
 ![](report_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+
+
+
+#### Same data but with bar plot only
+
+![](report_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+
 
 # Good practices
 
@@ -100,7 +110,7 @@ Olivier PHILIPPE
 |4          |                18|    5.11|
 |5          |                29|    8.24|
 
-![](report_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 ## Technical hand over
 
@@ -110,7 +120,7 @@ Olivier PHILIPPE
 |2  |Yes                 |                83|   23.45|
 |1  |No                  |               271|   76.55|
 
-![](report_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 
 ## Contribution papers
@@ -121,10 +131,30 @@ Olivier PHILIPPE
 |No                    |                38|   10.73|
 |Yes                   |               316|   89.27|
 
-![](report_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 
-## Indicators
+```
+##   No  Yes NA's 
+##   38  316  238
+```
+
+```
+##    Participation Answer value  Percent
+## 1 1.Contribution     No    38 10.50584
+## 2 2.Acknowledged     No    75 24.01747
+## 3    3.Co-author     No    93 31.30435
+## 4  4.Lead-author     No   182 60.43478
+## 5 1.Contribution    Yes   316 89.49416
+## 6 2.Acknowledged    Yes   239 75.98253
+## 7    3.Co-author    Yes   223 68.69565
+## 8  4.Lead-author    Yes   133 39.56522
+```
+
+
+![](report_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+
+## Work Indicators
 
 
 ```
@@ -140,20 +170,15 @@ Olivier PHILIPPE
 ## Warning: Removed 1380 rows containing missing values (geom_point).
 ```
 
-![](report_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
+![](report_files/figure-html/unnamed-chunk-21-1.png)<!-- -->
 
-## Contribution to papers
-
-```
-## Using Contribution, Acknowledged, Co.author, Lead.author as id variables
-```
-
-```
-## Using Paper as id variables
-```
+## Career path
 
 
-![](report_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+
+
+![](report_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
+
 
 
 # Word cloud
@@ -163,30 +188,18 @@ Olivier PHILIPPE
 
 
 
-![](report_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
-
-```
-## NULL
-```
+![](report_files/figure-html/unnamed-chunk-25-1.png)<!-- -->
 
 
 ### Skills to improve
 
 
  
-![](report_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
-
-```
-## NULL
-```
+![](report_files/figure-html/unnamed-chunk-27-1.png)<!-- -->
 
 ### Tools used
 
 
 
 
-![](report_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
-
-```
-## NULL
-```
+![](report_files/figure-html/unnamed-chunk-29-1.png)<!-- -->
