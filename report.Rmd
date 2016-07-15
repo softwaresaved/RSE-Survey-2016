@@ -298,7 +298,8 @@ output:
         geom_text(aes(label=paste(round(Percent), '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
         ggtitle('Contribution to Papers')+
         theme_minimal() +
-        scale_fill_brewer(palette='Paired')+
+        scale_fill_manual(values = c("#FF7F00", '#1F78B4'))+
+        # scale_fill_brewer(palette='Paired')+
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
