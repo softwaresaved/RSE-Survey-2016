@@ -79,13 +79,18 @@ output:
     # Gender in RSE
     sumQ <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
     sumQ$Discipline <- c('RSE', 'RSE')
+    sumQ <- melt(sumQ[c('Gender', 'Percent', 'Discipline'),])
+    sumQ
+    ?melt
     # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
     genderDf <- read.csv('data/information/gender_disciplines.csv')
     genderDf$Discipline <- as.character(genderDf$Discipline)
+    genderDf
     ## TODO -- FIX THAT NOT DOING IT MANUALLY WRONG
     genderDf <- rbind(genderDf, c('RSE', '12', '88'))
     genderDf$Discipline <- as.factor(genderDf$Discipline)
     genderDf <- melt(genderDf, c('Discipline'))
+    genderDf
     genderDf$value <- as.numeric(genderDf$value)
 ```
 
@@ -110,6 +115,16 @@ output:
     
         geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=4)
 ```
+
+## Type of contract
+
+
+```{r fig.width=20, fig.height=10, echo=FALSE}
+    sumQ <- singleTabFreq(df$Job.contract, 'Type of contract', order=TRUE)
+    kable(sumQ, digits=2, format = 'markdown')
+    plotSingleFreq(sumQ, 'Type of contract', order=FALSE)
+```
+
 
 ## Salary
 
@@ -219,7 +234,8 @@ output:
         geom_text(aes(label=paste(value, '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
         ggtitle('Contribution to Papers')+
         theme_minimal() +
-        scale_color_manual(values=c('#1F78B4', "#FF7F00"))+
+        scale_fill_manual(values = c('#1F78B4', "#FF7F00"))+
+        # scale_color_manual(values=c('#1F78B4', "#FF7F00"))+
         # scale_fill_brewer(palette='Paired')+
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
@@ -318,7 +334,7 @@ output:
 
 ```{r fig.width=20, fig.height=10, echo=FALSE}
     ggplot(dfIndicatorsMelt, aes(x=variable, y=value, color=variable))+
-         geom_boxplot(show.legend=FALSE)+
+         geom_boxplot(show.legend=FALSE, size=2)+
          geom_jitter(alpha=0.25, color='Grey')+
          scale_color_brewer(palette='Paired') +
          theme_minimal() +
@@ -354,7 +370,7 @@ output:
 
 ```{r fig.width=20, fig.height=10, echo=FALSE}
     ggplot(na.omit(dfCareerMelt), aes(x=variable, y=value, color=variable))+
-        geom_boxplot(show.legend=FALSE)+
+        geom_boxplot(show.legend=FALSE, size=2)+
         geom_jitter(alpha=0.25, color='Grey')+
         scale_color_brewer(palette='Paired') +
         theme_minimal() +
