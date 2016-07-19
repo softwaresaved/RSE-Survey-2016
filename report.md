@@ -50,20 +50,13 @@ Olivier PHILIPPE
 ## Gender
 
 
-```
-## Using Gender, Discipline as id variables
-```
 
 
 
-|Gender |Discipline |variable          | value|
-|:------|:----------|:-----------------|-----:|
-|NA     |NA         |Total Respondents |    NA|
-|NA     |NA         |Total Respondents |    NA|
-|NA     |NA         |Total Respondents |    NA|
-|NA     |NA         |Percent           |    NA|
-|NA     |NA         |Percent           |    NA|
-|NA     |NA         |Percent           |    NA|
+|Gender | Total Respondents| Percent|
+|:------|-----------------:|-------:|
+|Female |                31|   10.69|
+|Male   |               259|   89.31|
 
 ![](report_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
@@ -183,7 +176,6 @@ Olivier PHILIPPE
 
 
 ![](report_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
-
 
 
 # Word cloud

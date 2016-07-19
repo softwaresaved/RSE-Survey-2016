@@ -75,16 +75,15 @@ output:
 ## Gender
 
 ```{r echo=FALSE}
-    # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
     # Gender in RSE
     sumQ <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
-    sumQ$Discipline <- c('RSE', 'RSE')
-    sumQ <- melt(sumQ[c('Gender', 'Percent', 'Discipline'),])
+    ## Transform the dataframe to bind it with the genderUK
+    sumQMelt <- t(sumQ[c('Gender', 'Percent')])
+    RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,1])), round(as.numeric(sumQMelt[2,2]))) 
     # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
     genderDf <- read.csv('data/information/gender_disciplines.csv')
     genderDf$Discipline <- as.character(genderDf$Discipline)
-    ## TODO -- FIX THAT NOT DOING IT MANUALLY WRONG
-    genderDf <- rbind(genderDf, c('RSE', '12', '88'))
+    genderDf <- rbind(genderDf, RSEGender)
     genderDf$Discipline <- as.factor(genderDf$Discipline)
     genderDf <- melt(genderDf, c('Discipline'))
     genderDf$value <- as.numeric(genderDf$value)
@@ -94,12 +93,9 @@ output:
 ```{r fig.width=20, fig.height=15, echo=FALSE}
     kable(sumQ, digits=2, format = 'markdown')
     ggplot(data=genderDf[genderDf$variable =='Female',], aes(x=reorder(Discipline, value), y=value))+
-        # geom_bar(stat='identity', position=position_dodge())+
         geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
-        #geom_bar(stat='identity') +
-        #scale_color_brewer(palette='#4A8F94')+
         theme_minimal()+
-        ylab('Percentage')+
+        ylab('Percent')+
         xlab('')+
         ggtitle('Gender in CS and RSE')+
         theme(plot.title = element_text(size=30, face='bold'))+
@@ -108,7 +104,6 @@ output:
         theme(legend.title=element_blank())+
         theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
         theme(axis.text.x=element_text(size=20))+
-    
         geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=4)
 ```
 
@@ -136,7 +131,6 @@ output:
 ### Comparison with the salary for academic staff in UK
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-    # salaryDf <- read.xls('./data/staff_1415_table_B.xlsx', sheet='Table_B', header=True)
     salaryRaw <- read.csv('./data/staff_1415_table_B.csv')
     ## Subset only the total of salary for all and the associated percentage
     salaryDf <- salaryRaw[c(16,17,18,19,20,21), c(1, 20,21)]
@@ -197,9 +191,7 @@ output:
 ```{r fig.width=20, fig.height=10, echo=FALSE}
 
     ggplot(data=percent_RSE, aes(x=Salary, y=Percent, fill=Salary))+
-        # geom_bar(stat='identity', position=position_dodge())+
         geom_bar(stat='identity', show.legend = FALSE)+
-        # geom_line(aes(x=Salary, y=Percent, group='factor'), colour="#1F78B4", size=2)+
         geom_line(data=percent_All_UK, aes(x=Salary, y=Percent, group='factor'), colour="#FF7F00", size=2)+
         geom_point(data=percent_All_UK, aes(x=Salary, y=Percent, group='factor'), colour="#FF7F00", size=4)+
         geom_text(data=percent_All_UK, aes(label=paste(Percent, '%')),  vjust=-2, size=6, colour='#FF7F00')+
@@ -210,14 +202,8 @@ output:
         xlab('')+
         ggtitle('Comparison Salary between RSE and UK academic staff')+
         theme(plot.title = element_text(size=30, face='bold'))+
-        # scale_colour_manual(name="Population",
-                            # values=c("#1F78B4",'#FF7F00'),
-                            # labels=c('RSE', 'UK'), guide='legend')
         theme(axis.text.x =element_text(size=20))+
         theme(legend.position='none')
-        # theme(legend.text=element_text(size=20))+
-        # theme(legend.title=element_blank())+
-        # theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
 ```
 
 
@@ -231,12 +217,9 @@ output:
         ggtitle('Contribution to Papers')+
         theme_minimal() +
         scale_fill_manual(values = c('#1F78B4', "#FF7F00"))+
-        # scale_color_manual(values=c('#1F78B4', "#FF7F00"))+
-        # scale_fill_brewer(palette='Paired')+
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
-
 ```
 
 
@@ -269,49 +252,26 @@ output:
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-    ## FIXME -- DONE IN A RUSH AND EVEN MANUALLY ENTER THE %. NEED TO REDO ALL THIS BIT
     dfContrib <- data.frame('Contribution'=df$Contrib.YN, 'Acknowledged'=df$Contrib.acknowledgedYN,
                             'Co-author'=df$Contrib.co.authorYN, 'Lead-author'=df$Contrib.leadYN)
-    # summary(dfContrib$Contribution)
-    dfContribMelt <- melt(dfContrib)
-    contribSum <- singleTabFreq(df$Contrib.YN, 'Answer')
-    contribSum$Type.Participation <- 'Contribution to paper' 
     
-    df1 <- as.data.frame(summary(na.omit(dfContrib$Contribution)))
-    df2 <- as.data.frame(summary(na.omit(dfContrib$Acknowledged)))
-    df3 <- as.data.frame(summary(na.omit(dfContrib$Co.author)))
-    df4 <- as.data.frame(summary(na.omit(dfContrib$Lead.author)))
-    dfTest <- merge(df1, df2)
-    dfTest <- merge(dfTest, df3)
-    dfTest <- merge(dfTest, df4)
-    dfTest <- dfTest[c(1, 16),]
-    rownames(dfTest) <- c('No', 'Yes')
-    colnames(dfTest) <- c('1.Contribution', '2.Acknowledged', '3.Co-author', '4.Lead-author')
-    dfTestMelt <- as.data.frame(t(dfTest))
-    dfTestMelt$Paper <- rownames(dfTestMelt)
-    dfTestMelt <- melt(dfTestMelt)
-    dfTestMelt$Percent <- c((27/(27+230))*100, 
-                          (55/(55+174))*100,
-                          (72/(72+158))*100,
-                          (139/(139+91))*100,
-                          (230/(230+27))*100,
-                          (174/(174+55))*100,
-                          (158/(158+72))*100,
-                          (91/(91+139))*100)
-    
-    colnames(dfTestMelt) <- c('Participation', 'Answer', 'value', 'Percent')
-    # dfTestMelt
+    dfContribFreq <- data.frame(apply(dfContrib, 2, table))
+    dfContribFreq$Answer <- rownames(dfContribFreq)
+    dfContribMelt <- melt(dfContribFreq, id='Answer')
+    dfContribMelt <- dfContribMelt %>%
+                        group_by(variable) %>%
+                        mutate(Percent = value/sum(value)*100)
+    colnames(dfContribMelt) <- c('Answer', 'Participation', 'Total', 'Percent') 
 ```
 
 
 ```{r fig.width=20, fig.height=10, echo=FALSE}
-    ggplot(dfTestMelt, aes(Participation, y=Percent, fill=Answer))+
+    ggplot(dfContribMelt, aes(Participation, y=Percent, fill=Answer))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
         geom_text(aes(label=paste(round(Percent), '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
         ggtitle('Contribution to Papers')+
         theme_minimal() +
         scale_fill_manual(values = c("#FF7F00", '#1F78B4'))+
-        # scale_fill_brewer(palette='Paired')+
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
@@ -381,7 +341,6 @@ output:
 ```
 
 
-
 # Word cloud
 
 ## Important skills
@@ -407,14 +366,14 @@ output:
 ### Skills to improve
 
 ```{r echo=FALSE}
-  skills1_to_improve <- df$Misc.skill.better.1
-  skills2_to_improve <- df$Misc.skill.better.2
-  skills3_to_improve <- df$Misc.skill.better.3
-  skills_improve <- c(as.character(skills1_to_improve),
-                      as.character(skills2_to_improve),
-                      as.character(skills3_to_improve))
-  skills_improve <- cleanText(skills_improve, wordToRemove = wordToRemove)
-  wordToRemove <- c('skill', 'skills', 'better', 'improve')
+    skills1_to_improve <- df$Misc.skill.better.1
+    skills2_to_improve <- df$Misc.skill.better.2
+    skills3_to_improve <- df$Misc.skill.better.3
+    skills_improve <- c(as.character(skills1_to_improve),
+                        as.character(skills2_to_improve),
+                        as.character(skills3_to_improve))
+    skills_improve <- cleanText(skills_improve, wordToRemove = wordToRemove)
+    wordToRemove <- c('skill', 'skills', 'better', 'improve')
 ```
  
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
@@ -424,14 +383,13 @@ output:
 ### Tools used
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-  tool1 <- df$Misc.tool.1
-  tool2 <- df$Misc.tool.2
-  tool3 <- df$Misc.tool.3
-  all_tools <- c(as.character(tool1),
-                 as.character(tool2),
-                 as.character(tool3))
-
-  all_tools <- cleanText(all_tools, wordToRemove = c('tools', 'system'))
+    tool1 <- df$Misc.tool.1
+    tool2 <- df$Misc.tool.2
+    tool3 <- df$Misc.tool.3
+    all_tools <- c(as.character(tool1),
+                   as.character(tool2),
+                   as.character(tool3))
+    all_tools <- cleanText(all_tools, wordToRemove = c('tools', 'system'))
 ```
 
 
