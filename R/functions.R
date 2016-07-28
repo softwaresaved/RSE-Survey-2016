@@ -9,8 +9,6 @@
   singleTabFreq <- function(vectorToFreq, name, order=TRUE){
     # Function that output a data frame containing the variable, the Frequency and
     # rounded percent
-    # Optional order is to output the table ordered in Frequency (useful for output with
-    # kable
     # Transform the vector into a table of frequency
     table_factor <- table(vectorToFreq)
     # Cbind is to combine two different sets into one data.frame
@@ -22,13 +20,14 @@
 
     #rename the column names
     colnames(QSummary) <- c(name, 'Total Respondents', 'Percent')
+    # Optional order is to output the table ordered in Frequency (useful for output with
+    # kable
     if (order==TRUE){
       # Order the table by Total Respondents
       QSummary <- QSummary[order(QSummary[,2]),]
       # Reorder the level of the factors for using in legend (to match the order of the plot)
       QSummary[,1] <- factor(QSummary[,1], levels=QSummary[,1][order(QSummary[,2])], ordered=order)
     }
-    # Write the result into a csv file
     # Output a table of the variable
     return (QSummary)
   }
