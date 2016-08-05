@@ -6,6 +6,10 @@
     library('wordcloud')
 #### Functions ####
 
+selectD <- dplyr::select  # One of the other library clashes with this function (MASS from ggplot2)
+                         # Now sure that it is going to work
+
+
   singleTabFreq <- function(vectorToFreq, name, order=TRUE){
     # Function that output a data frame containing the variable, the Frequency and
     # rounded percent
@@ -78,10 +82,26 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
            p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=8)
         }
     }
+    p <- p+ theme(axis.text.y = element_text(size=20))
     
     return (p)
 }
 
+crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
+    freqTable <- table(df[[var1]], df[[var2]])
+    if(summaryTable==TRUE){
+        kable(freqTable, digits=2)
+    }
+    dfTable  <- cbind(as.data.frame(freqTable),
+                      as.data.frame(prop.table(freqTable, propNum))[,3])
+    colnames(dfTable) <- c(var1, var2, 'Freq', 'Prop')
+    
+    #write.csv(dfTable, paste("./results/cross_table_", var1,'_', var2, '.csv', sep=''), 
+    #		  row.names=FALSE)
+    
+    #dev.off()
+    return(dfTable)
+}
 ## https://georeferenced.wordpress.com/2013/01/15/rwordcloud/
 #### Function to clean text Input: vector of caracteres
     cleanText <- function(x, wordToRemove) {

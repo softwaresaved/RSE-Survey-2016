@@ -1,85 +1,72 @@
----
-title: 'RSE Survey 2016'
-author: "Olivier PHILIPPE"
-date: "26 June 2016"
-output:
-    html_document:
-        keep_md: yes
-        number_sections: yes
-        toc_depth: 4
-    github_document:
-        md_extensions: -autolink_bare_uris+hard_line_breaks
----
+## Univariate analysis of the RSE Survey 2016
 
-```{r package_options, include=FALSE}
-    # Specfy the output format
-    options(knitr.table.format = 'markdown')
-```
+# Setting up the directory
+## Work only on linux -- if it is not working needs to insert manually
+this.dir = system("pwd", intern = T)
+setwd(this.dir)
+setwd('~/git/ssi/RSE-Survey-2016/')
 
-```{r echo=FALSE}
-    # Setting up the directory
-    ## Work only on linux -- if it is not working needs to insert manually
-    this.dir = system("pwd", intern = T) 
-    setwd(this.dir)
-    setwd('~/git/ssi/RSE-Survey-2016/')
-```
+## @knitr sourceFunc
+source('./R/functions.R')
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-    # Source the functions.R file
-    source('./R/functions.R')
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-    # Load all the libraries
-    library('rmarkdown')
-    library('knitr')
-    library('ggplot2')
-    library('stringr')  # To wrap the too long labels in the plots
-    library('psy')
-    library('reshape2')
-    library('dplyr')
-```
+## @knitr loadLibs
+library('rmarkdown')
+library('knitr')
+library('ggplot2')
+library('stringr')  # To wrap the too long labels in the plots
+library('psy')
+library('reshape2')
+library('dplyr')
 
 
-```{r echo=FALSE}
-    ## LOAD FILE
-    df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
-```
+## @knitr loadFile
+df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
 
 
 # Socio-demographic information
-## Disciplines
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
-    sumQ <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Field of Education', column= 'Percent', vertical_label=TRUE)
-```
+## @knitr disciplinePrep
+    disciplineFreq <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
 
-## Level of education
-```{r echo=FALSE}
+## @knitr disciplineTable
+    kable(disciplineFreq, digits=2, format = 'markdown')
+
+## @knitr disciplinePlot
+    plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE)
+
+
+## @knitr educationPrep
     # Reorder the factor
-    levels(df$Edu.highest_qualification) <- c('Doctorate', 'Undergraduate/Others', 'Master Degree', 
+    levels(df$Edu.highest_qualification) <- c('Doctorate', 'Undergraduate/Others', 'Master Degree',
                                               'Undergraduate/Others', 'Undergraduate/Others',
                                               'Undergraduate/Others', 'Undergraduate/Others')
     df$Edu.highest_qualification = factor(df$Edu.highest_qualification, levels(df$Edu.highest_qualification)[c(1,3,2)])
-```
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
+    eduFreq <- singleTabFreq(df$Edu.highest_qualification, 'level of Education')
+## @knitr educationTable
+    kable(eduFreq, digits=2, format = 'markdown')
 
-    sumQ <- singleTabFreq(df$Edu.highest_qualification, 'level of Education')
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Level of Education', column='Percent')
-```
+## @knitr educationPlot
+    plotSingleFreq(eduFreq, 'Level of Education', column='Percent')
 
-## Gender
 
-```{r echo=FALSE}
+## @knitr genderPrep
     # Gender in RSE
-    sumQ <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
+    genderFreq <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
+
+## @knitr genderTable
+    kable(genderFreq, digits=2, format = 'markdown')
+
+## @knitr genderPlot
+    plotSingleFreq(genderFreq, 'Different Gender', column='Percent')
+
+
+## @knitr genderAllPrep
+    # Recreate the genderFreq in case only the genderAll is called in the report
+    genderFreq <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
     ## Transform the dataframe to bind it with the genderUK
-    sumQMelt <- t(sumQ[c('Gender', 'Percent')])
-    RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,1])), round(as.numeric(sumQMelt[2,2]))) 
+    sumQMelt <- t(genderFreq[c('Gender', 'Percent')])
+    RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,1])), round(as.numeric(sumQMelt[2,2])))
     # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
     genderDf <- read.csv('data/information/gender_disciplines.csv')
     genderDf$Discipline <- as.character(genderDf$Discipline)
@@ -87,11 +74,8 @@ output:
     genderDf$Discipline <- as.factor(genderDf$Discipline)
     genderDf <- melt(genderDf, c('Discipline'))
     genderDf$value <- as.numeric(genderDf$value)
-```
 
-
-```{r fig.width=20, fig.height=15, echo=FALSE}
-    kable(sumQ, digits=2, format = 'markdown')
+## @knitr genderAllPlot
     ggplot(data=genderDf[genderDf$variable =='Female',], aes(x=reorder(Discipline, value), y=value))+
         geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
         theme_minimal()+
@@ -105,32 +89,38 @@ output:
         theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
         theme(axis.text.x=element_text(size=20))+
         geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=4)
-```
-
-## Type of contract
 
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
-    sumQ <- singleTabFreq(df$Job.contract, 'Type of contract', order=TRUE)
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Type of contract', order=FALSE)
-```
+## @knitr contractPrep
+    contractFreq<- singleTabFreq(df$Job.contract, 'Type of contract', order=TRUE)
+
+## @knitr contractTable
+    kable(contractFreq, digits=2, format = 'markdown')
+
+## @knitr contractPlot
+    plotSingleFreq(contractFreq, 'Type of contract', order=FALSE)
 
 
-## Salary
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr salaryPrep
     sumQSalary <- singleTabFreq(df$Socio.salary, 'Salary', order=FALSE)
     # Reorder factors
+    #TODO do in cleaning dataset
     sumQSalary$Salary <- factor(sumQSalary$Salary, levels(sumQSalary$Salary)[c(10,2,3,4,5,6,7,8,9,1)])
+
+## @knitr salaryTable
     kable(sumQSalary, digits=2, format = 'markdown')
+
+## @knitr salaryPlot
     plotSingleFreq(sumQSalary, 'Salary', order=FALSE)
 
-```
 
 ### Comparison with the salary for academic staff in UK
-
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+## @knitr salaryAllPrep
+    sumQSalary <- singleTabFreq(df$Socio.salary, 'Salary', order=FALSE)
+    # Reorder factors
+    #TODO do in cleaning dataset
+    sumQSalary$Salary <- factor(sumQSalary$Salary, levels(sumQSalary$Salary)[c(10,2,3,4,5,6,7,8,9,1)])
+    # Read the data collected from HESA
     salaryRaw <- read.csv('./data/staff_1415_table_B.csv')
     ## Subset only the total of salary for all and the associated percentage
     salaryDf <- salaryRaw[c(16,17,18,19,20,21), c(1, 20,21)]
@@ -141,7 +131,7 @@ output:
     ## surveys. The comparison needs to be carefully interpreted as the ranges are overlapping and are not cuttin
     ## at the same salary
     salaryDf$Salary <- as.factor(as.character(salaryDf$Salary))
-    levels(salaryDf$Salary) <- c('Under £25,000', 'Under £25,000', '>= £25,000 and < £34,000', 
+    levels(salaryDf$Salary) <- c('Under £25,000', 'Under £25,000', '>= £25,000 and < £34,000',
                                  '>= £34,000 and < £45,000', '>= £45,000 and < £59,000', '>= £59,000')
     ## Rename the Percent value to remove the percent and transform into number
     salaryDf$Percent <- as.numeric(as.character(gsub('%', '',salaryDf$Percent)))
@@ -152,11 +142,11 @@ output:
     percent_All_UK$type <- 'UK'
     ## Reorganise the salary from the RSE survey to match the new created categories
     sumQSalary$Salary <- as.factor(as.character(sumQSalary$Salary))
-    levels(sumQSalary$Salary) <- c('>= £59,000', '>= £25,000 and < £34,000', '>= £25,000 and < £34,000', 
+    levels(sumQSalary$Salary) <- c('>= £59,000', '>= £25,000 and < £34,000', '>= £25,000 and < £34,000',
                                    '>= £34,000 and < £45,000', '>= £34,000 and < £45,000',
                                    '>= £45,000 and < £59,000', '>= £45,000 and < £59,000',
                                    '>= £59,000', '>= £59,000', 'Under £25,000')
-                                   
+
     ### Sum the multiple categories created by the recategorisation
     percent_RSE <- as.data.frame(sumQSalary %>%
                                  group_by(Salary) %>%
@@ -165,11 +155,9 @@ output:
     percent_RSE$Salary <- factor(percent_RSE$Salary, levels(percent_RSE$Salary)[c(5,2,3,4,1)])
     percent_RSE$type <- 'RSE'
     salaryPercentAll <- melt(rbind(percent_RSE, percent_All_UK))
-```
 
-#### Data with line only (best to see the difference)
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr salaryAllPlot
+    #### Data with line only (best to see the difference)
     ggplot(salaryPercentAll, aes(x=as.numeric(Salary), y=value, colour=type))+
         geom_point(size=4)+
         geom_line(size=2)+
@@ -184,12 +172,9 @@ output:
         ylab('Percents')+
         scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels =levels(salaryPercentAll$Salary))+
         theme(axis.text.x =element_text(size=20))
-```
 
-#### Same data but with a mix of line and barplots
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
-
+## @knitr salaryAllPlot2
+    #### Same data but with a mix of line and barplots
     ggplot(data=percent_RSE, aes(x=Salary, y=Percent, fill=Salary))+
         geom_bar(stat='identity', show.legend = FALSE)+
         geom_line(data=percent_All_UK, aes(x=Salary, y=Percent, group='factor'), colour="#FF7F00", size=2)+
@@ -204,13 +189,9 @@ output:
         theme(plot.title = element_text(size=30, face='bold'))+
         theme(axis.text.x =element_text(size=20))+
         theme(legend.position='none')
-```
 
-
-
-#### Same data but with bar plot only
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr salaryAllPlot3
+    #### Same data but with bar plot only
     ggplot(salaryPercentAll, aes(Salary, y=value, fill=type))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
         geom_text(aes(label=paste(value, '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
@@ -220,52 +201,52 @@ output:
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
-```
 
 
 # Good practices
 
-## Bus Factor
+## @knitr busFactorPrep
+    busFactorFreq <- singleTabFreq(df$Stability.bus_factor, 'Bus Factor', order=FALSE)
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
-    sumQ <- singleTabFreq(df$Stability.bus_factor, 'Bus Factor', order=FALSE)
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Bus Factor', column = 'Percent', order=FALSE)
-```
+## @knitr busFactorTable
+    kable(busFactorFreq, digits=2, format = 'markdown')
 
-## Technical hand over
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
-  # Plot
-    sumQ <- singleTabFreq(df$Stability.hand_over, 'Technical hand over', order=TRUE)
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Technical hand over', column = 'Percent', order=TRUE)
-```
+## @knitr busFactorPlot
+    plotSingleFreq(busFactorFreq, 'Bus Factor', column = 'Percent', order=FALSE)
 
 
-## Contribution papers
+## @knitr handOverPrep
+    handOverFreq <- singleTabFreq(df$Stability.hand_over, 'Technical hand over', order=TRUE)
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr handOverTable
+    kable(handOverFreq, digits=2, format = 'markdown')
+
+## @knitr handOverPlot
+    plotSingleFreq(handOverFreq, 'Technical hand over', column = 'Percent', order=TRUE)
+
+
+## @knitr contribYNPrep
     sumQ <- singleTabFreq(df$Contrib.YN, 'Contribution to paper')
-    kable(sumQ, digits=2, format = 'markdown')
-    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE)
-```
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+## @knitr contribYNTable
+    kable(sumQ, digits=2, format = 'markdown')
+
+## @knitr contribYNPlot
+    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE)
+
+
+## @knitr contribAllPrep
     dfContrib <- data.frame('Contribution'=df$Contrib.YN, 'Acknowledged'=df$Contrib.acknowledgedYN,
                             'Co-author'=df$Contrib.co.authorYN, 'Lead-author'=df$Contrib.leadYN)
-    
     dfContribFreq <- data.frame(apply(dfContrib, 2, table))
     dfContribFreq$Answer <- rownames(dfContribFreq)
     dfContribMelt <- melt(dfContribFreq, id='Answer')
     dfContribMelt <- dfContribMelt %>%
                         group_by(variable) %>%
                         mutate(Percent = value/sum(value)*100)
-    colnames(dfContribMelt) <- c('Answer', 'Participation', 'Total', 'Percent') 
-```
+    colnames(dfContribMelt) <- c('Answer', 'Participation', 'Total', 'Percent')
 
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr contribAllPlot
     ggplot(dfContribMelt, aes(Participation, y=Percent, fill=Answer))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
         geom_text(aes(label=paste(round(Percent), '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
@@ -275,20 +256,16 @@ output:
         theme(legend.text=element_text(size=15)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
-```
 
-## Work Indicators
 
-```{r echo=FALSE, nessage=FALSE}
+## @knitr workIndicatorPrep
     ## Create df
     dfIndicators <- data.frame('Turnover intention'=df$TurnOver.Agg, 'Perceived Employability'=df$PercEmp.Agg,
                                'Satisfaction'=df$AffSat.Agg, 'Recognition'=df$AffRec.Agg,
                                'Feedback'= df$PerfCheck.Agg)
-
     dfIndicatorsMelt <- melt(dfIndicators)
-```
 
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr workIndicatorPlot
     ggplot(dfIndicatorsMelt, aes(x=variable, y=value, color=variable))+
          geom_boxplot(show.legend=FALSE, size=2)+
          geom_jitter(alpha=0.25, color='Grey')+
@@ -301,13 +278,11 @@ output:
          theme(legend.text=element_text(size=20)) +
          theme(axis.text.x =element_text(size=20))+
          theme(legend.title=element_blank())
-```
 
-## Career path
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+## @knitr careerPrep
     ## Create the df
-    dfCareer <- data.frame('Career Plan'=df$ProgRSE.1.Recode, 'Next Position'=df$ProgRSE.2.Recode, 
+    dfCareer <- data.frame('Career Plan'=df$ProgRSE.1.Recode, 'Next Position'=df$ProgRSE.2.Recode,
                            'Promotion'=df$ProgRSE.3.Recode, 'Information'=df$ProgRSE.4.Recode,
                            'Opportunities'=df$ProgRSE.5.Recode)
     dfCareerMelt <- melt(dfCareer)
@@ -321,10 +296,8 @@ output:
     # sd(dfCareer$Information, na.rm=TRUE)
     # summary(dfCareer$Opportunities)
     # sd(dfCareer$Opportunities, na.rm = T)
-```    
 
-
-```{r fig.width=20, fig.height=10, echo=FALSE}
+## @knitr careerPlot
     ggplot(na.omit(dfCareerMelt), aes(x=variable, y=value, color=variable))+
         geom_boxplot(show.legend=FALSE, size=2)+
         geom_jitter(alpha=0.25, color='Grey')+
@@ -338,14 +311,11 @@ output:
         theme(legend.text=element_text(size=20)) +
         theme(axis.text.x =element_text(size=20))+
         theme(legend.title=element_blank())
-```
 
 
 # Word cloud
 
-## Important skills
-
-```{r echo=FALSE}
+## @knitr skillImportantPrep
     ### Most important skills
     skill1_important <- df$Misc.skill.imp.1
     skill2_important <- df$Misc.skill.imp.2
@@ -355,17 +325,12 @@ output:
                           as.character(skill3_important))
     wordToRemove <- c('skills', 'ability', 'skill')
     skills_important <- cleanText(skills_important, wordToRemove = wordToRemove)
-```
 
-
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+## @knitr skillImportantPlot
     wordcloud(skills_important, random.color=FALSE, colors=brewer.pal(12, "Paired"))
-```
 
 
-### Skills to improve
-
-```{r echo=FALSE}
+## @knitr skillImprovePrep
     skills1_to_improve <- df$Misc.skill.better.1
     skills2_to_improve <- df$Misc.skill.better.2
     skills3_to_improve <- df$Misc.skill.better.3
@@ -374,15 +339,11 @@ output:
                         as.character(skills3_to_improve))
     skills_improve <- cleanText(skills_improve, wordToRemove = wordToRemove)
     wordToRemove <- c('skill', 'skills', 'better', 'improve')
-```
- 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
-  wordcloud(skills_improve, random.color=FALSE, colors=brewer.pal(12, "Paired"))
-```
 
-### Tools used
+## @knitr skillImprovePlot
+    wordcloud(skills_improve, random.color=FALSE, colors=brewer.pal(12, "Paired"))
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+## @knitr toolPrep
     tool1 <- df$Misc.tool.1
     tool2 <- df$Misc.tool.2
     tool3 <- df$Misc.tool.3
@@ -390,9 +351,6 @@ output:
                    as.character(tool2),
                    as.character(tool3))
     all_tools <- cleanText(all_tools, wordToRemove = c('tools', 'system'))
-```
 
-
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+## @knitr toolPlot
     wordcloud(all_tools, random.color=FALSE, colors=brewer.pal(12, "Paired"))
-```

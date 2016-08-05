@@ -1,5 +1,5 @@
 ---
-title: 'Career path in Research software Community in United-Kingdom'
+title: 'Career path in Research Software Community in United-Kingdom'
 author: "Olivier PHILIPPE"
 date: "26 June 2016"
 output:
@@ -20,7 +20,11 @@ output:
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-    knitr::read_chunk('/home/olivier/git/ssi/RSE-Survey-2016/R/Influence of work.R')
+    knitr::read_chunk('/home/olivier/git/ssi/RSE-Survey-2016/R/career_path.R')
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+    knitr::read_chunk('/home/olivier/git/ssi/RSE-Survey-2016/R/uni_test.R')
 ```
 
 ```{r loadFile, echo=FALSE, message=FALSE, warning=FALSE}
@@ -32,13 +36,22 @@ output:
 ```{r loadLibrary, echo=FALSE, message=FALSE, warning=FALSE}
 ```
 
+```{r testUni}
+```
 
 # Introduction
 
 One problematic inherent to any emergence of a new role within well establish structure (here the university), it is the difficulty to have a clear career path for the people that are coming to fill that new role. 
 This problem directly hits the community of Research Software Engineers in United-Kingdom.
+One indicator that can be used to assess this problematic is the salary range. 
+
+```{r salaryUnivariate}
+```
+
+These results alone do not necessarily give a good picture to the problem. One thing to do is to compare these results with the data about the academic staff in UK. 
+We collected the data from [HESA](https://www.hesa.ac.uk/intros/staffintro1415) (accessed on the 02/07/16) to get the information about the repartition of salary in academy in UK. 
+The range used in their survey is slighty different than the one we used for our survey. We created a new range of salary that establish a correspondance between their ranges and ours. However, the categories can sometime overlap. Therefore, the 
 
 
-
-```{r tableAcademy}
+```{r testCareer}
 ```
