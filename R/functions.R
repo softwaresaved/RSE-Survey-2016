@@ -37,7 +37,7 @@ selectD <- dplyr::select  # One of the other library clashes with this function 
   }
 
 plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TRUE, vertical_label=FALSE, bar_label=TRUE,
-                           title=FALSE){
+                           title=FALSE, legend=TRUE, FONT_SIZE=20){
     index_column <- match(column, names(dataframe))
     # To reorganise the factor level to show on the legend according to the
     # frequencies
@@ -66,14 +66,19 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
     p <- p + theme(plot.title = element_text(size=24, face='bold'))
 
     if (vertical_label==TRUE){
-      p <- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5, size=20))
+      p <- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5, size=FONT_SIZE))
     }
     else {
       p <- p + scale_x_discrete(labels = function(x) str_wrap(str_replace(x,"-","- "), width = 4))
-      p <- p + theme(axis.text.x =element_text(size=20))
+      p <- p + theme(axis.text.x =element_text(size=FONT_SIZE))
     }
-    p <- p + theme(legend.title=element_blank())
-    p <- p + theme(legend.text=element_text(size=15))
+    if (legend==TRUE){
+        p <- p + theme(legend.title=element_blank())
+    }
+    else {
+        p <- p +theme(legend.position="none")
+    }
+        p <- p + theme(legend.text=element_text(size=FONT_SIZE))
     if (bar_label== TRUE){
        if (column=='Percent'){
            p <- p + geom_text(aes(label=paste(dataframe[, index_column], '%')), vjust=-0.2, size=8)
@@ -82,7 +87,7 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
            p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=8)
         }
     }
-    p <- p+ theme(axis.text.y = element_text(size=20))
+    p <- p+ theme(axis.text.y = element_text(size=FONT_SIZE))
     
     return (p)
 }
@@ -135,34 +140,44 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
           x <- NA
         }
         else if (x == 'Never') {
-          x <- 0
+          # x <- 0
+            x <- -2
         }
         else if (x == 'Sometime') {
-          x <- 1
+          # x <- 1
+            x <- -1
         }
         else if (x == '1 (Strongly disagree)'){
-          x <- 1
+          # x <- 1
+            x <- -2
         }
         else if (x == 'Often'){
-          x <- 2
+          # x <- 2
+            x <- 0
         }
         else if (x == '2') {
-          x <- 2
+          # x <- 2
+            x <- -1
         }
         else if (x == 'Very Often'){
-          x <- 3
+          # x <- 3
+            x <- 1
         }
         else if (x == '3') {
-          x <- 3
+          # x <- 3
+            x <- 0
         }
         else if (x == 'Always'){
-          x <- 4
+          # x <- 4
+            x <- 2
         }
         else if (x == '4'){
-          x <- 4
+          # x <- 4
+            x <- 1
         }
         else if (x == '5 (Strongly Agree)') {
-          x <- 5
+          # x <- 5
+          x <- 2
         }
       }
       if (inverting == TRUE) {
