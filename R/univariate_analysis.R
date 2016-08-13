@@ -2,26 +2,36 @@
 
 # Setting up the directory
 ## Work only on linux -- if it is not working needs to insert manually
-this.dir = system("pwd", intern = T)
-setwd(this.dir)
-setwd('~/git/ssi/RSE-Survey-2016/')
+    this.dir = system("pwd", intern = T)
+    setwd(this.dir)
+    setwd('~/git/ssi/RSE-Survey-2016/')
 
 ## @knitr sourceFunc
-source('./R/functions.R')
+    source('./R/functions.R')
 
 ## @knitr loadLibs
-library('rmarkdown')
-library('knitr')
-library('ggplot2')
-library('stringr')  # To wrap the too long labels in the plots
-library('psy')
-library('reshape2')
-library('dplyr')
+    library('rmarkdown')
+    library('knitr')
+    library('ggplot2')
+    library('stringr')  # To wrap the too long labels in the plots
+    library('psy')
+    library('reshape2')
+    library('dplyr')
 
 
 ## @knitr loadFile
-df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
-
+    df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
+    ## Removing obvious non complete responses
+    df <- df[which(df$Job.contract != 'NA'), ]
+    ## Remove the non UK
+    df <- df[which(df$Socio.country == 'United Kingdom'),]
+    ## Remove the non RSE
+    # df <- df[which(df$RSE.score >=2), ]
+    # df$RSE.score_NotPost <- df$RSE.dev_software + df$RSE.dev_time + df$RSE.does_computer
+    # df1 <- df[which(df$RSE.score_NotPost >=2), ]
+    # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
+    # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
+    FONT_SIZE = 35
 
 # Socio-demographic information
 
@@ -32,7 +42,7 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     kable(disciplineFreq, digits=2, format = 'markdown')
 
 ## @knitr disciplinePlot
-    plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE)
+    plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE, legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr educationPrep
@@ -43,11 +53,12 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     df$Edu.highest_qualification = factor(df$Edu.highest_qualification, levels(df$Edu.highest_qualification)[c(1,3,2)])
 
     eduFreq <- singleTabFreq(df$Edu.highest_qualification, 'level of Education')
+
 ## @knitr educationTable
     kable(eduFreq, digits=2, format = 'markdown')
 
 ## @knitr educationPlot
-    plotSingleFreq(eduFreq, 'Level of Education', column='Percent')
+    plotSingleFreq(eduFreq, 'Level of Education', column='Percent', legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr genderPrep
@@ -58,7 +69,7 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     kable(genderFreq, digits=2, format = 'markdown')
 
 ## @knitr genderPlot
-    plotSingleFreq(genderFreq, 'Different Gender', column='Percent')
+    plotSingleFreq(genderFreq, 'Different Gender', column='Percent' , FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr genderAllPrep
@@ -82,13 +93,13 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
         ylab('Percent')+
         xlab('')+
         ggtitle('Gender in CS and RSE')+
-        theme(plot.title = element_text(size=30, face='bold'))+
+        theme(plot.title = element_text(size=FONT_SIZE, face='bold'))+
         theme(legend.position='none')+
-        theme(legend.text=element_text(size=20))+
+        theme(legend.text=element_text(size=FONT_SIZE))+
         theme(legend.title=element_blank())+
         theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
-        theme(axis.text.x=element_text(size=20))+
-        geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=4)
+        theme(axis.text.x=element_text(size=FONT_SIZE))+
+        geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=FONT_SIZE/8)
 
 
 ## @knitr contractPrep
@@ -166,12 +177,12 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
         ggtitle('Comparison salary RSE vs UK')+
         theme_minimal() +
         scale_color_manual(values=c('#1F78B4', "#FF7F00"))+
-        theme(legend.text=element_text(size=15)) +
+        theme(legend.text=element_text(size=FONT_SIZE/2)) +
         theme(legend.title=element_blank()) +
         xlab('Salary')+
         ylab('Percents')+
         scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels =levels(salaryPercentAll$Salary))+
-        theme(axis.text.x =element_text(size=20))
+        theme(axis.text.x =element_text(size=FONT_SIZE))
 
 ## @knitr salaryAllPlot2
     #### Same data but with a mix of line and barplots
@@ -180,26 +191,26 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
         geom_line(data=percent_All_UK, aes(x=Salary, y=Percent, group='factor'), colour="#FF7F00", size=2)+
         geom_point(data=percent_All_UK, aes(x=Salary, y=Percent, group='factor'), colour="#FF7F00", size=4)+
         geom_text(data=percent_All_UK, aes(label=paste(Percent, '%')),  vjust=-2, size=6, colour='#FF7F00')+
-        geom_text(aes(label=paste(Percent, '%')),  vjust=-0.2, size=6)+
+        geom_text(aes(label=paste(Percent, '%')),  vjust=-0.2, size=FONT_SIZE/10)+
         scale_fill_manual(values =c('#1F78B4', '#1F78B4', '#1F78B4', '#1F78B4', '#1F78B4'))+
         theme_minimal()+
         ylab('Percentages')+
         xlab('')+
         ggtitle('Comparison Salary between RSE and UK academic staff')+
-        theme(plot.title = element_text(size=30, face='bold'))+
-        theme(axis.text.x =element_text(size=20))+
+        theme(plot.title = element_text(size=FONT_SIZE, face='bold'))+
+        theme(axis.text.x =element_text(size=FONT_SIZE))+
         theme(legend.position='none')
 
 ## @knitr salaryAllPlot3
     #### Same data but with bar plot only
     ggplot(salaryPercentAll, aes(Salary, y=value, fill=type))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
-        geom_text(aes(label=paste(value, '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
+        geom_text(aes(label=paste(value, '%')), size=FONT_SIZE/4,vjust=-0.2, position=position_dodge(width = 1))+
         ggtitle('Contribution to Papers')+
         theme_minimal() +
         scale_fill_manual(values = c('#1F78B4', "#FF7F00"))+
-        theme(legend.text=element_text(size=15)) +
-        theme(axis.text.x =element_text(size=20))+
+        theme(legend.text=element_text(size= FONT_SIZE)) +
+        theme(axis.text.x =element_text(size=FONT_SIZE))+
         theme(legend.title=element_blank())
 
 
@@ -212,7 +223,7 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     kable(busFactorFreq, digits=2, format = 'markdown')
 
 ## @knitr busFactorPlot
-    plotSingleFreq(busFactorFreq, 'Bus Factor', column = 'Percent', order=FALSE)
+    plotSingleFreq(busFactorFreq, 'Bus Factor', column = 'Percent', order=FALSE, legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr handOverPrep
@@ -222,7 +233,7 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     kable(handOverFreq, digits=2, format = 'markdown')
 
 ## @knitr handOverPlot
-    plotSingleFreq(handOverFreq, 'Technical hand over', column = 'Percent', order=TRUE)
+    plotSingleFreq(handOverFreq, 'Technical hand over', column = 'Percent', order=TRUE, legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr contribYNPrep
@@ -232,7 +243,7 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     kable(sumQ, digits=2, format = 'markdown')
 
 ## @knitr contribYNPlot
-    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE)
+    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr contribAllPrep
@@ -250,11 +261,10 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     ggplot(dfContribMelt, aes(Participation, y=Percent, fill=Answer))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
         geom_text(aes(label=paste(round(Percent), '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
-        ggtitle('Contribution to Papers')+
         theme_minimal() +
         scale_fill_manual(values = c("#FF7F00", '#1F78B4'))+
-        theme(legend.text=element_text(size=15)) +
-        theme(axis.text.x =element_text(size=20))+
+        theme(legend.text=element_text(size=FONT_SIZE)) +
+        theme(axis.text =element_text(size=FONT_SIZE))+
         theme(legend.title=element_blank())
 
 
@@ -263,21 +273,22 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     dfIndicators <- data.frame('Turnover intention'=df$TurnOver.Agg, 'Perceived Employability'=df$PercEmp.Agg,
                                'Satisfaction'=df$AffSat.Agg, 'Recognition'=df$AffRec.Agg,
                                'Feedback'= df$PerfCheck.Agg)
+    colnames(dfIndicators) <- c('Turnover\nIntention', 'Perceived\nEmployability', 'Satisfaction', 'Recognition', 'Feedback')
     dfIndicatorsMelt <- melt(dfIndicators)
 
 ## @knitr workIndicatorPlot
     ggplot(dfIndicatorsMelt, aes(x=variable, y=value, color=variable))+
-         geom_boxplot(show.legend=FALSE, size=2)+
-         geom_jitter(alpha=0.25, color='Grey')+
-         scale_color_brewer(palette='Paired') +
-         theme_minimal() +
-         ylab('Mean of Aggregate score') +
-         xlab('') +
-         ggtitle('Work Indicators') +
-         theme(plot.title = element_text(size=30, face='bold')) +
-         theme(legend.text=element_text(size=20)) +
-         theme(axis.text.x =element_text(size=20))+
-         theme(legend.title=element_blank())
+            geom_boxplot(show.legend=FALSE, size=2)+
+            geom_jitter(alpha=0.25, color='Grey')+
+            scale_color_brewer(palette='Paired') +
+            theme_minimal() +
+            ylab('Mean of Aggregate score') +
+            xlab('') +
+            # theme(plot.title = element_text(size=30, face='bold')) +
+            theme(legend.text=element_text(size=FONT_SIZE)) +
+            # scale_x_discrete(labels = gsub(' ', '\n', variable))+
+            theme(axis.text =element_text(size=FONT_SIZE))+
+            theme(legend.title=element_blank())
 
 
 ## @knitr careerPrep
@@ -305,12 +316,11 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
         theme_minimal() +
         ylab('Score') +
         xlab('') +
-        ggtitle('Career path') +
-
-        theme(plot.title = element_text(size=30, face='bold')) +
-        theme(legend.text=element_text(size=20)) +
-        theme(axis.text.x =element_text(size=20))+
-        theme(legend.title=element_blank())
+        # theme(plot.title = element_text(size=30, face='bold')) +
+        theme(axis.title.x = element_blank()) +
+        theme(legend.text=element_text(size=FONT_SIZE)) +
+        theme(axis.title.y =element_text(size=FONT_SIZE)) +
+        theme(axis.text =element_text(size=FONT_SIZE))
 
 
 # Word cloud
@@ -354,3 +364,5 @@ df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
 
 ## @knitr toolPlot
     wordcloud(all_tools, random.color=FALSE, colors=brewer.pal(12, "Paired"))
+
+shapiro.test(df$TurnOver.Agg)

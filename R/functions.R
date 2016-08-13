@@ -37,7 +37,7 @@ selectD <- dplyr::select  # One of the other library clashes with this function 
   }
 
 plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TRUE, vertical_label=FALSE, bar_label=TRUE,
-                           title=FALSE, legend=TRUE, FONT_SIZE=20){
+                           title=FALSE, legend=TRUE, FONT_SIZE=35){
     index_column <- match(column, names(dataframe))
     # To reorganise the factor level to show on the legend according to the
     # frequencies
@@ -81,13 +81,14 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
         p <- p + theme(legend.text=element_text(size=FONT_SIZE))
     if (bar_label== TRUE){
        if (column=='Percent'){
-           p <- p + geom_text(aes(label=paste(dataframe[, index_column], '%')), vjust=-0.2, size=8)
+           p <- p + geom_text(aes(label=paste(round(dataframe[, index_column], 1), '%', sep='')), vjust=-0.2, size=FONT_SIZE/2.55)
         }
         else {
-           p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=8)
+           p <- p + geom_text(aes(label=dataframe[,index_column]), vjust=-0.2, size=FONT_SIZE/2.55)
         }
     }
-    p <- p+ theme(axis.text.y = element_text(size=FONT_SIZE))
+    p <- p + theme(axis.text = element_text(size=FONT_SIZE))
+    p <- p + theme(axis.title = element_text(size=FONT_SIZE))
     
     return (p)
 }

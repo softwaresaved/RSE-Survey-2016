@@ -17,7 +17,8 @@ output:
     # Specfy the output format
     options(knitr.table.format = 'markdown')
     # Specify global option for the figures
-    knitr::opts_chunk$set(fig.width = 20, fig.height = 15, echo=FALSE, message=FALSE, warning=FALSE)
+    knitr::opts_chunk$set(fig.width = 20, fig.height = 15)
+    knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, dev=c('png', 'svg', 'pdf'))
 ```
 
 ```{r}
@@ -47,7 +48,7 @@ output:
 ```{r disciplineTable}
 ```
 
-```{r disciplinePlot}
+```{r disciplinePlot, fig.width=20, fig.height=20}
 ```
 
 ```{r educationPrep}
@@ -148,13 +149,13 @@ output:
 ```{r skillImportantPrep}
 ```
 
-```{r skillImportantPlot, fig.width=20, fig.height=20}
+```{r skillImportantPlot, fig.width=30, fig.height=20}
 ```
 
 ```{r skillImprovePrep}
 ```
 
-```{r skillImprovePlot, fig.width=20, fig.height=20}
+```{r skillImprovePlot, fig.width=30, fig.height=30}
 ```
 
 ```{r toolPrep}
