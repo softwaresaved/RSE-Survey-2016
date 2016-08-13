@@ -178,6 +178,8 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
       }
       if (totalScore == FALSE) {
           x <- x - 3
+        }
+      return(x)
     }
 
 # Function to clean the percentages. If higher then 3, that means it is not percentages
