@@ -89,7 +89,7 @@ plotSingleFreq <- function(dataframe, name, column='Total Respondents', order=TR
     }
     p <- p + theme(axis.text = element_text(size=FONT_SIZE))
     p <- p + theme(axis.title = element_text(size=FONT_SIZE))
-    
+
     return (p)
 }
 
@@ -101,10 +101,10 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
     dfTable  <- cbind(as.data.frame(freqTable),
                       as.data.frame(prop.table(freqTable, propNum))[,3])
     colnames(dfTable) <- c(var1, var2, 'Freq', 'Prop')
-    
-    #write.csv(dfTable, paste("./results/cross_table_", var1,'_', var2, '.csv', sep=''), 
+
+    #write.csv(dfTable, paste("./results/cross_table_", var1,'_', var2, '.csv', sep=''),
     #		  row.names=FALSE)
-    
+
     #dev.off()
     return(dfTable)
 }
@@ -125,68 +125,59 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
         x <- tm_map(x, stripWhitespace)
         return(x)
     }
-    
-    
+
+
 
 ####  Function to recode the time into num
-    recodeLikert <- function(x, inverting=FALSE) {
+### If inverting is TRUE x is inverted
+### If totalScore is FALSE the score -3 to have a negative value and 0 for 3
+    recodeLikert <- function(x, inverting=FALSE, totalScore=TRUE) {
       # Remove spaces
       if (is.na(x)) {
         x <- NA
       }
       else{
         x <- gsub("^\\s+|\\s+$", "", x)
-    
+
         if (x == ""){
           x <- NA
         }
         else if (x == 'Never') {
-          # x <- 0
-            x <- -2
+            x <- 1
         }
         else if (x == 'Sometime') {
-          # x <- 1
-            x <- -1
+          x <- 2
         }
         else if (x == '1 (Strongly disagree)'){
-          # x <- 1
-            x <- -2
+          x <- 1
         }
         else if (x == 'Often'){
-          # x <- 2
-            x <- 0
+          x <- 3
         }
         else if (x == '2') {
-          # x <- 2
-            x <- -1
+          x <- 2
         }
         else if (x == 'Very Often'){
-          # x <- 3
-            x <- 1
+          x <- 4
         }
         else if (x == '3') {
-          # x <- 3
-            x <- 0
+          x <- 3
         }
         else if (x == 'Always'){
-          # x <- 4
-            x <- 2
+          x <- 5
         }
         else if (x == '4'){
-          # x <- 4
-            x <- 1
+          x <- 4
         }
         else if (x == '5 (Strongly Agree)') {
-          # x <- 5
-          x <- 2
+          x <- 5
         }
       }
       if (inverting == TRUE) {
-        return(-x)
+        x  <- -x
       }
-      else{
-        return(x)
-      }
+      if (totalScore == FALSE) {
+          x <- x - 3
     }
 
 # Function to clean the percentages. If higher then 3, that means it is not percentages
