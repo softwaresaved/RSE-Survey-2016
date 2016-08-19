@@ -1,5 +1,7 @@
 # Exclude raw data that may contain sensitive information
-data/Survey*
+data/dataset/Survey*
+data/dataset/emails*
+
 
 # History files
 .Rhistory
