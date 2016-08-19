@@ -178,12 +178,15 @@
         ggtitle('Comparison salary RSE vs UK')+
         theme_minimal() +
         scale_color_manual(values=c('#1F78B4', "#FF7F00"))+
-        theme(legend.text=element_text(size=FONT_SIZE/2)) +
         theme(legend.title=element_blank()) +
         xlab('Salary')+
         ylab('Percents')+
         scale_x_continuous(breaks = c(1, 2, 3, 4, 5), labels =levels(salaryPercentAll$Salary))+
-        theme(axis.text.x =element_text(size=FONT_SIZE))
+        theme(plot.title = element_text(size=FONT_SIZE))+
+        theme(axis.title.x = element_blank()) +
+        theme(legend.text=element_text(size=FONT_SIZE)) +
+        theme(axis.title.y =element_text(size=FONT_SIZE)) +
+        theme(axis.text =element_text(size=FONT_SIZE/1.5))
 
 ## @knitr salaryAllPlot2
     #### Same data but with a mix of line and barplots

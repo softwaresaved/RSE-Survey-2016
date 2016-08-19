@@ -146,20 +146,32 @@ output:
 ```{r careerPlot}
 ```
 
+# Wordclouds
+
+We asked three separated questions to capture the variety of skills and tools that are important for an RSE. Each questions offered the opportunity to fills three freetext fields. These questions help us to get a gist of what is important for RSE on a more braod and less defined way. 
+The following wordclouds give an idea of that aspect, without pretenting to be rigourous. 
+
+
+## Most important skills for an RSE
+
 ```{r skillImportantPrep}
 ```
 
-```{r skillImportantPlot, fig.width=30, fig.height=20}
+```{r skillImportantPlot, fig.width=5, fig.height=5}
 ```
+
+## Most important skills to improve for an RSE
 
 ```{r skillImprovePrep}
 ```
 
-```{r skillImprovePlot, fig.width=30, fig.height=30}
+```{r skillImprovePlot, fig.width=5, fig.height=5}
 ```
+
+## Most important tool for an RSE
 
 ```{r toolPrep}
 ```
 
-```{r toolPlot, fig.width=20, fig.height=20}
+```{r toolPlot, fig.width=5, fig.height=5}
 ```
