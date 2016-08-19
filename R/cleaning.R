@@ -4,7 +4,7 @@
 ### Clean some answers to transform them in numeric value (in case of likert scale) and in factor when needed.
 ### Aggregate the different items to a score for the scales that need it
 
-### IMPORTANT: Some cleaning are using indexing and levels. That means if the dataset is different, the ceaning will
+### IMPORTANT: Some cleaning are using indexing and levels. That means if the dataset is different, the cleaning will
 ### output wrong results. Go to the section LAUNCH ME to check if it is launced on the same dataset
 ### This check just see if the number of records are the same. Not the ideal check, so in case of doubt
 ### Check the line of code having the index reference and carefully manually check them
@@ -12,10 +12,10 @@
 
 #### Setting up the directory #####
     ## Work only on linux -- if it is not working needs to insert manually
-    this.dir = system("pwd", intern = T) 
+    this.dir = system("pwd", intern = T)
     setwd(this.dir)
     setwd('~/git/ssi/RSE-Survey-2016/')
-    
+
 
 
 #### Source the functions.R file
@@ -24,8 +24,8 @@
 #### library loadings ####
     library('plyr')
     library('tm') # txt cleaning
-    
-    
+
+
 #### Load data ####
     df <- read.csv('./data/SurveyID18932.csv')
     # Write email address on a csv
@@ -146,7 +146,7 @@
     df$Edu.academic.CLEAN[df$Edu.academic_other == "Computer Science & Physics"] <- "Computer Sciences"
     df$Edu.academic.CLEAN[df$Edu.academic_other == "Geography"] <- "Social studies"
     df$Edu.academic.CLEAN[df$Edu.academic_other == "Economics"] <- "Social studies"
-    
+
     df$Edu.academic.CLEAN[df$Edu.academic_other == "Psychology"] <- "Subjects allied to Medicine"
     levels(df$Edu.academic_other)
     levels(df$Edu.academic.CLEAN)[levels(df$Edu.academic.CLEAN) ==''] <- NA
@@ -166,16 +166,16 @@
     levels(df$RSE.dev_software) <- c(0, 0, 0, 1)
     levels(df$RSE.does_computer)
     levels(df$RSE.does_computer) <- c(0, 0, 0, 1)
-    df$RSE.score <- (as.numeric(as.character(df$RSE.dev_time)) + 
-                     as.numeric(as.character(df$RSE.post_doc)) + 
-                     as.numeric(as.character(df$RSE.dev_software)) + 
+    df$RSE.score <- (as.numeric(as.character(df$RSE.dev_time)) +
+                     as.numeric(as.character(df$RSE.post_doc)) +
+                     as.numeric(as.character(df$RSE.dev_software)) +
                      as.numeric(as.character(df$RSE.does_computer)))
   # Job.uni_name
     # Rename the associated UCL and some others uk Universities
     # CAREFUL -- With new data, need to check the order of the c() or going to rename wrong levels
     levels(df$Job.uni_name2)
     # CAREFUL -- This index values works for the dataset of 592 obs
-    # 
+    #
     # Replace all the outside uk uni by the values "Outside UK"
     levels(df$Job.uni_name2)[c(3, 4, 5, 6, 7, 10, 11, 12, 14, 21, 22, 23, 24, 25, 27, 28, 29, 31)] <- 'Outside UK'
     # Replace the Not saying by NA
@@ -183,7 +183,7 @@
     levels(df$Job.uni_name2)[c(3, 4)] <- "King's College, University of London"
     levels(df$Job.uni_name2)[c(5, 6, 7, 9)] <- "University College of London"
     df$Job.uni_name2 <- as.factor(df$Job.uni_name2)
-    
+
     # Create a new clean column to merge the regular ones, the new regular ones the others and the non uni
     df$Job.uni.CLEAN <- df$Job.uni_name
     ## Create field 'Not University' when No is answered to Job.uniYN
@@ -196,16 +196,16 @@
     clean_uni <- c("King's College, University of London", "University College of London",
                    "Birkbeck, University of London", "University of Reading", 'Outside UK')
     ### Add these to the factor levels
-    
+
     levels(df$Job.uni.CLEAN) <- c(levels(df$Job.uni.CLEAN), clean_uni)
     df$Job.uni.CLEAN[df$Job.uni_name2 %in% clean_uni] <- df$Job.uni_name2[df$Job.uni_name2 %in% clean_uni]
- 
+
   # Create Russells Group University
-    
-    
+
+
   # Job.orga.name
     # Nothing done yet but messy FREETEXT
-  
+
   # Job.title
     # Nothing done yet but messy FREETEXT
 
@@ -329,7 +329,7 @@
     # Aggregate the score
       df$PercEmp.Agg <- (df$PercEmp.1.Recode + df$PercEmp.2.Recode +
                          df$PercEmp.3.Recode + df$PercEmp.4.Recode )/4
-      
+
   # Progression plan
     df$ProgRSE.1.Recode <- mapply(df$ProgRSE.1.career_plan, FUN=recodeLikert)
     df$ProgRSE.2.Recode <- mapply(df$ProgRSE.2.next_position, FUN=recodeLikert)
@@ -361,17 +361,17 @@
   # Socio.salary
     # Cleaning error in encoding
     length(levels(df$Socio.salary))
-    levels(df$Socio.salary) <- c(NA, 
-                                 'Less than £25.000', 
+    levels(df$Socio.salary) <- c(NA,
+                                 'Less than £25.000',
                                  '£100.000 or more',
-                                  '£25.000 to £29.000', 
+                                  '£25.000 to £29.000',
                                  '£30.000 to £34.000',
-                                '£35.000 to £39.000', 
-                                '40.000 to 44.999', 
+                                '£35.000 to £39.000',
+                                '40.000 to 44.999',
                                 '45.000 to 49.999',
-                                '50.000 to 59.999', 
-                                '60.000 to 69.999', 
-                                '70.000 to 99.000', 
+                                '50.000 to 59.999',
+                                '60.000 to 69.999',
+                                '70.000 to 99.000',
                                 NA)
 
   # Misc.OS
