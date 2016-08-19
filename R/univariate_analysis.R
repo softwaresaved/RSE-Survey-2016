@@ -17,6 +17,7 @@
     library('psy')
     library('reshape2')
     library('dplyr')
+    library('tm')
 
 
 ## @knitr loadFile
@@ -69,7 +70,7 @@
     kable(genderFreq, digits=2, format = 'markdown')
 
 ## @knitr genderPlot
-    plotSingleFreq(genderFreq, 'Different Gender', column='Percent' , FONT_SIZE=FONT_SIZE)
+    plotSingleFreq(genderFreq, 'Different Gender', column='Percent' , FONT_SIZE=FONT_SIZE, legend=FALSE)
 
 
 ## @knitr genderAllPrep
@@ -109,7 +110,7 @@
     kable(contractFreq, digits=2, format = 'markdown')
 
 ## @knitr contractPlot
-    plotSingleFreq(contractFreq, 'Type of contract', order=FALSE)
+    plotSingleFreq(contractFreq, 'Type of contract', order=FALSE, legend=FALSE)
 
 
 ## @knitr salaryPrep
@@ -122,7 +123,7 @@
     kable(sumQSalary, digits=2, format = 'markdown')
 
 ## @knitr salaryPlot
-    plotSingleFreq(sumQSalary, 'Salary', order=FALSE)
+    plotSingleFreq(sumQSalary, 'Salary', order=FALSE, legend=FALSE)
 
 
 ### Comparison with the salary for academic staff in UK
@@ -243,7 +244,7 @@
     kable(sumQ, digits=2, format = 'markdown')
 
 ## @knitr contribYNPlot
-    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE, FONT_SIZE=FONT_SIZE)
+    plotSingleFreq(sumQ, 'Contribution to paper', column = 'Percent', order=TRUE, FONT_SIZE=FONT_SIZE, legend=FALSE)
 
 
 ## @knitr contribAllPrep
@@ -260,12 +261,15 @@
 ## @knitr contribAllPlot
     ggplot(dfContribMelt, aes(Participation, y=Percent, fill=Answer))+
         geom_bar(stat='identity', position=position_dodge(width=1)) +
-        geom_text(aes(label=paste(round(Percent), '%')), size=8,vjust=-0.2, position=position_dodge(width = 1))+
+        geom_text(aes(label=paste(round(Percent), '%')), size=FONT_SIZE/3,vjust=-0.2, position=position_dodge(width = 1))+
         theme_minimal() +
         scale_fill_manual(values = c("#FF7F00", '#1F78B4'))+
         theme(legend.text=element_text(size=FONT_SIZE)) +
         theme(axis.text =element_text(size=FONT_SIZE))+
-        theme(legend.title=element_blank())
+        theme(legend.title=element_blank())+
+        theme(axis.title.x = element_blank())+
+
+        theme(axis.title.y =element_text(size=FONT_SIZE))
 
 
 ## @knitr workIndicatorPrep
@@ -282,13 +286,13 @@
             geom_jitter(alpha=0.25, color='Grey')+
             scale_color_brewer(palette='Paired') +
             theme_minimal() +
-            ylab('Mean of Aggregate score') +
+            ylab('Score') +
             xlab('') +
             # theme(plot.title = element_text(size=30, face='bold')) +
+            theme(axis.title.x = element_blank()) +
             theme(legend.text=element_text(size=FONT_SIZE)) +
-            # scale_x_discrete(labels = gsub(' ', '\n', variable))+
-            theme(axis.text =element_text(size=FONT_SIZE))+
-            theme(legend.title=element_blank())
+            theme(axis.title.y =element_text(size=FONT_SIZE)) +
+            theme(axis.text =element_text(size=FONT_SIZE))
 
 
 ## @knitr careerPrep
@@ -336,6 +340,7 @@
     wordToRemove <- c('skills', 'ability', 'skill')
     skills_important <- cleanText(skills_important, wordToRemove = wordToRemove)
 
+
 ## @knitr skillImportantPlot
     wordcloud(skills_important, random.color=FALSE, colors=brewer.pal(12, "Paired"))
 
@@ -365,4 +370,3 @@
 ## @knitr toolPlot
     wordcloud(all_tools, random.color=FALSE, colors=brewer.pal(12, "Paired"))
 
-shapiro.test(df$TurnOver.Agg)

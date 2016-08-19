@@ -111,6 +111,9 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
 ## https://georeferenced.wordpress.com/2013/01/15/rwordcloud/
 #### Function to clean text Input: vector of caracteres
     cleanText <- function(x, wordToRemove) {
+        # Transform the sentence into list of word before transformation
+
+        x <- unlist(lapply(x, function(x) MC_tokenizer(x)), use.names=F)
         ## Transform into a Corpus
         x <- Corpus(VectorSource(x))
         ## Lower words
