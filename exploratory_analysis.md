@@ -128,22 +128,26 @@ Olivier PHILIPPE
 
 ![](exploratory_analysis_files/figure-html/careerPlot-1.png)<!-- -->
 
+# Wordclouds
+
+We asked three separated questions to capture the variety of skills and tools that are important for an RSE. Each questions offered the opportunity to fills three freetext fields. These questions help us to get a gist of what is important for RSE on a more braod and less defined way. 
+The following wordclouds give an idea of that aspect, without pretenting to be rigourous. 
+
+
+## Most important skills for an RSE
+
 
 
 ![](exploratory_analysis_files/figure-html/skillImportantPlot-1.png)<!-- -->
+
+## Most important skills to improve for an RSE
 
 
 
 ![](exploratory_analysis_files/figure-html/skillImprovePlot-1.png)<!-- -->
 
+## Most important tool for an RSE
+
 
 
 ![](exploratory_analysis_files/figure-html/toolPlot-1.png)<!-- -->
-
-```
-## 
-## 	Shapiro-Wilk normality test
-## 
-## data:  df$TurnOver.Agg
-## W = 0.9682, p-value = 5.679e-06
-```
