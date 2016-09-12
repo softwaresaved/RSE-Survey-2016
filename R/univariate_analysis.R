@@ -21,7 +21,7 @@
 
 
 ## @knitr loadFile
-    df <- read.csv('./data/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
+    df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     ## Removing obvious non complete responses
     df <- df[which(df$Job.contract != 'NA'), ]
     ## Remove the non UK
@@ -80,7 +80,7 @@
     sumQMelt <- t(genderFreq[c('Gender', 'Percent')])
     RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,1])), round(as.numeric(sumQMelt[2,2])))
     # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
-    genderDf <- read.csv('data/information/gender_disciplines.csv')
+    genderDf <- read.csv('data/external_dataset/gender_disciplines.csv')
     genderDf$Discipline <- as.character(genderDf$Discipline)
     genderDf <- rbind(genderDf, RSEGender)
     genderDf$Discipline <- as.factor(genderDf$Discipline)
@@ -133,7 +133,7 @@
     #TODO do in cleaning dataset
     sumQSalary$Salary <- factor(sumQSalary$Salary, levels(sumQSalary$Salary)[c(10,2,3,4,5,6,7,8,9,1)])
     # Read the data collected from HESA
-    salaryRaw <- read.csv('./data/staff_1415_table_B.csv')
+    salaryRaw <- read.csv('./data/external_dataset/staff_1415_table_B.csv')
     ## Subset only the total of salary for all and the associated percentage
     salaryDf <- salaryRaw[c(16,17,18,19,20,21), c(1, 20,21)]
     ## Rename the columns
@@ -251,7 +251,7 @@
 
 
 ## @knitr contribAllPrep
-    dfContrib <- data.frame('Contribution'=df$Contrib.YN, 'Acknowledged'=df$Contrib.acknowledgedYN,
+    dfContrib <- data.frame('Acknowledged'=df$Contrib.acknowledgedYN,
                             'Co-author'=df$Contrib.co.authorYN, 'Lead-author'=df$Contrib.leadYN)
     dfContribFreq <- data.frame(apply(dfContrib, 2, table))
     dfContribFreq$Answer <- rownames(dfContribFreq)
@@ -288,6 +288,7 @@
             geom_boxplot(show.legend=FALSE, size=2)+
             geom_jitter(alpha=0.25, color='Grey')+
             scale_color_brewer(palette='Paired') +
+            scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
             theme_minimal() +
             ylab('Score') +
             xlab('') +
@@ -320,6 +321,7 @@
         geom_boxplot(show.legend=FALSE, size=2)+
         geom_jitter(alpha=0.25, color='Grey')+
         scale_color_brewer(palette='Paired') +
+        scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
         theme_minimal() +
         ylab('Score') +
         xlab('') +
