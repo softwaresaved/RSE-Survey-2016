@@ -5,7 +5,7 @@
     library('psy')
 
 #### load files ####
-    setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/analysis/')
+    setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/R')
     df <- read.csv('./input/397_op_clean.csv',  na.strings=c("NA","NaN", " ", ""))
 
 crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=FALSE){
@@ -17,9 +17,9 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=FALSE){
     dfTable  <- cbind(as.data.frame(freqTable),
                       as.data.frame(prop.table(freqTable, propNum))[,3])
     colnames(dfTable) <- c(var1, var2, 'Freq', 'Prop')
-    
+
     #write.csv(dfTable, paste("./results/cross_table_", var1,'_', var2, '.csv'), row.names=FALSE)
-    
+
     #dev.off()
     return(dfTable)
 }
@@ -75,7 +75,7 @@ chiSquareSummary <- function (table_, var1, var2) {
 
 
 ###### Checking the Cronbach Alpha ######
-    
+
 ###### Check for TurnOver
     turnOverCronbach <- cronbach(cbind(df$TurnOver.1.Recode, df$TurnOver.2.Recode,
                                        df$TurnOver.3.Recode, df$TurnOver.4.Recode,
@@ -87,11 +87,11 @@ chiSquareSummary <- function (table_, var1, var2) {
                                       df$PercEmp.3.Recode, df$PercEmp.4.Recode))
     percEmpCronbach$alpha
 
-    perfCheck <- cronbach(cbind(df$PerfCheck.1.Recode, df$PerfCheck.2.Recode, df$PerfCheck.3.Recode, 
+    perfCheck <- cronbach(cbind(df$PerfCheck.1.Recode, df$PerfCheck.2.Recode, df$PerfCheck.3.Recode,
                                 df$PerfCheck.4.Recode,df$PerfCheck.5.Recode, df$PerfCheck.6.Recode,
                                 df$PerfCheck.7.Recode))
     perfCheck$alpha
-    affRecCronbach <- cronbach(cbind(df$AffRec.1.Recode, df$AffRec.2.Recode, df$AffRec.3.Recode, 
+    affRecCronbach <- cronbach(cbind(df$AffRec.1.Recode, df$AffRec.2.Recode, df$AffRec.3.Recode,
                                      df$AffRec.4.Recode, df$AffRec.5.Recode))
     affRecCronbach$alpha
     affSatCronbach <- cronbach(cbind(df$AffSat.1.Recode, df$AffSat.2.Recode,
@@ -100,7 +100,7 @@ chiSquareSummary <- function (table_, var1, var2) {
 
 
 
-#### Gender ####    
+#### Gender ####
 test <- lm(formula= TurnOver.Agg~Socio.gender, data =df)
 boxplot(TurnOver.Agg~Socio.gender, data=df)
 summary(test)
