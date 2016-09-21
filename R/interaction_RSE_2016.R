@@ -5,8 +5,9 @@
     library('psy')
 
 #### load files ####
-    setwd('/home/olivier/Documents/Work/ssi_work/RSE Survey - 2016/R')
-    df <- read.csv('./input/397_op_clean.csv',  na.strings=c("NA","NaN", " ", ""))
+    setwd('~/git/ssi/RSE-Survey-2016/R/')
+    df <- read.csv('../data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
+
 
 crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=FALSE){
     freqTable <- table(df[[var1]], df[[var2]])
@@ -51,6 +52,7 @@ facetPlot <- function(df, xVar, yVar, facetVar, removeNA=TRUE, FREQ=TRUE){
     return(p)
 }
 
+
 processCrossTabulation <- function(df, nameVar1, nameVar2, univariate=FALSE, summaryTable=TRUE, propNum=1){
     if(univariate==TRUE){
         sumQ <- printSummary(df, nameVar2)
@@ -63,6 +65,7 @@ processCrossTabulation <- function(df, nameVar1, nameVar2, univariate=FALSE, sum
     plot <- facetPlot(table_, nameVar2, 'Prop', nameVar1)
     return(plot)
 }
+
 
 chiSquareSummary <- function (table_, var1, var2) {
     chiValue <- chisq.test(table_)
@@ -99,10 +102,50 @@ chiSquareSummary <- function (table_, var1, var2) {
     affSatCronbach$alpha
 
 
+#### Gender ####
+    test <- lm(formula= TurnOver.Agg~Socio.gender, data =df)
+    boxplot(TurnOver.Agg~Socio.gender, data=df)
+    summary(test)
+    anova(test)
+    confint(test)
+
+
+#### Salary ####
+
+    ### @knitr SalaryReorder
+    df$Socio.salary <- factor(df$Socio.salary, levels(df$Socio.salary)[c(10,2,3,4,5,6,7,8,9,1)])
+
+    ### @knitr SalaryVsTurnover
+    SalaryVsTurnover <- lm(formula=TurnOver.Agg~Socio.salary, data=df)
+    boxplot(TurnOver.Agg~Socio.salary, data=df)
+    summary(SalaryVsTurnover)
+    anova(SalaryVsTurnover)
+    confint(SalaryVsTurnover)
+
+    ### @knitr SalaryVsPercEmp
+    SalaryVsPercEmp <- lm(formula=PercEmp.Agg~Socio.salary, data=df)
+    boxplot(PercEmp.Agg~Socio.salary, data=df)
+    summary(SalaryVsPercEmp)
+    anova(SalaryVsPercEmp)
+    confint(SalaryVsPercEmp)
+
+    ### @knitr SalaryVsPerfCheck
+    SalaryVsPerfCheck <- lm(formula=PerfCheck.Agg~Socio.salary, data=df)
+    boxplot(PerfCheck.Agg~Socio.salary, data=df)
+    summary(SalaryVsPerfCheck)
+    anova(SalaryVsPerfCheck)
+    confint(SalaryVsPerfCheck)
+
 
 #### Gender ####
-test <- lm(formula= TurnOver.Agg~Socio.gender, data =df)
-boxplot(TurnOver.Agg~Socio.gender, data=df)
-summary(test)
-anova(test)
-confint(test)
+
+    ### @knitr GenderVsTurnover
+    GenderVsTurnover <- lm(formula=Socio.gender~TurnOver.Agg, data=df)
+    boxplot(Socio.gender~TurnOver.Agg, data=df)
+    summary(GenderVsTurnover)
+    anova(GenderVsTurnover)
+    confint(GenderVsTurnover)
+
+
+
+
