@@ -40,9 +40,9 @@ Olivier PHILIPPE
 
 |   |level of Education   | Total Respondents| Percent|
 |:--|:--------------------|-----------------:|-------:|
-|3  |Undergraduate/Others |                41|   12.24|
-|2  |Master Degree        |                61|   18.21|
-|1  |Doctorate            |               233|   69.55|
+|3  |Undergraduate/Others |                41|      12|
+|2  |Master Degree        |                61|      18|
+|1  |Doctorate            |               233|      70|
 
 ![](exploratory_analysis_files/figure-html/educationPlot-1.png)<!-- -->
 
@@ -51,8 +51,8 @@ Olivier PHILIPPE
 
 |Gender | Total Respondents| Percent|
 |:------|-----------------:|-------:|
-|Female |                31|   11.74|
-|Male   |               233|   88.26|
+|Female |                31|      12|
+|Male   |               233|      88|
 
 ![](exploratory_analysis_files/figure-html/genderPlot-1.png)<!-- -->
 
@@ -65,10 +65,10 @@ Olivier PHILIPPE
 
 |   |Type of contract                   | Total Respondents| Percent|
 |:--|:----------------------------------|-----------------:|-------:|
-|1  |Agency staff                       |                 1|    0.30|
-|3  |Freelancer consultant  contractors |                 4|    1.19|
-|2  |Fixed term                         |               156|   46.57|
-|4  |Permanent                          |               174|   51.94|
+|1  |Agency staff                       |                 1|     0.3|
+|3  |Freelancer consultant  contractors |                 4|     1.2|
+|2  |Fixed term                         |               156|    46.6|
+|4  |Permanent                          |               174|    51.9|
 
 ![](exploratory_analysis_files/figure-html/contractPlot-1.png)<!-- -->
 
@@ -77,8 +77,8 @@ Olivier PHILIPPE
 
 |First Job | Total Respondents| Percent|
 |:---------|-----------------:|-------:|
-|No        |               278|   82.99|
-|Yes       |                57|   17.01|
+|No        |               278|      83|
+|Yes       |                57|      17|
 
 
 ![](exploratory_analysis_files/figure-html/firstJobPlot-1.png)<!-- -->
@@ -97,11 +97,11 @@ Olivier PHILIPPE
 
 |Bus Factor | Total Respondents| Percent|
 |:----------|-----------------:|-------:|
-|1          |               143|   44.69|
-|2          |                99|   30.94|
-|3          |                36|   11.25|
-|4          |                15|    4.69|
-|5          |                27|    8.44|
+|1          |               143|    44.7|
+|2          |                99|    30.9|
+|3          |                36|    11.2|
+|4          |                15|     4.7|
+|5          |                27|     8.4|
 
 ![](exploratory_analysis_files/figure-html/busFactorPlot-1.png)<!-- -->
 
@@ -110,8 +110,8 @@ Olivier PHILIPPE
 
 |   |Technical hand over | Total Respondents| Percent|
 |:--|:-------------------|-----------------:|-------:|
-|2  |Yes                 |                75|   23.29|
-|1  |No                  |               247|   76.71|
+|2  |Yes                 |                75|      23|
+|1  |No                  |               247|      77|
 
 ![](exploratory_analysis_files/figure-html/handOverPlot-1.png)<!-- -->
 
@@ -120,8 +120,8 @@ Olivier PHILIPPE
 
 |Contribution to paper | Total Respondents| Percent|
 |:---------------------|-----------------:|-------:|
-|No                    |                38|    11.8|
-|Yes                   |               284|    88.2|
+|No                    |                38|      12|
+|Yes                   |               284|      88|
 
 ![](exploratory_analysis_files/figure-html/contribYNPlot-1.png)<!-- -->
 
