@@ -85,6 +85,14 @@ output:
 ```{r contractPlot}
 ```
 
+```{r firstJobPrep}
+```
+
+```{r firstJobTable}
+```
+
+
+```{r firstJobPlot}
 
 ```{r salaryPrep}
 ```

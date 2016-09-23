@@ -1,17 +1,6 @@
----
-title: "RSE Survey 2016"
-author: "Olivier PHILIPPE"
-date: "26 June 2016"
-output:
-  html_document:
-    keep_md: yes
-    number_sections: yes
-    toc_depth: 4
-  github_document:
-    md_extensions: -autolink_bare_uris+hard_line_breaks
-  pdf_document:
-    toc_depth: '4'
----
+# RSE Survey 2016
+Olivier PHILIPPE  
+26 June 2016  
 
 
 
@@ -43,7 +32,7 @@ output:
 |3  |Computer Sciences                          |                78|   23.64|
 |9  |Physical Sciences                          |               130|   39.39|
 
-![plot of chunk disciplinePlot](figure/disciplinePlot-1.png)
+![](exploratory_analysis_files/figure-html/disciplinePlot-1.png)<!-- -->
 
 
 
@@ -55,7 +44,7 @@ output:
 |2  |Master Degree        |                61|   18.21|
 |1  |Doctorate            |               233|   69.55|
 
-![plot of chunk educationPlot](figure/educationPlot-1.png)
+![](exploratory_analysis_files/figure-html/educationPlot-1.png)<!-- -->
 
 
 
@@ -65,11 +54,11 @@ output:
 |Female |                31|   11.74|
 |Male   |               233|   88.26|
 
-![plot of chunk genderPlot](figure/genderPlot-1.png)
+![](exploratory_analysis_files/figure-html/genderPlot-1.png)<!-- -->
 
 
 
-![plot of chunk genderAllPlot](figure/genderAllPlot-1.png)
+![](exploratory_analysis_files/figure-html/genderAllPlot-1.png)<!-- -->
 
 
 
@@ -81,18 +70,27 @@ output:
 |2  |Fixed term                         |               156|   46.57|
 |4  |Permanent                          |               174|   51.94|
 
-![plot of chunk contractPlot](figure/contractPlot-1.png)
+![](exploratory_analysis_files/figure-html/contractPlot-1.png)<!-- -->
 
 
 
 
+|First Job | Total Respondents| Percent|
+|:---------|-----------------:|-------:|
+|No        |               278|   82.99|
+|Yes       |                57|   17.01|
 
 
-![plot of chunk salaryPlot](figure/salaryPlot-1.png)
+![](exploratory_analysis_files/figure-html/firstJobPlot-1.png)<!-- -->
 
 
 
-![plot of chunk salaryAllPlot](figure/salaryAllPlot-1.png)
+
+![](exploratory_analysis_files/figure-html/salaryPlot-1.png)<!-- -->
+
+
+
+![](exploratory_analysis_files/figure-html/salaryAllPlot-1.png)<!-- -->
 
 
 
@@ -105,7 +103,7 @@ output:
 |4          |                15|    4.69|
 |5          |                27|    8.44|
 
-![plot of chunk busFactorPlot](figure/busFactorPlot-1.png)
+![](exploratory_analysis_files/figure-html/busFactorPlot-1.png)<!-- -->
 
 
 
@@ -115,7 +113,7 @@ output:
 |2  |Yes                 |                75|   23.29|
 |1  |No                  |               247|   76.71|
 
-![plot of chunk handOverPlot](figure/handOverPlot-1.png)
+![](exploratory_analysis_files/figure-html/handOverPlot-1.png)<!-- -->
 
 
 
@@ -125,19 +123,19 @@ output:
 |No                    |                38|    11.8|
 |Yes                   |               284|    88.2|
 
-![plot of chunk contribYNPlot](figure/contribYNPlot-1.png)
+![](exploratory_analysis_files/figure-html/contribYNPlot-1.png)<!-- -->
 
 
 
-![plot of chunk contribAllPlot](figure/contribAllPlot-1.png)
+![](exploratory_analysis_files/figure-html/contribAllPlot-1.png)<!-- -->
 
 
 
-![plot of chunk workIndicatorPlot](figure/workIndicatorPlot-1.png)
+![](exploratory_analysis_files/figure-html/workIndicatorPlot-1.png)<!-- -->
 
 
 
-![plot of chunk careerPlot](figure/careerPlot-1.png)
+![](exploratory_analysis_files/figure-html/careerPlot-1.png)<!-- -->
 
 # Wordclouds
 
@@ -149,16 +147,16 @@ The following wordclouds give an idea of that aspect, without pretenting to be r
 
 
 
-![plot of chunk skillImportantPlot](figure/skillImportantPlot-1.png)
+![](exploratory_analysis_files/figure-html/skillImportantPlot-1.png)<!-- -->
 
 ## Most important skills to improve for an RSE
 
 
 
-![plot of chunk skillImprovePlot](figure/skillImprovePlot-1.png)
+![](exploratory_analysis_files/figure-html/skillImprovePlot-1.png)<!-- -->
 
 ## Most important tool for an RSE
 
 
 
-![plot of chunk toolPlot](figure/toolPlot-1.png)
+![](exploratory_analysis_files/figure-html/toolPlot-1.png)<!-- -->
