@@ -134,7 +134,7 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
 ####  Function to recode the time into num
 ### If inverting is TRUE x is inverted
 ### If totalScore is FALSE the score -3 to have a negative value and 0 for 3
-    recodeLikert <- function(x, inverting=FALSE, totalScore=TRUE) {
+    recodeLikert <- function(x, inverting=FALSE, totalScore=FALSE) {
       # Remove spaces
       if (is.na(x)) {
         x <- NA
