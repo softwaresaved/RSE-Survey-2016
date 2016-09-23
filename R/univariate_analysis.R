@@ -18,6 +18,8 @@
     library('reshape2')
     library('dplyr')
     library('tm')
+    library('sjPlot')
+
 
 ## @knitr loadFile
     df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
@@ -32,6 +34,7 @@
     # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
     # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
     FONT_SIZE = 35
+
 
 # Socio-demographic information
 
@@ -145,7 +148,7 @@
     ## Subset only the total of salary for all and the associated percentage
     salaryDf <- salaryRaw[c(16,17,18,19,20,21), c(1, 20,21)]
     ## Rename the columns
-    colnames(salaryDf) <- c('Salary', 'Total Respondends', 'Percent')
+    colnames(salaryDf) <- c('Salary', 'Total Respondents', 'Percent')
     ## Rename the range of salary to match the salary obtained in the RSE survey
     ## The range are different and an approximation is made to get the closest similarity between the two
     ## surveys. The comparison needs to be carefully interpreted as the ranges are overlapping and are not cuttin
@@ -156,9 +159,8 @@
     ## Rename the Percent value to remove the percent and transform into number
     salaryDf$Percent <- as.numeric(as.character(gsub('%', '',salaryDf$Percent)))
     ### Sum the multiple categories created by the recategorisation
-    percent_All_UK <- as.data.frame(salaryDf %>%
-                                        group_by(Salary) %>%
-                                        summarise(Percent = sum(Percent)))
+    salaryDf %>% group_by(Salary) %>% summarise(Percent=sum(Percent))                           #
+    percent_All_UK <- aggregate(Percent ~ Salary, salaryDf, sum)
     percent_All_UK$type <- 'UK'
     ## Reorganise the salary from the RSE survey to match the new created categories
     sumQSalary$Salary <- as.factor(as.character(sumQSalary$Salary))
@@ -168,9 +170,10 @@
                                    '>= £59,000', '>= £59,000', 'Under £25,000')
 
     ### Sum the multiple categories created by the recategorisation
-    percent_RSE <- as.data.frame(sumQSalary %>%
-                                 group_by(Salary) %>%
-                                 summarise(Percent = sum(Percent)))
+    percent_RSE  <-  aggregate(Percent ~ Salary, sumQSalary, sum)
+    # percent_RSE <- as.data.frame(sumQSalary %>%
+    #                              group_by(Salary) %>%
+    #                              summarise(Percent = sum(Percent)))
     ### Reorder factors
     percent_RSE$Salary <- factor(percent_RSE$Salary, levels(percent_RSE$Salary)[c(5,2,3,4,1)])
     percent_RSE$type <- 'RSE'
@@ -383,3 +386,14 @@
 ## @knitr toolPlot
     wordcloud(all_tools, random.color=FALSE, colors=brewer.pal(12, "Paired"))
 
+
+
+## @knitr TurnOverPrepare
+
+    df$TurnOver.1.frustrated
+    df$TurnOver.1.Recode
+test <-likert(df, items=df$TurnOver.1.Recode)
+plot(test)
+df$TurnOver.1.frustrated
+sjp.stackfrq(na.omit(df$TurnOver.1.frustrated))
+summary(df$TurnOver.1.frustrated)
