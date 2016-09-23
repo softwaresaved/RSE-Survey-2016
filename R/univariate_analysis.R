@@ -159,7 +159,6 @@
     ## Rename the Percent value to remove the percent and transform into number
     salaryDf$Percent <- as.numeric(as.character(gsub('%', '',salaryDf$Percent)))
     ### Sum the multiple categories created by the recategorisation
-    salaryDf %>% group_by(Salary) %>% summarise(Percent=sum(Percent))                           #
     percent_All_UK <- aggregate(Percent ~ Salary, salaryDf, sum)
     percent_All_UK$type <- 'UK'
     ## Reorganise the salary from the RSE survey to match the new created categories
@@ -171,9 +170,6 @@
 
     ### Sum the multiple categories created by the recategorisation
     percent_RSE  <-  aggregate(Percent ~ Salary, sumQSalary, sum)
-    # percent_RSE <- as.data.frame(sumQSalary %>%
-    #                              group_by(Salary) %>%
-    #                              summarise(Percent = sum(Percent)))
     ### Reorder factors
     percent_RSE$Salary <- factor(percent_RSE$Salary, levels(percent_RSE$Salary)[c(5,2,3,4,1)])
     percent_RSE$type <- 'RSE'
@@ -390,10 +386,11 @@
 
 ## @knitr TurnOverPrepare
 
-    df$TurnOver.1.frustrated
-    df$TurnOver.1.Recode
-test <-likert(df, items=df$TurnOver.1.Recode)
-plot(test)
-df$TurnOver.1.frustrated
-sjp.stackfrq(na.omit(df$TurnOver.1.frustrated))
-summary(df$TurnOver.1.frustrated)
+    turnOverName <- c('TurnOver.1.frustrated', 'TurnOver.2.another_day.INV', 'TurnOver.3.satisfied.INV', 'TurnOver.4.compensation', 'TurnOver.5.consider_leaving', 'TurnOver.6.dream')
+    dfTurnOver <- df[turnOverName]
+    turnOverItems <- c('How often do you feel frustrated when not given the opportunity to achieve your personal work-related goals?', 'How often do you look forward to another day at work?', 'How often do you consider leaving your job?', 'How often do dream about getting another job that will better suit your needs?', 'My current job satisfies my personal needs', 'I would accept another job at the same compensation level if I was offered it')
+
+## @knitr TurnOverStack
+    ## TODO Reorder the levels
+    sjp.stackfrq(dfTurnOver, axis.labels=turnOverItems)
+
