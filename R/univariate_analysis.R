@@ -124,6 +124,15 @@
 ## @knitr salaryPlot
     plotSingleFreq(sumQSalary, 'Salary', order=FALSE, legend=FALSE)
 
+## @knitr firstJobPrep
+    sumQFirstJob <- singleTabFreq(df$Job.firstYN, 'First Job', order=FALSE)
+
+## @knitr firstJobTable
+    kable(sumQFirstJob, digits=2, format='markdown')
+
+## @knitr firstJobPlot
+    plotSingleFreq(sumQFirstJob, 'First Job', order=FALSE, legend=FALSE)
+
 
 ### Comparison with the salary for academic staff in UK
 ## @knitr salaryAllPrep

@@ -6,6 +6,7 @@
 
 #### load files ####
     setwd('~/git/ssi/RSE-Survey-2016/R/')
+
     df <- read.csv('../data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
 
 
@@ -24,6 +25,7 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=FALSE){
     #dev.off()
     return(dfTable)
 }
+
 
 facetPlot <- function(df, xVar, yVar, facetVar, removeNA=TRUE, FREQ=TRUE){
     df$Percent  <- df[[yVar]]*100
@@ -145,7 +147,6 @@ chiSquareSummary <- function (table_, var1, var2) {
     summary(GenderVsTurnover)
     anova(GenderVsTurnover)
     confint(GenderVsTurnover)
-
 
 
 
