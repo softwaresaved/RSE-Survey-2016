@@ -27,9 +27,9 @@
 
 
 #### Load data ####
-    df <- read.csv('./data/SurveyID18932.csv')
+    df <- read.csv('./data/dataset/SurveyID18932.csv')
     # Write email address on a csv
-    write.csv(unique(df[107]), './data/emails_list.csv')
+    write.csv(unique(df[107]), './data/dataset/emails_list.csv')
     names(df)
     ## Create a manual list of headers to drop. It is based on the order given when download the dataset from the isurvey and without
     ### modifying the option of downloading. Need to be careful in case of the order change.
@@ -100,7 +100,7 @@
 
     ## Create a corresponding original title -- new titles and record a csv with them to keep a trace
     dfHeaders <- cbind(names(df), new_section_names)
-    write.csv(dfHeaders, file='./data/headers.csv')
+    write.csv(dfHeaders, file='./data/dataset/headers.csv')
     # Renames the columns
     names(df) <- new_section_names
     ## Clean the working directory
@@ -380,7 +380,7 @@
 #### Outputs ####
 
   # Write the entire dataset into a csv
-    fullName <- paste('./data/', CURRENT_CSV_NUMBER, '_full_clean.csv', sep='')
+    fullName <- paste('./data/dataset/', CURRENT_CSV_NUMBER, '_full_clean.csv', sep='')
     write.csv(df, file = fullName)
   # Write only useful and cleaned field
     # Create an empty dataset with the same amount ofrow for saving only the useful cleaned column
