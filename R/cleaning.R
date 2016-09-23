@@ -137,7 +137,7 @@
   # Edu.academic_other
     # Load the file containing the list of subjects inputs in the survey to have the entire list
     # and make manual comparison to check the one that can be recode into an already coded
-    dfEdu <- read.csv('./data/information/list_educations.csv', header = FALSE)
+    dfEdu <- read.csv('./data/misc/list_educations.csv', header = FALSE)
     edu_list <- dfEdu$V1
     # Replace these values with appropriate one when a correspondance can be found
     df$Edu.academic.CLEAN <- df$Edu.academic_subject
