@@ -91,7 +91,6 @@ output:
 ```{r firstJobTable}
 ```
 
-
 ```{r firstJobPlot}
 
 ```{r salaryPrep}
@@ -142,16 +141,83 @@ output:
 ```{r contribAllPlot}
 ```
 
+# Work Indicators
+
+## Introduction
+How to measure the quality of a job has been debated in psychology for a long time [4]. Several models exist to understand the link between different factors of job satisfaction and turnover intention [5]–[9].
+ Turnover intention is an important measure that is highly associated with the risk of employees leaving the organisation [7].
+Job satisfaction is important in retaining RSEs. Perceived employability provides information on how workers values their own skills in regard of the market.
+To measure the different attitudes toward the RSE role, we used scales that have been created in [5], [6], [8], [9].
+These are Likert scale [10], which are 5 point ordinal scales graduated from Strongly disagree to Strongly agree.
+Each scale is composed of several so called items (i.e. questions) that each measure one attitude.
+
+### Turnover intention
+
+```{r TurnOverPrepare}
+```
+
+```{r TurnOverStackTime, fig.width = 20, fig.height = 5}
+```
+
+```{r TurnOverStackAgree, fig.width = 20, fig.height = 3}
+```
+
+### Perceived Employability
+
+```{r PerceivedEmpPrepare}
+```
+
+```{r PerceivedEmpStack, fig.width = 20, fig.height = 5}
+```
+
+### Satisfaction
+
+```{r SatisfactionPrepare}
+```
+
+```{r  StatisfactionStack, fig.width = 20, fig.height = 5}
+```
+
+
+### Recognition
+
+```{r RecognitionPrepare}
+```
+
+```{r RecognitionStack, fig.width = 20, fig.height = 5}
+```
+
+
+### Feedback
+
+```{r FeedbackPrepare}
+```
+
+```{r FeedbackStack, fig.width = 20, fig.height = 8}
+```
+
+## Summary
+
 ```{r workIndicatorPrep}
 ```
 
 ```{r workIndicatorPlot}
 ```
 
+# Career Plan
+
+## Introduction
+
+```{r careerStackPrep}
+```
+
+```{r careerStackPlot}
+```
+
 ```{r careerPrep}
 ```
 
-```{r careerPlot}
+```{r careerPlot, fig.width=5, fig.height=5}
 ```
 
 # Wordclouds

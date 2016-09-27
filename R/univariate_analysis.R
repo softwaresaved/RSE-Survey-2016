@@ -18,7 +18,8 @@
     library('reshape2')
     library('dplyr')
     library('tm')
-    library('sjPlot')
+    library('likert')
+    library('sjPlot')  # To plot likert scale a bit differently
 
 
 ## @knitr loadFile
@@ -290,12 +291,132 @@
     colnames(dfIndicators) <- c('Turnover\nIntention', 'Perceived\nEmployability', 'Satisfaction', 'Recognition', 'Feedback')
     dfIndicatorsMelt <- melt(dfIndicators)
 
+
+
+## @knitr TurnOverPrepare
+    ## Created the dataframe of turnover
+    turnOverName <- c('TurnOver.1.frustrated',
+                      'TurnOver.2.another_day.INV',
+                      'TurnOver.3.satisfied.INV',
+                      'TurnOver.4.compensation',
+                      'TurnOver.5.consider_leaving',
+                      'TurnOver.6.dream')
+    dfTurnOver <- df[turnOverName]
+    ## Create a list of the associated questions to plot them in the likert graph
+    turnOverItems <- c('How often do you feel frustrated when not given the opportunity to achieve your personal work-related goals?',
+                       'How often do you look forward to another day at work?',
+                       'My current job satisfies my personal needs',
+                       'I would accept another job at the same compensation level if I was offered it',
+                       'How often do you consider leaving your job?',
+                       'How often do dream about getting another job that will better suit your needs?')
+
+
+    dfTurnOver[,c(1,2,5,6)] <- lapply(dfTurnOver[,c(1,2,5,6)], reorderFunc, typeList='time')
+    dfTurnOver[,c(3,4)] <- lapply(dfTurnOver[,c(3,4)], reorderFunc, typeList='agree')
+
+    # Rename the column with the question themselves for plotting reasons
+    colnames(dfTurnOver) <- turnOverItems
+    kable(turnOverItems, col.names='Turnover Questions')
+
+## @knitr TurnOverStackTime
+    # sjp.stackfrq(dfTurnOver[,c(1,2,5,6)], axis.labels=turnOverItems) + theme_bw()
+    ## Plot the questions with the time as options
+    plotLikert(dfTurnOver[,c(1,2,5,6)])
+
+
+## @knitr TurnOverStackAgree
+    plotLikert(dfTurnOver[,c(3,4)], TRUE)
+
+
+## @knitr PerceivedEmpPrepare
+    perceivedName  <- c('PercEmp.1.equivalent',
+                        'PercEmp.2.other_orga',
+                        'PercEmp.3.demand',
+                        'PercEmp.4.not_hard')
+    dfPerc <- df[perceivedName]
+    perceivedItems  <- c('It would not be very difficult for me to get an equivalent job in a different organisation',
+                         'I can think of a number of organisations that would probably offer me a job',
+                         'My experience is in demand on the labour market')
+
+    dfPerc <- as.data.frame(lapply(dfPerc, reorderFunc, typeList='agree'))
+    colnames(dfPerc) <- perceivedItems
+    kable(perceivedItems, col.names='Perceived Employability Questions')
+
+
+## @knitr PerceivedEmpStack
+    plotLikert(dfPerc, TRUE)
+
+## @knitr SatisfactionPrepare
+    satisfactionName  <- c('AffSat.1.enjoyment',
+                           'AffSat.2.enthusiastic',
+                           'AffSat.3.fairly_well',
+                           'AffSat.4.better_ave')
+    dfSat <- df[satisfactionName]
+    satisfactionItems  <- c('I find real enjoyment in my job',
+                            'Most days I am enthusiastic about my job',
+                            'I feel fairly well satisfied with my job',
+                            "I like my job better than the average person")
+
+    dfSat <- as.data.frame(lapply(dfSat, reorderFunc, typeList='agree'))
+    colnames(dfSat) <- satisfactionItems
+    kable(satisfactionItems, col.names='Satisfaction Questions')
+
+## @knitr StatisfactionStack
+    plotLikert(dfSat, TRUE)
+
+## @knitr RecognitionPrepare
+    recognitionName <- c('AffRec.1.confidence',
+                         'AffRec.2.thanks',
+                         'AffRec.3.recognition',
+                         'AffRec.4.compliment',
+                         'AffRec.5.encouragement')
+    dfReco <- df[recognitionName]
+    recognitionItems  <- c("I am satisfied with my supervisor/line manager's confidence in me",
+                           "I am satisfied with a word of thanks from my supervisor/line manager",
+                           "I am satisfied with the recognition I receive from my supervisor/line manager for doing my job",
+                           "I am satisfied with the compliments from my supervisor/line manager concerning my work",
+                           "I am satisfied with the encouragement from my supervisor/line manager while doing my job")
+
+    dfReco <- as.data.frame(lapply(dfReco, reorderFunc, typeList='agree'))
+    colnames(dfReco) <- recognitionItems
+    kable(recognitionItems, col.names='Recognition Questions')
+
+## @knitr RecognitionStack
+    plotLikert(dfReco, TRUE)
+
+
+## @knitr FeedbackPrepare
+    feedbackName  <- c('PerfCheck.1.info_result',
+                       'PerfCheck.2.opport_check',
+                       'PerfCheck.3.access_info',
+                       'PerfCheck.4.sufficient_info',
+                       'PerfCheck.5.direct_feedback',
+                       'PerfCheck.6.supervisor_well',
+                       'PerfCheck.7.colleagues')
+
+    dfFeed <- df[feedbackName]
+    feedbackItems <- c("Do you receive sufficient information on the results of your work?",
+                       "Does your work give you the opportunity to check on how well you are doing your work?",
+                       "In your work, do you have access to sufficient data and information?",
+                       "Do you receive sufficient information on the purpose of your work?",
+                       "Does your work provide you with direct feedback on how well you are doing your work?",
+                       "Does your supervisor/line manager inform you about how well you are doing your work?",
+                       "Do your colleagues inform you about how well you are doing your work?")
+
+    dfFeed <- as.data.frame(lapply(dfFeed, reorderFunc, typeList='time'))
+    colnames(dfFeed)  <- feedbackItems
+    kable(feedbackItems, col.names='Feedback Questions')
+
+## @knitr FeedbackStack
+    plotLikert(dfFeed)
+
+
 ## @knitr workIndicatorPlot
     ggplot(dfIndicatorsMelt, aes(x=variable, y=value, color=variable))+
             geom_boxplot(show.legend=FALSE, size=2)+
             geom_jitter(alpha=0.25, color='Grey')+
             scale_color_brewer(palette='Paired') +
-            scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
+            # scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
             theme_minimal() +
             ylab('Score') +
             xlab('') +
@@ -323,12 +444,27 @@
     # summary(dfCareer$Opportunities)
     # sd(dfCareer$Opportunities, na.rm = T)
 
+## @knitr careerStackPrep
+    careerItem <- c("It is likely that I will gain a promotion within my current group",
+                    "The process I have to complete to gain a promotion is clear and understandable",
+                    "There are many opportunities within my chosen career plan",
+                    "My current position is an integral part of my career plan",
+                    "It is likely that my next position will be an RSE role")
+    dfCareerLikert <- as.data.frame(lapply(dfCareer, reorderFunc, 'agree'))
+    colnames(dfCareerLikert) <- careerItem
+
+
+## @knitr careerStackPlot
+
+    plotLikert(dfCareerLikert)
+
+
 ## @knitr careerPlot
     ggplot(na.omit(dfCareerMelt), aes(x=variable, y=value, color=variable))+
         geom_boxplot(show.legend=FALSE, size=2)+
         geom_jitter(alpha=0.25, color='Grey')+
         scale_color_brewer(palette='Paired') +
-        scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
+        # scale_y_continuous(limits=c(0,5), breaks=c(0, 1, 2, 3, 4, 5)) +
         theme_minimal() +
         ylab('Score') +
         xlab('') +
@@ -381,16 +517,4 @@
 
 ## @knitr toolPlot
     wordcloud(all_tools, random.color=FALSE, colors=brewer.pal(12, "Paired"))
-
-
-
-## @knitr TurnOverPrepare
-
-    turnOverName <- c('TurnOver.1.frustrated', 'TurnOver.2.another_day.INV', 'TurnOver.3.satisfied.INV', 'TurnOver.4.compensation', 'TurnOver.5.consider_leaving', 'TurnOver.6.dream')
-    dfTurnOver <- df[turnOverName]
-    turnOverItems <- c('How often do you feel frustrated when not given the opportunity to achieve your personal work-related goals?', 'How often do you look forward to another day at work?', 'How often do you consider leaving your job?', 'How often do dream about getting another job that will better suit your needs?', 'My current job satisfies my personal needs', 'I would accept another job at the same compensation level if I was offered it')
-
-## @knitr TurnOverStack
-    ## TODO Reorder the levels
-    sjp.stackfrq(dfTurnOver, axis.labels=turnOverItems)
 

@@ -101,11 +101,6 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
     dfTable  <- cbind(as.data.frame(freqTable),
                       as.data.frame(prop.table(freqTable, propNum))[,3])
     colnames(dfTable) <- c(var1, var2, 'Freq', 'Prop')
-
-    #write.csv(dfTable, paste("./results/cross_table_", var1,'_', var2, '.csv', sep=''),
-    #		  row.names=FALSE)
-
-    #dev.off()
     return(dfTable)
 }
 ## https://georeferenced.wordpress.com/2013/01/15/rwordcloud/
@@ -134,7 +129,7 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
 ####  Function to recode the time into num
 ### If inverting is TRUE x is inverted
 ### If totalScore is FALSE the score -3 to have a negative value and 0 for 3
-    recodeLikert <- function(x, inverting=FALSE, totalScore=FALSE) {
+    recodeLikert <- function(x, inverting=FALSE, totalScore=TRUE) {
       # Remove spaces
       if (is.na(x)) {
         x <- NA
@@ -198,4 +193,33 @@ crossTabFreq <- function(df, var1, var2, propNum=1, summaryTable=TRUE){
         x <- variable
       }
       return(x)
+    }
+
+
+## Reorder the levels in Likert scales
+	reorderFunc <- function(x, typeList){
+        levelTime <- c("Never", "Sometime", "Often", "Very Often", "Always")
+        levelAgree <- c('1 (Strongly disagree)', '2', '3', '4', '5 (Strongly Agree)')
+        if(typeList == 'time'){
+            level=levelTime
+        }
+        else if (typeList == 'agree'){
+            level=levelAgree
+        }
+        ordered(x, levels = level)
+    }
+
+
+## Plot likert scale
+    plotLikert  <- function(df, centered=FALSE){
+        likert.bar.plot(likert(df),
+                        plot.percent.high=FALSE,
+                        plot.percent.low=FALSE,
+                        plot.percent.neutral=FALSE,
+                        centered=centered)+
+                        theme_bw()+
+                        theme(legend.position='bottom')+
+                        theme(legend.text=element_text(size=20))+
+                        theme(legend.title=element_text(size=20))+
+                        theme(axis.text=element_text(size=20))
     }
