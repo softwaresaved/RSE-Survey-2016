@@ -316,6 +316,8 @@
 
     # Rename the column with the question themselves for plotting reasons
     colnames(dfTurnOver) <- turnOverItems
+
+## @knitr TurnOverQ
     kable(turnOverItems, col.names='Turnover Questions')
 
 ## @knitr TurnOverStackTime
@@ -340,6 +342,8 @@
 
     dfPerc <- as.data.frame(lapply(dfPerc, reorderFunc, typeList='agree'))
     colnames(dfPerc) <- perceivedItems
+
+## @knitr PerceivedEmpQ
     kable(perceivedItems, col.names='Perceived Employability Questions')
 
 
@@ -359,6 +363,8 @@
 
     dfSat <- as.data.frame(lapply(dfSat, reorderFunc, typeList='agree'))
     colnames(dfSat) <- satisfactionItems
+
+## @knitr SatisfactionQ
     kable(satisfactionItems, col.names='Satisfaction Questions')
 
 ## @knitr StatisfactionStack
@@ -379,6 +385,8 @@
 
     dfReco <- as.data.frame(lapply(dfReco, reorderFunc, typeList='agree'))
     colnames(dfReco) <- recognitionItems
+
+## @knitr RecognitionQ
     kable(recognitionItems, col.names='Recognition Questions')
 
 ## @knitr RecognitionStack
@@ -405,6 +413,8 @@
 
     dfFeed <- as.data.frame(lapply(dfFeed, reorderFunc, typeList='time'))
     colnames(dfFeed)  <- feedbackItems
+
+## @knitr FeedbackQ
     kable(feedbackItems, col.names='Feedback Questions')
 
 ## @knitr FeedbackStack

@@ -211,13 +211,13 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ```{r careerStackPrep}
 ```
 
-```{r careerStackPlot}
+```{r careerStackPlot, fig.width=5, fig.height=5}
 ```
 
 ```{r careerPrep}
 ```
 
-```{r careerPlot, fig.width=5, fig.height=5}
+```{r careerPlot}
 ```
 
 # Wordclouds
