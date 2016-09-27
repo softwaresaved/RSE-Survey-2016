@@ -226,7 +226,7 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ```{r careerStackPrep}
 ```
 
-```{r careerStackPlot, fig.width=5, fig.height=5}
+```{r careerStackPlot, fig.width=20, fig.height=5}
 ```
 
 ```{r careerPrep}

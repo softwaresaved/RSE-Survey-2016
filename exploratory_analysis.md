@@ -141,6 +141,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ### Turnover intention
 
 
+
+
 |Turnover Questions                                                                                           |
 |:------------------------------------------------------------------------------------------------------------|
 |How often do you feel frustrated when not given the opportunity to achieve your personal work-related goals? |
@@ -157,6 +159,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ### Perceived Employability
 
 
+
+
 |Perceived Employability Questions                                                          |
 |:------------------------------------------------------------------------------------------|
 |It would not be very difficult for me to get an equivalent job in a different organisation |
@@ -166,6 +170,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ![](exploratory_analysis_files/figure-html/PerceivedEmpStack-1.png)<!-- -->
 
 ### Satisfaction
+
+
 
 
 |Satisfaction Questions                       |
@@ -181,6 +187,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ### Recognition
 
 
+
+
 |Recognition Questions                                                                          |
 |:----------------------------------------------------------------------------------------------|
 |I am satisfied with my supervisor/line manager's confidence in me                              |
@@ -193,6 +201,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 
 
 ### Feedback
+
+
 
 
 |Feedback Questions                                                                    |
