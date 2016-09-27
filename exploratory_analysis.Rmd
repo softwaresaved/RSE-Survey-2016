@@ -156,6 +156,9 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ```{r TurnOverPrepare}
 ```
 
+```{r TurnOverQ}
+```
+
 ```{r TurnOverStackTime, fig.width = 20, fig.height = 5}
 ```
 
@@ -167,12 +170,18 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ```{r PerceivedEmpPrepare}
 ```
 
+```{r PerceivedEmpQ}
+```
+
 ```{r PerceivedEmpStack, fig.width = 20, fig.height = 5}
 ```
 
 ### Satisfaction
 
 ```{r SatisfactionPrepare}
+```
+
+```{r SatisfactionQ}
 ```
 
 ```{r  StatisfactionStack, fig.width = 20, fig.height = 5}
@@ -184,6 +193,9 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ```{r RecognitionPrepare}
 ```
 
+```{r RecognitionQ}
+```
+
 ```{r RecognitionStack, fig.width = 20, fig.height = 5}
 ```
 
@@ -191,6 +203,9 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ### Feedback
 
 ```{r FeedbackPrepare}
+```
+
+```{r FeedbackQ}
 ```
 
 ```{r FeedbackStack, fig.width = 20, fig.height = 8}
