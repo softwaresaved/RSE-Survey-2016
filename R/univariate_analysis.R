@@ -20,19 +20,33 @@
     library('tm')
     library('likert')
     library('sjPlot')  # To plot likert scale a bit differently
-              
 
-## @knitr loadFile
+    ## @knitr loadFile
     df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     ## Removing obvious non complete responses
     ## Removing by job contract 
-    df <- df[which(df$Job.contract != 'NA'), ]
+    # df <- df[which(df$Job.contract != 'NA'), ]
     # Removing by survey time
     df <- df[which(df$Survey.time !='- - -'), ]
+    
+    ## Function to create the number of NA per column and plotting it
+    ## Commented because not needed in the report
+       #  na_count <-function (x) sapply(x, function(y) sum(is.na(y)))
+       #  test <- na_count(df) 
+       #  test <- melt(test)
+       #  test$Q <- rownames(test)
+       #  test <- test[which(test$value >10 & test$value < 400),]
+       #  
+       # colnames(test) <- c('value', 'Q') 
+       #  ggplot(data=test, aes(x=reorder(Q, value), y=value))+
+       #      geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
+       #      coord_flip()+
+       #      theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+    
     ## Remove the non UK
     df <- df[which(df$Socio.country == 'United Kingdom'),]
     ## Remove the non RSE
-    # df <- df[which(df$RSE.score >=2), ]
+     # df <- df[which(df$RSE.score >=2), ]
     # df$RSE.score_NotPost <- df$RSE.dev_software + df$RSE.dev_time + df$RSE.does_computer
     # df1 <- df[which(df$RSE.score_NotPost >=2), ]
     # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown

@@ -14,25 +14,79 @@ Olivier PHILIPPE
 
 
 
+# Introduction
+
+In a 2014 survey \cite{hettrick_its_2014}, the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
+The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so. A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to \emph{RSEs}.
+
+The Software Sustainability Institute began a campaign in 2013 to increase the availability of \emph{RSEs} by ensuring they had a viable career path in academia. To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
+In March 2016, the Software Sustainability Institute  conducted a survey on the Research Software Engineers. 
+The survey was composed of [TODO: find exact number of Q?] questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016. The survey was approved by the Southampton Ethical comittee (id:18478) and respect the [TODO: Insert the different applicable laws]
+
+
+## Sample and methodology
+The survey was designed and stored on the Southampton online survey service: [isurvey](https://www.isurvey.soton.ac.uk/).
+The research has been approved by the 
+To target \emph{RSEs} directly, the survey was sent via email to the UKRSE Association’s mailing list.
+Two further reminders were sent to the list to elicit responses from the community. 
+People who received these emails helped to disseminate the survey via email, on blogs and using Twitter and other social media.
+
+
+In total, 592 responses were received, but only [TODO: Get the write number] of these were complete (\emph{i.e. where all mandatory questions had been answered}). The survey was devised to investigate \emph{RSEs} in the UK, but dissemination of the survey had resulted in responses from around the world. This first analysis was focuses on UK, and hence on the [TODO: Find the right number] complete responses from UK-based participants.
+
+
+
+## A word on Research Software Engineer: how to identify an RSE?
+
+The term \emph{Research Software Engineer (RSE)} was coined in 2012 in a paper \cite{baxter_research_2012} [TODO: add footnote for reference] that described the situation of people in academia who write software used by researchers. 
+At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
+
+It is noted that the term \emph{RSEs} is intended to be interpreted broadly, it does not imply that the only people who can inhabit the role derive from a software engineering background. Indeed, most \emph{RSEs} come from a background other than software engineering. [TODO: insert the reference to the right section]
+
+However, as there were no control over the dissemination of the survey by the participants, a way to identify them was to include questions to identify them. 
+
+The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
+    * *Are you employed primarily to develop software for research?*
+    * *Do you spend more time developing software than conducting research?*
+    * *Are you employed as a postdoctoral researcher?*
+    * *Are you the person who “does computers” in your research group?*
+
+The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person "who does computers" by their less technologically adept colleagues. 
+The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
+
+# Discipline
+
+To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS) to provide an ordered and well understood list of academic discipline categories.
+
+The majority of participants came from a background in the physical sciences (39.4%) and the computer sciences (23.6%). In fact, these two discipline areas combined make up more than 60% of all respondents.
+
+
 
 
 
 |   |Field of Education                         | Total Respondents| Percent|
 |:--|:------------------------------------------|-----------------:|-------:|
-|12 |Technologies                               |                 1|    0.30|
-|5  |Historical and Philosophical studies       |                 2|    0.61|
-|6  |Linguistics  Classics and related subjects |                 3|    0.91|
-|11 |Subjects allied to Medicine                |                 3|    0.91|
-|2  |Combined studies                           |                 7|    2.12|
-|10 |Social studies                             |                 7|    2.12|
-|8  |Other                                      |                 9|    2.73|
-|1  |Biological Sciences                        |                25|    7.58|
-|4  |Engineering                                |                26|    7.88|
-|7  |Mathematical and Computer Sciences         |                39|   11.82|
-|3  |Computer Sciences                          |                78|   23.64|
-|9  |Physical Sciences                          |               130|   39.39|
+|12 |Technologies                               |                 0|    0.00|
+|5  |Historical and Philosophical studies       |                 2|    0.74|
+|6  |Linguistics  Classics and related subjects |                 2|    0.74|
+|11 |Subjects allied to Medicine                |                 3|    1.12|
+|2  |Combined studies                           |                 7|    2.60|
+|8  |Other                                      |                 7|    2.60|
+|10 |Social studies                             |                 7|    2.60|
+|1  |Biological Sciences                        |                19|    7.06|
+|4  |Engineering                                |                23|    8.55|
+|7  |Mathematical and Computer Sciences         |                28|   10.41|
+|3  |Computer Sciences                          |                61|   22.68|
+|9  |Physical Sciences                          |               110|   40.89|
 
 ![](exploratory_analysis_files/figure-html/disciplinePlot-1.png)<!-- -->
+
+# Education
+
+It had been postulated that RSEs understood both software engineering and research. To investigate their understanding of the research domain, we asked participants for the highest degree they had obtained.
+
+A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
+
 
 
 
@@ -40,19 +94,26 @@ Olivier PHILIPPE
 
 |   |level of Education   | Total Respondents| Percent|
 |:--|:--------------------|-----------------:|-------:|
-|3  |Undergraduate/Others |                41|   12.24|
-|2  |Master Degree        |                61|   18.21|
-|1  |Doctorate            |               233|   69.55|
+|3  |Undergraduate/Others |                37|   13.55|
+|2  |Master Degree        |                53|   19.41|
+|1  |Doctorate            |               183|   67.03|
 
 ![](exploratory_analysis_files/figure-html/educationPlot-1.png)<!-- -->
 
+# Gender
+
+Based on experience, it appeared that the RSE community was predominantly male. We asked participants to detail 
 
 
 
-|Gender | Total Respondents| Percent|
-|:------|-----------------:|-------:|
-|Female |                31|   11.74|
-|Male   |               233|   88.26|
+
+
+|   |Gender               | Total Respondents| Percent|
+|:--|:--------------------|-----------------:|-------:|
+|3  |Other                |                 1|    0.37|
+|4  |Prefer not to answer |                 6|    2.23|
+|1  |Female               |                30|   11.15|
+|2  |Male                 |               232|   86.25|
 
 ![](exploratory_analysis_files/figure-html/genderPlot-1.png)<!-- -->
 
@@ -60,27 +121,34 @@ Olivier PHILIPPE
 
 ![](exploratory_analysis_files/figure-html/genderAllPlot-1.png)<!-- -->
 
+# Contract
+
 
 
 
 |   |Type of contract                   | Total Respondents| Percent|
 |:--|:----------------------------------|-----------------:|-------:|
-|1  |Agency staff                       |                 1|    0.30|
-|3  |Freelancer consultant  contractors |                 4|    1.19|
-|2  |Fixed term                         |               156|   46.57|
-|4  |Permanent                          |               174|   51.94|
+|1  |Agency staff                       |                 1|    0.37|
+|3  |Freelancer consultant  contractors |                 3|    1.10|
+|2  |Fixed term                         |               126|   46.32|
+|4  |Permanent                          |               142|   52.21|
 
 ![](exploratory_analysis_files/figure-html/contractPlot-1.png)<!-- -->
+
+# First job
 
 
 
 
 |First Job | Total Respondents| Percent|
 |:---------|-----------------:|-------:|
-|No        |               278|   82.99|
-|Yes       |                57|   17.01|
+|No        |               225|   82.72|
+|Yes       |                47|   17.28|
 
 ![](exploratory_analysis_files/figure-html/firstJobPlot-1.png)<!-- -->
+
+# Salary
+
 
 
 
@@ -91,36 +159,45 @@ Olivier PHILIPPE
 
 ![](exploratory_analysis_files/figure-html/salaryAllPlot-1.png)<!-- -->
 
+# Good practice indicators
+
+## Bus factor
+
 
 
 
 |Bus Factor | Total Respondents| Percent|
 |:----------|-----------------:|-------:|
-|1          |               143|   44.69|
-|2          |                99|   30.94|
-|3          |                36|   11.25|
-|4          |                15|    4.69|
-|5          |                27|    8.44|
+|1          |               124|   45.76|
+|2          |                82|   30.26|
+|3          |                32|   11.81|
+|4          |                12|    4.43|
+|5          |                21|    7.75|
 
 ![](exploratory_analysis_files/figure-html/busFactorPlot-1.png)<!-- -->
+
+## Technical handover
 
 
 
 
 |   |Technical hand over | Total Respondents| Percent|
 |:--|:-------------------|-----------------:|-------:|
-|2  |Yes                 |                75|   23.29|
-|1  |No                  |               247|   76.71|
+|2  |Yes                 |                59|   21.61|
+|1  |No                  |               214|   78.39|
 
 ![](exploratory_analysis_files/figure-html/handOverPlot-1.png)<!-- -->
+
+# Academic recognition
+
 
 
 
 
 |Contribution to paper | Total Respondents| Percent|
 |:---------------------|-----------------:|-------:|
-|No                    |                38|    11.8|
-|Yes                   |               284|    88.2|
+|No                    |                34|   12.45|
+|Yes                   |               239|   87.55|
 
 ![](exploratory_analysis_files/figure-html/contribYNPlot-1.png)<!-- -->
 
@@ -229,8 +306,9 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 
 
 
-![](exploratory_analysis_files/figure-html/careerStackPlot-1.png)<!-- -->
 
+
+![](exploratory_analysis_files/figure-html/careerStackPlot-1.png)<!-- -->
 
 
 ![](exploratory_analysis_files/figure-html/careerPlot-1.png)<!-- -->

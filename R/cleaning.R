@@ -40,7 +40,6 @@
 
     ## Subsetting the df to drop the unwanted columns
         df <- df[, -which(names(df) %in% nameToDrop)]
-
   ## Cleaning work directory
   #  rm(df, headers_to_drop, nameToDrop)
 
