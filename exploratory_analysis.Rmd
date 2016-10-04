@@ -41,7 +41,13 @@ output:
 
 ```{r loadFile}
 ```
+
 # Discipline
+
+To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS) to provide an ordered and well understood list of academic discipline categories.
+
+The majority of participants came from a background in the physical sciences (39.4%) and the computer sciences (23.6%). In fact, these two discipline areas combined make up more than 60% of all respondents.
+
 
 ```{r disciplinePrep}
 ```
@@ -49,17 +55,15 @@ output:
 ```{r disciplineTable}
 ```
 
-Motivation for asking the question
-
-Any specific findings of interest
-
-
-
-
 ```{r disciplinePlot, fig.width=20, fig.height=20}
 ```
 
-# Education 
+# Education
+
+It had been postulated that RSEs understood both software engineering and research. To investigate their understanding of the research domain, we asked participants for the highest degree they had obtained.
+
+A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
+
 
 ```{r educationPrep}
 ```
@@ -72,6 +76,9 @@ Any specific findings of interest
 ```
 
 # Gender
+
+Based on experience, it appeared that the RSE community was predominantly male. We asked participants to detail 
+
 
 ```{r genderPrep}
 ```
