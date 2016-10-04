@@ -62,7 +62,10 @@ People who received these emails helped to disseminate the survey via email, on 
 
 In total, 592 responses were received, but only [TODO: Get the write number] of these were complete (\emph{i.e. where all mandatory questions had been answered}). The survey was devised to investigate \emph{RSEs} in the UK, but dissemination of the survey had resulted in responses from around the world. This first analysis was focuses on UK, and hence on the [TODO: Find the right number] complete responses from UK-based participants.
 
+```{r sampleSetPlot}
+```
 
+```{r sampleSet}
 
 ## A word on Research Software Engineer: how to identify an RSE?
 

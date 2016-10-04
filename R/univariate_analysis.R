@@ -29,7 +29,7 @@
 
 
 ## @knitr sampleSetPlot
-    ## Plotting the number of answer per section -- Take the last question for each section
+    ## Plotting the number of answer per section -- Take the last question for each section to have an idea
     dfSample <- df[c('RSE.does_computer', 'Job.firstYN',
                    'Stability.hand_over', 'TurnOver.3.satisfied.INV',
                    'TurnOver.6.dream', 'Misc.OS')]
