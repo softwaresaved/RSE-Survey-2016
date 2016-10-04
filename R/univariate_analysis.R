@@ -1,10 +1,13 @@
 ## Univariate analysis of the RSE Survey 2016
-    
+
 # Setting up the directory
 ## Work only on linux -- if it is not working needs to insert manually
     this.dir = system("pwd", intern = T)
     setwd(this.dir)
     setwd('~/git/ssi/RSE-Survey-2016/')
+    # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
+    # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
+    FONT_SIZE = 35
 
 ## @knitr sourceFunc
     source('./R/functions.R')
@@ -21,41 +24,54 @@
     library('likert')
     library('sjPlot')  # To plot likert scale a bit differently
 
-    ## @knitr loadFile
+## @knitr loadFile
     df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
+
+
+## @knitr sampleSetPlot
+    ## Plotting the number of answer per section -- Take the last question for each section
+    dfSample <- df[c('RSE.does_computer', 'Job.firstYN',
+                   'Stability.hand_over', 'TurnOver.3.satisfied.INV',
+                   'TurnOver.6.dream', 'Misc.OS')]
+    colnames(dfSample) <- c('Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5', 'Section 6')
+    ## Function to create the number of NA per column and plotting it
+    na_count <-function (x) sapply(x, function(y) sum(!is.na(y)))
+
+    dfSampleNotNa <- as.data.frame(na_count(dfSample))
+    dfSampleNotNa$Q <- rownames(dfSampleNotNa)
+    colnames(dfSampleNotNa) <- c('Value', 'Section')
+     ggplot(data=dfSampleNotNa, aes(x=Section, y=Value))+
+        theme_minimal()+
+        ylab('Number of responses')+
+        xlab('')+
+         geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
+         theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+        theme(plot.title = element_text(size=FONT_SIZE, face='bold'))+
+        theme(legend.position='none')+
+        theme(legend.text=element_text(size=FONT_SIZE))+
+        theme(legend.title=element_blank())+
+        theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+        theme(axis.text.x=element_text(size=FONT_SIZE))+
+        geom_text(aes(label=Value),  vjust=-0.2, size=FONT_SIZE/8)
+
+## @knitr sampleSet
+
     ## Removing obvious non complete responses
-    ## Removing by job contract 
+    ## Removing by job contract
     # df <- df[which(df$Job.contract != 'NA'), ]
     # Removing by survey time
     df <- df[which(df$Survey.time !='- - -'), ]
-    
-    ## Function to create the number of NA per column and plotting it
-    ## Commented because not needed in the report
-       #  na_count <-function (x) sapply(x, function(y) sum(is.na(y)))
-       #  test <- na_count(df) 
-       #  test <- melt(test)
-       #  test$Q <- rownames(test)
-       #  test <- test[which(test$value >10 & test$value < 400),]
-       #  
-       # colnames(test) <- c('value', 'Q') 
-       #  ggplot(data=test, aes(x=reorder(Q, value), y=value))+
-       #      geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
-       #      coord_flip()+
-       #      theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
-    
+
     ## Remove the non UK
     df <- df[which(df$Socio.country == 'United Kingdom'),]
     ## Remove the non RSE
      # df <- df[which(df$RSE.score >=2), ]
     # df$RSE.score_NotPost <- df$RSE.dev_software + df$RSE.dev_time + df$RSE.does_computer
     # df1 <- df[which(df$RSE.score_NotPost >=2), ]
-    # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
-    # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
-    FONT_SIZE = 35
 
 
 # RSE Sampling
-        
+
 ## @knitr RSEStackPrep
     RSEItem <- c("Are you employed primarily to develop software for research?",
                  "Do you spend more time developing software than conducting research?",
@@ -71,7 +87,7 @@
     plotLikert(dfRSE)
 
 # Socio-demographic information
-    
+
 ## @knitr disciplinePrep
     disciplineFreq <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
 
