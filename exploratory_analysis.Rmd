@@ -92,6 +92,7 @@ output:
 ```
 
 ```{r firstJobPlot}
+```
 
 ```{r salaryPrep}
 ```
