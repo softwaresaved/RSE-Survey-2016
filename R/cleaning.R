@@ -347,12 +347,11 @@
 
   # Cleaning tools
     # Cleaning need to be done outside the data frame and it is done during analysis
-
   # Socio.gender
     summary(df$Socio.gender)
     levels(df$Socio.gender)[levels(df$Socio.gender) == ""] <- NA
-    levels(df$Socio.gender)[levels(df$Socio.gender) == "Prefer not to answer"] <- NA
-    levels(df$Socio.gender)[levels(df$Socio.gender) == 'Other'] <- NA
+    # levels(df$Socio.gender)[levels(df$Socio.gender) == "Prefer not to answer"] <- NA
+    # levels(df$Socio.gender)[levels(df$Socio.gender) == 'Other'] <- NA
     # Nothing to do
 
   # Socio age
