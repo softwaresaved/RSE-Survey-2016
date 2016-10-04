@@ -41,6 +41,7 @@ output:
 
 ```{r loadFile}
 ```
+# Discipline
 
 ```{r disciplinePrep}
 ```
@@ -48,8 +49,17 @@ output:
 ```{r disciplineTable}
 ```
 
+Motivation for asking the question
+
+Any specific findings of interest
+
+
+
+
 ```{r disciplinePlot, fig.width=20, fig.height=20}
 ```
+
+# Education 
 
 ```{r educationPrep}
 ```
@@ -60,6 +70,8 @@ output:
 
 ```{r educationPlot}
 ```
+
+# Gender
 
 ```{r genderPrep}
 ```
@@ -76,6 +88,8 @@ output:
 ```{r genderAllPlot, fig.width=20, fig.height=20}
 ```
 
+# Contract
+
 ```{r contractPrep}
 ```
 
@@ -85,6 +99,8 @@ output:
 ```{r contractPlot}
 ```
 
+# First job
+
 ```{r firstJobPrep}
 ```
 
@@ -93,6 +109,8 @@ output:
 
 ```{r firstJobPlot}
 ```
+
+# Salary
 
 ```{r salaryPrep}
 ```
@@ -109,6 +127,10 @@ output:
 ```{r salaryAllPlot}
 ```
 
+# Good practice indicators
+
+## Bus factor
+
 ```{r busFactorPrep}
 ```
 
@@ -118,6 +140,8 @@ output:
 ```{r busFactorPlot}
 ```
 
+## Technical handover
+
 ```{r handOverPrep}
 ```
 
@@ -126,6 +150,9 @@ output:
 
 ```{r handOverPlot}
 ```
+
+# Academic recognition
+
 
 ```{r contribYNPrep}
 ```
