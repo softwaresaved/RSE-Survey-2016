@@ -109,14 +109,20 @@ It had been postulated that RSEs understood both software engineering and resear
 A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
 
 
-```{r educationPrep}
+```{r educationRawPrep}
 ```
 
 
-```{r educationTable}
+```{r educationRawTable}
 ```
 
-```{r educationPlot}
+```{r educationCleanPrep}
+```
+
+```{r educationCleanTable}
+```
+
+```{r educationCleanPlot}
 ```
 
 # Gender

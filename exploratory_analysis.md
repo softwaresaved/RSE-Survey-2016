@@ -94,17 +94,29 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 
 
 
+|   |level of Education                   | Total Respondents| Percent|
+|:--|:------------------------------------|-----------------:|-------:|
+|5  |Other                                |                 0|    0.00|
+|4  |None                                 |                 1|    0.37|
+|2  |Further Education (NVQ  A-Level ...) |                 3|    1.10|
+|6  |Undergraduate degree                 |                33|   12.09|
+|3  |Masters degree                       |                53|   19.41|
+|1  |Doctorate                            |               183|   67.03|
+
+
+
+
 |   |level of Education   | Total Respondents| Percent|
 |:--|:--------------------|-----------------:|-------:|
 |3  |Undergraduate/Others |                37|   13.55|
 |2  |Master Degree        |                53|   19.41|
 |1  |Doctorate            |               183|   67.03|
 
-![](exploratory_analysis_files/figure-html/educationPlot-1.png)<!-- -->
+![](exploratory_analysis_files/figure-html/educationCleanPlot-1.png)<!-- -->
 
 # Gender
 
-Based on experience, it appeared that the RSE community was predominantly male. We asked participants to detail 
+Based on experience, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. 263 participants (97% of all partipants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
 
 
 
