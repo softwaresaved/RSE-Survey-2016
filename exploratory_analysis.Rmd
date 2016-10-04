@@ -112,7 +112,6 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 ```{r educationRawPrep}
 ```
 
-
 ```{r educationRawTable}
 ```
 
