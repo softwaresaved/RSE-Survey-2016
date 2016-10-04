@@ -41,6 +41,7 @@ output:
 
 ```{r loadFile}
 ```
+# Discipline
 
 ```{r disciplinePrep}
 ```
@@ -58,6 +59,8 @@ Any specific findings of interest
 ```{r disciplinePlot, fig.width=20, fig.height=20}
 ```
 
+# Education 
+
 ```{r educationPrep}
 ```
 
@@ -67,6 +70,8 @@ Any specific findings of interest
 
 ```{r educationPlot}
 ```
+
+# Gender
 
 ```{r genderPrep}
 ```
@@ -83,6 +88,8 @@ Any specific findings of interest
 ```{r genderAllPlot, fig.width=20, fig.height=20}
 ```
 
+# Contract
+
 ```{r contractPrep}
 ```
 
@@ -92,6 +99,8 @@ Any specific findings of interest
 ```{r contractPlot}
 ```
 
+# First job
+
 ```{r firstJobPrep}
 ```
 
@@ -99,6 +108,8 @@ Any specific findings of interest
 ```
 
 ```{r firstJobPlot}
+
+# Salary
 
 ```{r salaryPrep}
 ```
@@ -115,6 +126,10 @@ Any specific findings of interest
 ```{r salaryAllPlot}
 ```
 
+# Good practice indicators
+
+## Bus factor
+
 ```{r busFactorPrep}
 ```
 
@@ -124,6 +139,8 @@ Any specific findings of interest
 ```{r busFactorPlot}
 ```
 
+## Technical handover
+
 ```{r handOverPrep}
 ```
 
@@ -132,6 +149,9 @@ Any specific findings of interest
 
 ```{r handOverPlot}
 ```
+
+# Academic recognition
+
 
 ```{r contribYNPrep}
 ```
