@@ -117,7 +117,7 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 
 # Gender
 
-Based on experience, it appeared that the RSE community was predominantly male. We asked participants to detail 
+Based on experience, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. 263 participants (97% of all partipants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
 
 
 ```{r genderPrep}
