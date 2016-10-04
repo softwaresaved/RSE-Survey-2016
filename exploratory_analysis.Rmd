@@ -66,6 +66,7 @@ In total, 592 responses were received, but only [TODO: Get the write number] of 
 ```
 
 ```{r sampleSet}
+```
 
 ## A word on Research Software Engineer: how to identify an RSE?
 
