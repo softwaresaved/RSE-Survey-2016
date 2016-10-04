@@ -1,5 +1,5 @@
 ## Univariate analysis of the RSE Survey 2016
-
+    
 # Setting up the directory
 ## Work only on linux -- if it is not working needs to insert manually
     this.dir = system("pwd", intern = T)
@@ -20,12 +20,15 @@
     library('tm')
     library('likert')
     library('sjPlot')  # To plot likert scale a bit differently
-
+              
 
 ## @knitr loadFile
     df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
     ## Removing obvious non complete responses
+    ## Removing by job contract 
     df <- df[which(df$Job.contract != 'NA'), ]
+    # Removing by survey time
+    df <- df[which(df$Survey.time !='- - -'), ]
     ## Remove the non UK
     df <- df[which(df$Socio.country == 'United Kingdom'),]
     ## Remove the non RSE
@@ -37,8 +40,24 @@
     FONT_SIZE = 35
 
 
-# Socio-demographic information
+# RSE Sampling
+        
+## @knitr RSEStackPrep
+    RSEItem <- c("Are you employed primarily to develop software for research?",
+                 "Do you spend more time developing software than conducting research?",
+                 "Are you employed as a postdoctoral researcher?",
+                 "Are you the person who “does computers” in your research group?")
+    RSEname <- c('RSE.dev_software','RSE.dev_time',  'RSE.post_doc', 'RSE.does_computer')
+    dfRSE <- df[RSEname]
+    colnames(dfRSE) <- RSEItem
+    dfRSE <- ifelse(dfRSE == '1', 'Yes', 'No')
+    dfRSE <- as.data.frame(dfRSE)
 
+## @knitr RSEStackPlot
+    plotLikert(dfRSE)
+
+# Socio-demographic information
+    
 ## @knitr disciplinePrep
     disciplineFreq <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
 
