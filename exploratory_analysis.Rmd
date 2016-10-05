@@ -105,7 +105,7 @@ The majority of participants came from a background in the physical sciences (39
 
 It had been postulated that RSEs understood both software engineering and research. To investigate their understanding of the research domain, we asked participants for the highest degree they had obtained.
 
-A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
+A significant majority of participants (69.5%) had been awarded a PhD, which indicates that a significant majority of RSEs have experience of working in research. 
 
 
 ```{r educationPrep}
@@ -120,7 +120,7 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 
 # Gender
 
-Based on experience, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. 263 participants (97% of all partipants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
+Based on anecdotal evidence, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. Almost all participants (97%) answered this non-mandatory question and we found that the population is indeed predominantly male - with 88% of participants reporting as male and 11% reporting as female. 
 
 
 ```{r genderPrep}
