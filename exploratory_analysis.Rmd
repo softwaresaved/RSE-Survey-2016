@@ -66,6 +66,7 @@ In total, 592 responses were received, but only [TODO: Get the write number] of 
 ```
 
 ```{r sampleSet}
+```
 
 ## A word on Research Software Engineer: how to identify an RSE?
 
@@ -108,14 +109,19 @@ It had been postulated that RSEs understood both software engineering and resear
 A significant majority of participants (69.5%) had been awarded a PhD, which indicates that a significant majority of RSEs have experience of working in research. 
 
 
-```{r educationPrep}
+```{r educationRawPrep}
 ```
 
-
-```{r educationTable}
+```{r educationRawTable}
 ```
 
-```{r educationPlot}
+```{r educationCleanPrep}
+```
+
+```{r educationCleanTable}
+```
+
+```{r educationCleanPlot}
 ```
 
 # Gender

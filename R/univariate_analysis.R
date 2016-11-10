@@ -44,8 +44,8 @@
         theme_minimal()+
         ylab('Number of responses')+
         xlab('')+
-         geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
-         theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
+        geom_bar(stat='identity', show.legend = FALSE, fill='#4A8F94', colour='#4A8F94')+
+        theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))+
         theme(plot.title = element_text(size=FONT_SIZE, face='bold'))+
         theme(legend.position='none')+
         theme(legend.text=element_text(size=FONT_SIZE))+
@@ -98,20 +98,31 @@
     plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE, legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
-## @knitr educationPrep
+## @knitr educationRawPrep
     # Reorder the factor
-    levels(df$Edu.highest_qualification) <- c('Doctorate', 'Undergraduate/Others', 'Master Degree',
+
+    rawEduFreq <- singleTabFreq(df$Edu.highest_qualification, 'level of Education')
+
+## @knitr educationRawTable
+    kable(rawEduFreq, digits=2, format = 'markdown')
+
+## @knitr educationRawPlot
+    plotSingleFreq(rawEduFreq, 'Level of Education', column='Percent', legend=FALSE, FONT_SIZE=FONT_SIZE)
+
+## @knitr educationCleanPrep
+    cleanEdu <- df$Edu.highest_qualification
+    levels(cleanEdu) <- c('Doctorate', 'Undergraduate/Others', 'Master Degree',
                                               'Undergraduate/Others', 'Undergraduate/Others',
                                               'Undergraduate/Others', 'Undergraduate/Others')
-    df$Edu.highest_qualification = factor(df$Edu.highest_qualification, levels(df$Edu.highest_qualification)[c(1,3,2)])
+    cleanEdu = factor(cleanEdu, levels(cleanEdu)[c(1,3,2)])
+    cleanEduFreq <- singleTabFreq(cleanEdu, 'level of Education')
 
-    eduFreq <- singleTabFreq(df$Edu.highest_qualification, 'level of Education')
+## @knitr educationCleanTable
+    kable(cleanEduFreq, digits=2, format = 'markdown')
 
-## @knitr educationTable
-    kable(eduFreq, digits=2, format = 'markdown')
 
-## @knitr educationPlot
-    plotSingleFreq(eduFreq, 'Level of Education', column='Percent', legend=FALSE, FONT_SIZE=FONT_SIZE)
+## @knitr educationCleanPlot
+    plotSingleFreq(cleanEduFreq, 'Level of Education', column='Percent', legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 
 ## @knitr genderPrep

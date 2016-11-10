@@ -38,6 +38,32 @@ In total, 592 responses were received, but only [TODO: Get the write number] of 
 
 
 
+## A word on Research Software Engineer: how to identify an RSE?
+
+The term \emph{Research Software Engineer (RSE)} was coined in 2012 in a paper \cite{baxter_research_2012} [TODO: add footnote for reference] that described the situation of people in academia who write software used by researchers. 
+At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
+
+It is noted that the term \emph{RSEs} is intended to be interpreted broadly, it does not imply that the only people who can inhabit the role derive from a software engineering background. Indeed, most \emph{RSEs} come from a background other than software engineering. [TODO: insert the reference to the right section]
+
+However, as there were no control over the dissemination of the survey by the participants, a way to identify them was to include questions to identify them. 
+
+The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
+    * *Are you employed primarily to develop software for research?*
+    * *Do you spend more time developing software than conducting research?*
+    * *Are you employed as a postdoctoral researcher?*
+    * *Are you the person who “does computers” in your research group?*
+
+The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person "who does computers" by their less technologically adept colleagues. 
+The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
+
+# Discipline
+
+To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS) to provide an ordered and well understood list of academic discipline categories.
+
+The majority of participants came from a background in the physical sciences (39.4%) and the computer sciences (23.6%). In fact, these two discipline areas combined make up more than 60% of all respondents.
+
+
+
 
 
 |   |Field of Education                         | Total Respondents| Percent|
@@ -68,17 +94,29 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 
 
 
+|   |level of Education                   | Total Respondents| Percent|
+|:--|:------------------------------------|-----------------:|-------:|
+|5  |Other                                |                 0|    0.00|
+|4  |None                                 |                 1|    0.37|
+|2  |Further Education (NVQ  A-Level ...) |                 3|    1.10|
+|6  |Undergraduate degree                 |                33|   12.09|
+|3  |Masters degree                       |                53|   19.41|
+|1  |Doctorate                            |               183|   67.03|
+
+
+
+
 |   |level of Education   | Total Respondents| Percent|
 |:--|:--------------------|-----------------:|-------:|
 |3  |Undergraduate/Others |                37|   13.55|
 |2  |Master Degree        |                53|   19.41|
 |1  |Doctorate            |               183|   67.03|
 
-![](exploratory_analysis_files/figure-html/educationPlot-1.png)<!-- -->
+![](exploratory_analysis_files/figure-html/educationCleanPlot-1.png)<!-- -->
 
 # Gender
 
-Based on experience, it appeared that the RSE community was predominantly male. We asked participants to detail 
+Based on experience, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. 263 participants (97% of all partipants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
 
 
 
