@@ -44,6 +44,18 @@ output:
 
 # Introduction
 
+Research is growing ever more reliant on software, which means that in today's research the software used by researchers is intrinsically linked to the reliability and reproducibility of their results. With this level of importance place on software it would, of course, be desirable for all researchers to acquire the skills needed to develop reliable and reproducible software, but this is not a practical aim. Acquiring these skills is time-consuming and difficult, and researchers have many other calls upon their time. The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many reserachers have for software development has led to the emergence of a new role in academia: the Research Software Engineer (RSE).
+
+The emergence of RSEs has been driven by necessity. Researchers needed software development compeleted that was more extensive than the time they had available, or required skills that were beyond their means. this led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
+The term "Research Software Engineer" came into existence in 2012 [TODO: link to RSE paper] long after people began to rely the role. 
+
+
+Part of our work with the UK's Software Sustainability Institute has been to 
+
+It is desirable, we cannot rely solely on researchers acuiring the skills they need to develop reliable and reproducible research. It is a time-consuming
+
+Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them. What's more, we cannot rely on all 
+
 In a 2014 survey \cite{hettrick_its_2014}, the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
 The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so. A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to \emph{RSEs}.
 
