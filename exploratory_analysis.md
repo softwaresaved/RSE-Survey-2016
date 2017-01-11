@@ -48,6 +48,7 @@ It is noted that the term \emph{RSEs} is intended to be interpreted broadly, it 
 However, as there were no control over the dissemination of the survey by the participants, a way to identify them was to include questions to identify them. 
 
 The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
+
     * *Are you employed primarily to develop software for research?*
     * *Do you spend more time developing software than conducting research?*
     * *Are you employed as a postdoctoral researcher?*
@@ -88,7 +89,6 @@ The majority of participants came from a background in the physical sciences (39
 It had been postulated that RSEs understood both software engineering and research. To investigate their understanding of the research domain, we asked participants for the highest degree they had obtained.
 
 A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
-
 
 
 
@@ -222,12 +222,19 @@ Based on experience, it appeared that the RSE community was predominantly male. 
 # Work Indicators
 
 ## Introduction
+
+The job satisfaction is an essential concept to assess the 
+
+
 How to measure the quality of a job has been debated in psychology for a long time [4]. Several models exist to understand the link between different factors of job satisfaction and turnover intention [5]–[9].
  Turnover intention is an important measure that is highly associated with the risk of employees leaving the organisation [7].
 Job satisfaction is important in retaining RSEs. Perceived employability provides information on how workers values their own skills in regard of the market.
 To measure the different attitudes toward the RSE role, we used scales that have been created in [5], [6], [8], [9].
 These are Likert scale [10], which are 5 point ordinal scales graduated from Strongly disagree to Strongly agree.
 Each scale is composed of several so called items (i.e. questions) that each measure one attitude.
+
+
+
 
 ### Turnover intention
 
@@ -261,6 +268,13 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 ![](exploratory_analysis_files/figure-html/PerceivedEmpStack-1.png)<!-- -->
 
 ### Satisfaction
+
+One problem of studies that claim to measure the job satisfaction is, despises describing the job satisfaction as an *affective construct*, measure it on cognitives aspects [8]. 
+This is why Thompson et al. created a *Brief Index of Affective Job Satisfaction (BIAJS)* [8]. 
+The idea is to measure the affective aspect of the construct. They constructed a scale to measure that aspect and tested in on a sample of 506506 employees and a rate of 18.27% in Australia and Hong-Kong.
+Afte r
+> Our exploratory factor analyses found the BIAJS to be unidimensional, with high and reasonably uniform factor loadings accounting for around two thirds of variance, for both the whole sample and for subsamples. Corrected item-total correlations ranging across samples from .54 to .74, together with Cronbach’s alphas between .81 and .83, plus a range of confirmatory factor analysis fit indices suggesting acceptable fit for a single factor structure, all supported the internal consistency reliabil- ity of the BIAJS.
+
 
 
 
@@ -329,8 +343,8 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 
 # Wordclouds
 
-We asked three separated questions to capture the variety of skills and tools that are important for an RSE. Each questions offered the opportunity to fills three freetext fields. These questions help us to get a gist of what is important for RSE on a more braod and less defined way. 
-The following wordclouds give an idea of that aspect, without pretenting to be rigourous. 
+We asked three separated questions to capture the variety of skills and tools that are important for an RSE. Each questions offered the opportunity to fills three freetext fields. These questions help us to get a gist of what is important for RSE on a more broad and less defined way. 
+The following wordclouds give an idea of that aspect, without pretending to be rigorous. 
 
 
 ## Most important skills for an RSE
@@ -350,3 +364,23 @@ The following wordclouds give an idea of that aspect, without pretenting to be r
 
 
 ![](exploratory_analysis_files/figure-html/toolPlot-1.png)<!-- -->
+
+
+# References
+
+  * [1] R. Baxter, N. Chue Hong, D. Gorissen, J. Hetherington, and I. Todorov, “The Research Software Engineer.” [Online]. Available: [](http://digital-research-2012.oerc.ox.ac.uk/papers/the-research-software-engineer)
+  * [2] S. Hettrick, “It’s impossible to conduct research without software, say 7 out of 10 UK researchers.” [Online]. Available: https://www.software.ac.uk/blog/2016-07-26-its-impossible- conduct-research-without-software-say-7-out-10-uk-researchers
+  * [3] Joint Academic Coding System (JACS) Version 3.0. [Online]. Available: https://www.hesa.ac.uk/jacs3
+  * [4] B. Aziri, “Job satisfaction: A literature review,” vol. 3, no. 4, pp. 77–86. 
+  * [5] A. B. Bakker and E. Demerouti, “The job demands-resources model: State of the art,” vol. 22, no. 3, pp. 309–328, 02996.
+  * [6] G. H. L. Cheng and D. K. S. Chan, “Who Suffers More from Job Insecurity? A Meta-Analytic Review.” vol. 57, no. 2, p. 272.
+  * [7] N. De Cuyper, S. Mauno, U. Kinnunen, and A. Mkikangas, “The role of job resources in the relation between perceived employability and turnover intention: A prospective two-sample study,” vol. 78, no. 2, pp. 253–263.
+  * [8] E. R. Thompson and F. T. Phua, “A brief index of affective job satisfaction,” vol. 37, no. 3, pp. 275–307.
+  * [9] L. Greenhalgh and Z. Rosenblatt, “Job insecurity: Toward conceptual clarity,” pp. 438–448.
+  * [10] R. Likert, “A technique for the measurement of attitudes.” vol. 22, no. 140, p. 55.
+  * [11] J. Carifio and R. Perla, “Resolving the 50-year debate around using and misusing Likert scales,” vol. 42, no. 12, pp. 1150–1152.
+  * [12] G. Norman, “Likert scales, levels of measurement and the laws of statistics,” vol. 15, no. 5, pp. 625–632.
+  * [13] G. M. Sullivan and A. R. Artino, “Analyzing and Interpreting Data From Likert-Type Scales,” vol. 5, no. 4, pp. 541–542.
+  * [14] L. J. Cronbach, “Coefficient alpha and the internal structure of tests,” vol. 16, no. 3, pp. 297–334.
+  * [15] D. L. Streiner, “Starting at the Beginning: An Introduction to Coefficient Alpha and Internal Consistency,” vol. 80, no. 1, pp. 99–103.
+  * [16] M. Tavakol and R. Dennick, “Making sense of Cronbach’s alpha,” vol. 2, pp. 53–55
