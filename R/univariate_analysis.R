@@ -5,9 +5,6 @@
     this.dir = system("pwd", intern = T)
     setwd(this.dir)
     setwd('~/git/ssi/RSE-Survey-2016/')
-    # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
-    # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
-    FONT_SIZE = 35
 
 ## @knitr sourceFunc
     source('./R/functions.R')
@@ -27,6 +24,10 @@
 ## @knitr loadFile
     df <- read.csv('./data/dataset/592_full_clean.csv',  na.strings=c("NA","NaN", " ", ""))
 
+## @kntir setUpFont
+    # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
+    # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
+    FONT_SIZE <- 35
 
 ## @knitr sampleSetPlot
     ## Plotting the number of answer per section -- Take the last question for each section to have an idea

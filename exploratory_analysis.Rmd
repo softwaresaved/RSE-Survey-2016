@@ -1,8 +1,7 @@
 ---
 title: "RSE Survey 2016"
-author: "Olivier PHILIPPE"
-date: "26 June 2016"
-bibliography: bibliography.bib
+author: Olivier PHILIPPE
+date: 26 June 2016
 output:
   html_document:
     keep_md: yes
@@ -11,7 +10,7 @@ output:
   github_document:
     md_extensions: -autolink_bare_uris+hard_line_breaks
   pdf_document:
-    toc_depth: '4'
+    toc_depth: 4
 ---
 
 ```{r package_options, include=FALSE}
@@ -43,27 +42,36 @@ output:
 ```{r loadFile}
 ```
 
+```{r setUpFont}
+```
+
 # Introduction
 
-Research is growing ever more reliant on software, which means that in today's research the software used by researchers is intrinsically linked to the reliability and reproducibility of their results. With this level of importance place on software it would, of course, be desirable for all researchers to acquire the skills needed to develop reliable and reproducible software, but this is not a practical aim. Acquiring these skills is time-consuming and difficult, and researchers have many other calls upon their time. The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many reserachers have for software development has led to the emergence of a new role in academia: the Research Software Engineer (RSE).
+Research is growing ever more reliant on software, which means that in today's research the software used by researchers is intrinsically linked to the reliability and reproducibility of their results.
+With this level of importance place on software it would, of course, be desirable for all researchers to acquire the skills needed to develop reliable and reproducible software, but this is not a practical aim.
+Acquiring these skills is time-consuming and difficult, and researchers have many other calls upon their time. 
 
-The emergence of RSEs has been driven by necessity. Researchers needed software development compeleted that was more extensive than the time they had available, or required skills that were beyond their means. this led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
-The term "Research Software Engineer" came into existence in 2012 [TODO: link to RSE paper] long after people began to rely the role. 
+The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many researchers have for software development has led to the emergence of a new role in academia: the Research Software Engineer (RSE).
 
+The emergence of RSEs has been driven by necessity.
+Researchers needed software development compelled that was more extensive than the time they had available, or required skills that were beyond their means.
+This led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
+The term *Research Software Engineer* came into existence in 2012 [1] long after people began to rely the role. 
 
-Part of our work with the UK's Software Sustainability Institute has been to 
+It is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
 
-It is desirable, we cannot rely solely on researchers acuiring the skills they need to develop reliable and reproducible research. It is a time-consuming
+Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them.
 
-Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them. What's more, we cannot rely on all 
+In a 2014 survey [2], the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
+The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so.
+A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to *RSEs*.
 
-In a 2014 survey \cite{hettrick_its_2014}, the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
-The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so. A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to \emph{RSEs}.
-
-The Software Sustainability Institute began a campaign in 2013 to increase the availability of \emph{RSEs} by ensuring they had a viable career path in academia. To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
+The Software Sustainability Institute began a campaign in 2013 to increase the availability of *RSEs* by ensuring they had a viable career path in academia.
+To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
 In March 2016, the Software Sustainability Institute  conducted a survey on the Research Software Engineers. 
-The survey was composed of [TODO: find exact number of Q?] questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016. The survey was approved by the Southampton Ethical comittee (id:18478) and respect the [TODO: Insert the different applicable laws]
-
+The survey was composed of 119 questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016.
+The survey was approved by the Southampton Ethical comittee (id:18478).
+This research complies with the [Data Protection act](https://www.gov.uk/data-protection) and the [University of Southampton policy](http://www.calendar.soton.ac.uk/sectionIV/research-data-management.html).
 
 ## Sample and methodology
 The survey was designed and stored on the Southampton online survey service: [isurvey](https://www.isurvey.soton.ac.uk/).
@@ -73,7 +81,7 @@ Two further reminders were sent to the list to elicit responses from the communi
 People who received these emails helped to disseminate the survey via email, on blogs and using Twitter and other social media.
 
 
-In total, 592 responses were received, but only [TODO: Get the write number] of these were complete (\emph{i.e. where all mandatory questions had been answered}). The survey was devised to investigate \emph{RSEs} in the UK, but dissemination of the survey had resulted in responses from around the world. This first analysis was focuses on UK, and hence on the [TODO: Find the right number] complete responses from UK-based participants.
+In total, 592 responses were received, but only [TODO: Get the write number] of these were complete (*i.e. where all mandatory questions had been answered*). The survey was devised to investigate *RSEs* in the UK, but dissemination of the survey had resulted in responses from around the world. This first analysis was focuses on UK, and hence on the [TODO: Find the right number] complete responses from UK-based participants.
 
 ```{r sampleSetPlot}
 ```

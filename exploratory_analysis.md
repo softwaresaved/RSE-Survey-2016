@@ -14,15 +14,36 @@ Olivier PHILIPPE
 
 
 
+
+
 # Introduction
 
-In a 2014 survey \cite{hettrick_its_2014}, the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
-The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so. A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to \emph{RSEs}.
+Research is growing ever more reliant on software, which means that in today's research the software used by researchers is intrinsically linked to the reliability and reproducibility of their results.
+With this level of importance place on software it would, of course, be desirable for all researchers to acquire the skills needed to develop reliable and reproducible software, but this is not a practical aim.
+Acquiring these skills is time-consuming and difficult, and researchers have many other calls upon their time. 
 
-The Software Sustainability Institute began a campaign in 2013 to increase the availability of \emph{RSEs} by ensuring they had a viable career path in academia. To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
+The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many researchers have for software development has led to the emergence of a new role in academia: the Research Software Engineer (RSE).
+
+The emergence of RSEs has been driven by necessity.
+Researchers needed software development compelled that was more extensive than the time they had available, or required skills that were beyond their means.
+This led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
+The term *Research Software Engineer* came into existence in 2012 [1] long after people began to rely the role. 
+
+It is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
+
+Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them.
+What's more, we cannot rely on all 
+
+In a 2014 survey [2], the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
+The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so.
+A more scalable and sustainable approach to embedding these skills in academia is to ensure that academics have access to *RSEs*.
+
+The Software Sustainability Institute began a campaign in 2013 to increase the availability of *RSEs* by ensuring they had a viable career path in academia.
+To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
 In March 2016, the Software Sustainability Institute  conducted a survey on the Research Software Engineers. 
-The survey was composed of [TODO: find exact number of Q?] questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016. The survey was approved by the Southampton Ethical comittee (id:18478) and respect the [TODO: Insert the different applicable laws]
-
+The survey was composed of [TODO: find exact number of Q?] questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016.
+The survey was approved by the Southampton Ethical comittee (id:18478).
+This research complies with the [Data Protection act](https://www.gov.uk/data-protection) and the [University of Southampton policy](http://www.calendar.soton.ac.uk/sectionIV/research-data-management.html).
 
 ## Sample and methodology
 The survey was designed and stored on the Southampton online survey service: [isurvey](https://www.isurvey.soton.ac.uk/).
@@ -57,6 +78,7 @@ The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this 
 The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person "who does computers" by their less technologically adept colleagues. 
 The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
 
+
 # Discipline
 
 To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS) to provide an ordered and well understood list of academic discipline categories.
@@ -88,7 +110,7 @@ The majority of participants came from a background in the physical sciences (39
 
 It had been postulated that RSEs understood both software engineering and research. To investigate their understanding of the research domain, we asked participants for the highest degree they had obtained.
 
-A significant majority of participants (69.5%) had been awarded a PhD and a further 18.2% have achieved a Masters’ degree.
+A significant majority of participants (69.5%) had been awarded a PhD, which indicates that a significant majority of RSEs have experience of working in research. 
 
 
 
@@ -116,7 +138,8 @@ A significant majority of participants (69.5%) had been awarded a PhD and a furt
 
 # Gender
 
-Based on experience, it appeared that the RSE community was predominantly male. We asked participants to provide their gender. 263 participants (97% of all partipants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
+Based on experience, it appeared that the RSE community was predominantly male.
+We asked participants to provide their gender. 263 participants (97% of all participants) answered this non-mandatory question and we found that the population is indeed predominantly male. 
 
 
 
@@ -223,10 +246,12 @@ Based on experience, it appeared that the RSE community was predominantly male. 
 
 ## Introduction
 
-The job satisfaction is an essential concept to assess the 
+One goal of this survey was to measure the 
+
+How to measure the quality of a job has been debated in psychology for a long time [4].
 
 
-How to measure the quality of a job has been debated in psychology for a long time [4]. Several models exist to understand the link between different factors of job satisfaction and turnover intention [5]–[9].
+Several models exist to understand the link between different factors of job satisfaction and turnover intention [5]–[9].
  Turnover intention is an important measure that is highly associated with the risk of employees leaving the organisation [7].
 Job satisfaction is important in retaining RSEs. Perceived employability provides information on how workers values their own skills in regard of the market.
 To measure the different attitudes toward the RSE role, we used scales that have been created in [5], [6], [8], [9].
@@ -272,7 +297,7 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 One problem of studies that claim to measure the job satisfaction is, despises describing the job satisfaction as an *affective construct*, measure it on cognitives aspects [8]. 
 This is why Thompson et al. created a *Brief Index of Affective Job Satisfaction (BIAJS)* [8]. 
 The idea is to measure the affective aspect of the construct. They constructed a scale to measure that aspect and tested in on a sample of 506506 employees and a rate of 18.27% in Australia and Hong-Kong.
-Afte r
+After
 > Our exploratory factor analyses found the BIAJS to be unidimensional, with high and reasonably uniform factor loadings accounting for around two thirds of variance, for both the whole sample and for subsamples. Corrected item-total correlations ranging across samples from .54 to .74, together with Cronbach’s alphas between .81 and .83, plus a range of confirmatory factor analysis fit indices suggesting acceptable fit for a single factor structure, all supported the internal consistency reliabil- ity of the BIAJS.
 
 
@@ -338,13 +363,12 @@ Afte r
 
 ![](exploratory_analysis_files/figure-html/careerStackPlot-1.png)<!-- -->
 
-
 ![](exploratory_analysis_files/figure-html/careerPlot-1.png)<!-- -->
 
 # Wordclouds
 
 We asked three separated questions to capture the variety of skills and tools that are important for an RSE. Each questions offered the opportunity to fills three freetext fields. These questions help us to get a gist of what is important for RSE on a more broad and less defined way. 
-The following wordclouds give an idea of that aspect, without pretending to be rigorous. 
+The following wordcloud give an idea of that aspect, without pretending to be rigorous. 
 
 
 ## Most important skills for an RSE
