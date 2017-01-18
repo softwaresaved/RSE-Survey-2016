@@ -10,7 +10,7 @@ selectD <- dplyr::select  # One of the other library clashes with this function 
                          # Now sure that it is going to work
 
 
-  singleTabFreq <- function(vectorToFreq, name, order=TRUE){
+singleTabFreq <- function(vectorToFreq, name, order=TRUE){
     # Function that output a data frame containing the variable, the Frequency and
     # rounded percent
     # Transform the vector into a table of frequency

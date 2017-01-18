@@ -1,6 +1,17 @@
-# RSE Survey 2016
-Olivier PHILIPPE  
-26 June 2016  
+---
+title: "RSE Survey 2016"
+author: Olivier PHILIPPE
+date: 26 June 2016
+output:
+  html_document:
+    keep_md: yes
+    number_sections: yes
+    toc_depth: 4
+  github_document:
+    md_extensions: -autolink_bare_uris+hard_line_breaks
+  pdf_document:
+    toc_depth: 4
+---
 
 
 
@@ -22,7 +33,7 @@ Research is growing ever more reliant on software, which means that in today's r
 With this level of importance place on software it would, of course, be desirable for all researchers to acquire the skills needed to develop reliable and reproducible software, but this is not a practical aim.
 Acquiring these skills is time-consuming and difficult, and researchers have many other calls upon their time. 
 
-The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many researchers have for software development has led to the emergence of a new role in academia: the Research Software Engineer (RSE).
+The increasing need for software engineering skills in research, combined with a lack of training in these skills and the limited time that many researchers have for software development has led to the emergence of a new role in academia: *the Research Software Engineer (RSE)*.
 
 The emergence of RSEs has been driven by necessity.
 Researchers needed software development compelled that was more extensive than the time they had available, or required skills that were beyond their means.
@@ -32,7 +43,6 @@ The term *Research Software Engineer* came into existence in 2012 [1] long after
 It is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
 
 Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them.
-What's more, we cannot rely on all 
 
 In a 2014 survey [2], the Software Sustainability Institute found that almost 70\% of researchers from across domains relied on software for the generation of their results, which shows the fundamental importance of software to research. 
 The availability of this software and its reliability are completely dependent on the skills of the person or people who develop it. Although some academics will choose to adopt the skills they need to engineer reliable software, many will not have either the time or inclination to do so.
@@ -41,27 +51,41 @@ A more scalable and sustainable approach to embedding these skills in academia i
 The Software Sustainability Institute began a campaign in 2013 to increase the availability of *RSEs* by ensuring they had a viable career path in academia.
 To provide a more accurate picture of the community’s development, it was decided to start an annual survey to collect demographics. This paper shares the results of this survey and uses these results to infer conclusions about the community. 
 In March 2016, the Software Sustainability Institute  conducted a survey on the Research Software Engineers. 
-The survey was composed of [TODO: find exact number of Q?] questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016.
+The survey was composed of 119 questions, asking about demography, practices and attitude toward the job and ended on the 15th of June 2016.
 The survey was approved by the Southampton Ethical comittee (id:18478).
 This research complies with the [Data Protection act](https://www.gov.uk/data-protection) and the [University of Southampton policy](http://www.calendar.soton.ac.uk/sectionIV/research-data-management.html).
 
+
+
 ## Sample and methodology
 The survey was designed and stored on the Southampton online survey service: [isurvey](https://www.isurvey.soton.ac.uk/).
-The research has been approved by the 
 To target \emph{RSEs} directly, the survey was sent via email to the UKRSE Association’s mailing list.
 Two further reminders were sent to the list to elicit responses from the community. 
 People who received these emails helped to disseminate the survey via email, on blogs and using Twitter and other social media.
 
+The survey was devised to investigate *RSEs* in the UK, but dissemination of the survey had resulted in responses from around the world. 
+In total, 592 responses were received, but 299 of these were complete (*i.e. where all mandatory questions had been answered*).
+This first analysis was focuses on UK, and hence on the 273 complete responses from UK-based participants.
 
-In total, 592 responses were received, but only [TODO: Get the write number] of these were complete (\emph{i.e. where all mandatory questions had been answered}). The survey was devised to investigate \emph{RSEs} in the UK, but dissemination of the survey had resulted in responses from around the world. This first analysis was focuses on UK, and hence on the [TODO: Find the right number] complete responses from UK-based participants.
+### Sections and questions
 
-![](exploratory_analysis_files/figure-html/sampleSetPlot-1.png)<!-- -->
+The survey was divided in 6 main sections. 
+The first section aimed to collect some basic information about the country of origin and to know in which extend the participant could be considered as a RSE.
+The second section questioned the participants about their past job and their current job contract.
+The third section was focus on the academic recognition the participants get throught their role and the development's practices they implement.
+The fourth and fifth section aimed to collect answers on several work indicators to get a complete picture of their job satisfaction. 
+And finally, the sixth section asked various questions about the tools they use as long as some more socio-demographic questions. 
+Here a plot to show where the participant drops the survey. We can see that as soon as they completed the first section, they are almost finishing it (68 dropped between the section 2 and the section 6).
+
+![plot of chunk sampleSetPlot](figure/sampleSetPlot-1.png)
 
 
 
 ## A word on Research Software Engineer: how to identify an RSE?
 
-The term \emph{Research Software Engineer (RSE)} was coined in 2012 in a paper \cite{baxter_research_2012} [TODO: add footnote for reference] that described the situation of people in academia who write software used by researchers. 
+[//]: # FIXME INTRODUCE RSE IN THE INTRODUCTION ALREADY
+
+The term *RSE* was coined in 2012 in a paper \cite{baxter_research_2012} [TODO: add footnote for reference] that described the situation of people in academia who write software used by researchers. 
 At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
 
 It is noted that the term \emph{RSEs} is intended to be interpreted broadly, it does not imply that the only people who can inhabit the role derive from a software engineering background. Indeed, most \emph{RSEs} come from a background other than software engineering. [TODO: insert the reference to the right section]
@@ -70,18 +94,24 @@ However, as there were no control over the dissemination of the survey by the pa
 
 The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
 
-    * *Are you employed primarily to develop software for research?*
-    * *Do you spend more time developing software than conducting research?*
-    * *Are you employed as a postdoctoral researcher?*
-    * *Are you the person who “does computers” in your research group?*
+
+|RSE Questions                                                        |
+|:--------------------------------------------------------------------|
+|Are you employed primarily to develop software for research?         |
+|Do you spend more time developing software than conducting research? |
+|Are you employed as a postdoctoral researcher?                       |
+|Are you the person who “does computers” in your research group?      |
 
 The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person "who does computers" by their less technologically adept colleagues. 
 The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
 
+The answers 
+![plot of chunk RSEStackPlot](figure/RSEStackPlot-1.png)
+
 
 # Discipline
 
-To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS) to provide an ordered and well understood list of academic discipline categories.
+To gain an understanding of the academic background of the participants, we asked for the academic discipline of their highest degree. We used the Joint Academic Coding System (JACS)[3] to provide an ordered and well understood list of academic discipline categories.
 
 The majority of participants came from a background in the physical sciences (39.4%) and the computer sciences (23.6%). In fact, these two discipline areas combined make up more than 60% of all respondents.
 
@@ -104,7 +134,7 @@ The majority of participants came from a background in the physical sciences (39
 |3  |Computer Sciences                          |                61|   22.68|
 |9  |Physical Sciences                          |               110|   40.89|
 
-![](exploratory_analysis_files/figure-html/disciplinePlot-1.png)<!-- -->
+![plot of chunk disciplinePlot](figure/disciplinePlot-1.png)
 
 # Education
 
@@ -134,7 +164,7 @@ A significant majority of participants (69.5%) had been awarded a PhD, which ind
 |2  |Master Degree        |                53|   19.41|
 |1  |Doctorate            |               183|   67.03|
 
-![](exploratory_analysis_files/figure-html/educationCleanPlot-1.png)<!-- -->
+![plot of chunk educationCleanPlot](figure/educationCleanPlot-1.png)
 
 # Gender
 
@@ -152,11 +182,11 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |1  |Female               |                30|   11.15|
 |2  |Male                 |               232|   86.25|
 
-![](exploratory_analysis_files/figure-html/genderPlot-1.png)<!-- -->
+![plot of chunk genderPlot](figure/genderPlot-1.png)
 
 
 
-![](exploratory_analysis_files/figure-html/genderAllPlot-1.png)<!-- -->
+![plot of chunk genderAllPlot](figure/genderAllPlot-1.png)
 
 # Contract
 
@@ -170,7 +200,7 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |2  |Fixed term                         |               126|   46.32|
 |4  |Permanent                          |               142|   52.21|
 
-![](exploratory_analysis_files/figure-html/contractPlot-1.png)<!-- -->
+![plot of chunk contractPlot](figure/contractPlot-1.png)
 
 # First job
 
@@ -182,7 +212,7 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |No        |               225|   82.72|
 |Yes       |                47|   17.28|
 
-![](exploratory_analysis_files/figure-html/firstJobPlot-1.png)<!-- -->
+![plot of chunk firstJobPlot](figure/firstJobPlot-1.png)
 
 # Salary
 
@@ -190,11 +220,11 @@ We asked participants to provide their gender. 263 participants (97% of all part
 
 
 
-![](exploratory_analysis_files/figure-html/salaryPlot-1.png)<!-- -->
+![plot of chunk salaryPlot](figure/salaryPlot-1.png)
 
 
 
-![](exploratory_analysis_files/figure-html/salaryAllPlot-1.png)<!-- -->
+![plot of chunk salaryAllPlot](figure/salaryAllPlot-1.png)
 
 # Good practice indicators
 
@@ -211,7 +241,7 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |4          |                12|    4.43|
 |5          |                21|    7.75|
 
-![](exploratory_analysis_files/figure-html/busFactorPlot-1.png)<!-- -->
+![plot of chunk busFactorPlot](figure/busFactorPlot-1.png)
 
 ## Technical handover
 
@@ -223,7 +253,7 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |2  |Yes                 |                59|   21.61|
 |1  |No                  |               214|   78.39|
 
-![](exploratory_analysis_files/figure-html/handOverPlot-1.png)<!-- -->
+![plot of chunk handOverPlot](figure/handOverPlot-1.png)
 
 # Academic recognition
 
@@ -236,11 +266,11 @@ We asked participants to provide their gender. 263 participants (97% of all part
 |No                    |                34|   12.45|
 |Yes                   |               239|   87.55|
 
-![](exploratory_analysis_files/figure-html/contribYNPlot-1.png)<!-- -->
+![plot of chunk contribYNPlot](figure/contribYNPlot-1.png)
 
 
 
-![](exploratory_analysis_files/figure-html/contribAllPlot-1.png)<!-- -->
+![plot of chunk contribAllPlot](figure/contribAllPlot-1.png)
 
 # Work Indicators
 
@@ -275,9 +305,9 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 |How often do you consider leaving your job?                                                                  |
 |How often do dream about getting another job that will better suit your needs?                               |
 
-![](exploratory_analysis_files/figure-html/TurnOverStackTime-1.png)<!-- -->
+![plot of chunk TurnOverStackTime](figure/TurnOverStackTime-1.png)
 
-![](exploratory_analysis_files/figure-html/TurnOverStackAgree-1.png)<!-- -->
+![plot of chunk TurnOverStackAgree](figure/TurnOverStackAgree-1.png)
 
 ### Perceived Employability
 
@@ -290,7 +320,7 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 |I can think of a number of organisations that would probably offer me a job                |
 |My experience is in demand on the labour market                                            |
 
-![](exploratory_analysis_files/figure-html/PerceivedEmpStack-1.png)<!-- -->
+![plot of chunk PerceivedEmpStack](figure/PerceivedEmpStack-1.png)
 
 ### Satisfaction
 
@@ -311,7 +341,7 @@ After
 |I feel fairly well satisfied with my job     |
 |I like my job better than the average person |
 
-![](exploratory_analysis_files/figure-html/StatisfactionStack-1.png)<!-- -->
+![plot of chunk StatisfactionStack](figure/StatisfactionStack-1.png)
 
 
 ### Recognition
@@ -327,7 +357,7 @@ After
 |I am satisfied with the compliments from my supervisor/line manager concerning my work         |
 |I am satisfied with the encouragement from my supervisor/line manager while doing my job       |
 
-![](exploratory_analysis_files/figure-html/RecognitionStack-1.png)<!-- -->
+![plot of chunk RecognitionStack](figure/RecognitionStack-1.png)
 
 
 ### Feedback
@@ -345,13 +375,13 @@ After
 |Does your supervisor/line manager inform you about how well you are doing your work?  |
 |Do your colleagues inform you about how well you are doing your work?                 |
 
-![](exploratory_analysis_files/figure-html/FeedbackStack-1.png)<!-- -->
+![plot of chunk FeedbackStack](figure/FeedbackStack-1.png)
 
 ## Summary
 
 
 
-![](exploratory_analysis_files/figure-html/workIndicatorPlot-1.png)<!-- -->
+![plot of chunk workIndicatorPlot](figure/workIndicatorPlot-1.png)
 
 # Career Plan
 
@@ -361,9 +391,9 @@ After
 
 
 
-![](exploratory_analysis_files/figure-html/careerStackPlot-1.png)<!-- -->
+![plot of chunk careerStackPlot](figure/careerStackPlot-1.png)
 
-![](exploratory_analysis_files/figure-html/careerPlot-1.png)<!-- -->
+![plot of chunk careerPlot](figure/careerPlot-1.png)
 
 # Wordclouds
 
@@ -375,19 +405,19 @@ The following wordcloud give an idea of that aspect, without pretending to be ri
 
 
 
-![](exploratory_analysis_files/figure-html/skillImportantPlot-1.png)<!-- -->
+![plot of chunk skillImportantPlot](figure/skillImportantPlot-1.png)
 
 ## Most important skills to improve for an RSE
 
 
 
-![](exploratory_analysis_files/figure-html/skillImprovePlot-1.png)<!-- -->
+![plot of chunk skillImprovePlot](figure/skillImprovePlot-1.png)
 
 ## Most important tool for an RSE
 
 
 
-![](exploratory_analysis_files/figure-html/toolPlot-1.png)<!-- -->
+![plot of chunk toolPlot](figure/toolPlot-1.png)
 
 
 # References

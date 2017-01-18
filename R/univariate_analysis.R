@@ -84,6 +84,11 @@
     dfRSE <- ifelse(dfRSE == '1', 'Yes', 'No')
     dfRSE <- as.data.frame(dfRSE)
 
+
+## @knitr RSEQ
+    kable(RSEItem, col.names='RSE Questions')
+
+
 ## @knitr RSEStackPlot
     plotLikert(dfRSE)
 
