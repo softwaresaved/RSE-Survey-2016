@@ -25,8 +25,6 @@ This project is the statistical analysis of the RSE survey conducted from March 
 
 * [exploratory\_analysis.Rmd](exploratory_analysis.Rmd) -- Report to generate univariate analysis (exploratory)
 
-* [exploratory\_analysis.html](exploratory_analysis.html) -- Generated html file from the [exploratory_analysis.Rmd](exploratory_analysis.Rmd) using Knitr
-
 * [exploratory\_analysis.md](exploratory_analysis.md) -- Generated markdown file from the [exploratory_analysis.Rmd](exploratory_analysis.Rmd) using Knitr. This file is viewable in github website
 
 * [career\_path\_report.Rmd](career_path_report.Rmd) -- Report to generate analysis about the career path and the satisfaction at work \[WORK IN PROGRESS\]
