@@ -260,7 +260,7 @@
     ggplot(salaryPercentAll, aes(x=as.numeric(Salary), y=value, colour=type))+
         geom_point(size=4)+
         geom_line(size=2)+
-        geom_text(aes(label=paste(value, '%')), size=8,vjust=-0.2, show.legend = FALSE)+
+        geom_text(aes(label=paste(value, '%')), size=FONT_SIZE,vjust=-0.2, show.legend = FALSE)+
         # geom_text(show.legend = FALSE) +  # To remove the symbol 'a' in legend because use geom_txt
         ggtitle('Comparison salary RSE vs UK')+
         theme_minimal() +

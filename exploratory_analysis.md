@@ -83,8 +83,6 @@ Here a plot to show where the participant drops the survey. We can see that as s
 
 ## A word on Research Software Engineer: how to identify an RSE?
 
-> [//]: # FIXME INTRODUCE RSE IN THE INTRODUCTION ALREADY
-
 The term *RSE* was coined in 2012 in a paper [1] that described the situation of people in academia who write software used by researchers. 
 At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
 
