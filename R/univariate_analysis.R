@@ -151,7 +151,7 @@
     genderFreq <- singleTabFreq(df$Socio.gender, 'Gender', order=TRUE)
     ## Transform the dataframe to bind it with the genderUK
     sumQMelt <- t(genderFreq[c('Gender', 'Percent')])
-    RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,1])), round(as.numeric(sumQMelt[2,2])))
+    RSEGender <- c('RSE', round(as.numeric(sumQMelt[2,3])), round(as.numeric(sumQMelt[2,4])))
     # Gender in IT -- Data from: https://docs.google.com/spreadsheets/d/1nr2ukhV2rNInLTR210yBKEvJowU9vfg6rkckFoi_1Io/edit#gid=349336051
     genderDf <- read.csv('data/external_dataset/gender_disciplines.csv')
     genderDf$Discipline <- as.character(genderDf$Discipline)
@@ -417,7 +417,8 @@
     dfPerc <- df[perceivedName]
     perceivedItems  <- c('It would not be very difficult for me to get an equivalent job in a different organisation',
                          'I can think of a number of organisations that would probably offer me a job',
-                         'My experience is in demand on the labour market')
+                         'My experience is in demand on the labour market',
+                         'Given my qualifications and experience, getting a new job would not be very hard at all')
 
     dfPerc <- as.data.frame(lapply(dfPerc, reorderFunc, typeList='agree'))
     colnames(dfPerc) <- perceivedItems

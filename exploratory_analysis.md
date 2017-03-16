@@ -346,6 +346,7 @@ Each scale is composed of several so called items (i.e. questions) that each mea
 |It would not be very difficult for me to get an equivalent job in a different organisation |
 |I can think of a number of organisations that would probably offer me a job                |
 |My experience is in demand on the labour market                                            |
+|Given my qualifications and experience, getting a new job would not be very hard at all    |
 
 ![plot of chunk PerceivedEmpStack](figure/PerceivedEmpStack-1.png)
 
