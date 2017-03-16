@@ -40,7 +40,7 @@ Researchers needed software development compelled that was more extensive than t
 This led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
 The term *Research Software Engineer* came into existence in 2012 [1] long after people began to rely the role. 
 
-It is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
+If is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
 
 Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them.
 
@@ -57,7 +57,7 @@ This research complies with the [Data Protection act](https://www.gov.uk/data-pr
 
 
 
-## Sample and methodology
+## <a name='sample'></a>Sample and methodology
 The survey was designed and stored on the Southampton online survey service: [isurvey](https://www.isurvey.soton.ac.uk/).
 To target \emph{RSEs} directly, the survey was sent via email to the UKRSE Association’s mailing list.
 Two further reminders were sent to the list to elicit responses from the community. 
@@ -85,29 +85,30 @@ Here a plot to show where the participant drops the survey. We can see that as s
 
 [//]: # FIXME INTRODUCE RSE IN THE INTRODUCTION ALREADY
 
-The term *RSE* was coined in 2012 in a paper \cite{baxter_research_2012} [TODO: add footnote for reference] that described the situation of people in academia who write software used by researchers. 
+The term *RSE* was coined in 2012 in a paper [1] that described the situation of people in academia who write software used by researchers. 
 At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
 
-It is noted that the term \emph{RSEs} is intended to be interpreted broadly, it does not imply that the only people who can inhabit the role derive from a software engineering background. Indeed, most \emph{RSEs} come from a background other than software engineering. [TODO: insert the reference to the right section]
+It is noted that the term *RSEs* is intended to be interpreted broadly, it does not imply that the only people who can inhabit the role derive from a software engineering background. Indeed, most *RSEs* come from a background other than software engineering.
 
 However, as there were no control over the dissemination of the survey by the participants, a way to identify them was to include questions to identify them. 
 
 The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
 
 
-|RSE Questions                                                        |
-|:--------------------------------------------------------------------|
-|Are you employed primarily to develop software for research?         |
-|Do you spend more time developing software than conducting research? |
-|Are you employed as a postdoctoral researcher?                       |
-|Are you the person who “does computers” in your research group?      |
+```
+## Error in inherits(x, "list"): object 'RSEItem' not found
+```
 
-The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person "who does computers" by their less technologically adept colleagues. 
+The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person *who does computers* by their less technologically adept colleagues. 
 The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
 
-The answers 
-![plot of chunk RSEStackPlot](figure/RSEStackPlot-1.png)
+The answers are reported below. It is important to note the answers are independents, therefore the number of participants that have answered at least one of the RSE questions is 262 over the already 273 selected participant (see [Sample and methodology section](#sample)).
 
+
+
+```
+## Error in likert(df): object 'dfRSE' not found
+```
 
 # Discipline
 
@@ -188,9 +189,31 @@ We asked participants to provide their gender. 263 participants (97% of all part
 
 ![plot of chunk genderAllPlot](figure/genderAllPlot-1.png)
 
+
+# Age
+
+We asked the participants to report the age
+
+
+
+
+|   |Age            | Total Respondents| Percent|
+|:--|:--------------|-----------------:|-------:|
+|1  |18 to 24 years |                 4|    1.48|
+|5  |55 to 64 years |                11|    4.07|
+|4  |45 to 54 years |                51|   18.89|
+|2  |25 to 34 years |                97|   35.93|
+|3  |35 to 44 years |               107|   39.63|
+
+![plot of chunk agePlot](figure/agePlot-1.png)
+
+
 # Contract
 
+The type of contract can be a good measure of the precarity of a specific position. We asked the participants which type of contract they have. 
 
+
+The results show that more than the half of the participants are under a *permanent* position.
 
 
 |   |Type of contract                   | Total Respondents| Percent|

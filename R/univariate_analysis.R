@@ -4,7 +4,7 @@
 ## Work only on linux -- if it is not working needs to insert manually
     this.dir = system("pwd", intern = T)
     setwd(this.dir)
-    setwd('~/git/ssi/RSE-Survey-2016/')
+    # setwd('~/git/ssi/RSE-Survey-2016/')
 
 ## @knitr sourceFunc
     source('./R/functions.R')
@@ -27,7 +27,7 @@
 ## @kntir setUpFont
     # Set up the FONT_SIZE for the plots. Need to change it on the spot when generate pdf for article vs markdown
     # For markdown, value of 20 is ideal, if it is for pdf value of 35 is better (plot on double columns articles)
-    FONT_SIZE <- 35
+    FONT_SIZE <- 20
 
 ## @knitr sampleSetPlot
     ## Plotting the number of answer per section -- Take the last question for each section to have an idea
@@ -41,7 +41,7 @@
     dfSampleNotNa <- as.data.frame(na_count(dfSample))
     dfSampleNotNa$Q <- rownames(dfSampleNotNa)
     colnames(dfSampleNotNa) <- c('Value', 'Section')
-     ggplot(data=dfSampleNotNa, aes(x=Section, y=Value))+
+    ggplot(data=dfSampleNotNa, aes(x=Section, y=Value))+
         theme_minimal()+
         ylab('Number of responses')+
         xlab('')+
@@ -98,10 +98,10 @@
     disciplineFreq <- singleTabFreq(df$Edu.academic.CLEAN, 'Field of Education')
 
 ## @knitr disciplineTable
-    kable(disciplineFreq, digits=2, format = 'markdown')
+    kable(disciplineFreq, digits=2, format = 'markdown') #
 
 ## @knitr disciplinePlot
-    plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE, legend=FALSE, FONT_SIZE=FONT_SIZE)
+    plotSingleFreq(disciplineFreq, 'Field of Education', column= 'Percent', vertical_label=TRUE, legend=FALSE, FONT_SIZE=FONT_SIZE) #
 
 
 ## @knitr educationRawPrep
@@ -171,6 +171,15 @@
         theme(axis.text.x=element_text(size=FONT_SIZE))+
         geom_text(aes(label=paste(value, '%')),  vjust=-0.2, size=FONT_SIZE/8)
 
+
+## @knitr agePrep
+    ageFreq <- singleTabFreq(df$Socio.age, 'Age', order=TRUE)
+
+## @knitr ageTable
+    kable(ageFreq, digits=2, format= 'markdown')
+
+## @knitr agePlot
+    plotSingleFreq(ageFreq, 'Age', order=FALSE, legend=FALSE, FONT_SIZE=FONT_SIZE)
 
 ## @knitr contractPrep
     contractFreq<- singleTabFreq(df$Job.contract, 'Type of contract', order=TRUE)

@@ -58,7 +58,7 @@ Researchers needed software development compelled that was more extensive than t
 This led to the employment of people, often as postdocs, with known software development skills who were then allowed , so they began to employ 
 The term *Research Software Engineer* came into existence in 2012 [1] long after people began to rely the role. 
 
-It is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
+If is desirable, we cannot rely solely on researchers acquiring the skills they need to develop reliable and reproducible research. It is a time-consuming.
 
 Researchers can choose to learn the skills they need to develop reliable and reproducible software, but this is a time-consuming and difficult process that often requires them to acquire a skill set that is completely novel to them.
 
@@ -184,6 +184,21 @@ We asked participants to provide their gender. 263 participants (97% of all part
 
 ```{r genderAllPlot, fig.width=20, fig.height=20}
 ```
+
+
+# Age
+
+We asked the participants to report the age
+
+```{r agePrep}
+```
+
+```{r ageTable}
+```
+
+```{r agePlot}
+```
+
 
 # Contract
 
