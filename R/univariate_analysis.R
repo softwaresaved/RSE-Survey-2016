@@ -74,18 +74,22 @@
 # RSE Sampling
 
 ## @knitr RSEStackPrep
+    # RSEItem <- c("Are you employed primarily to develop software for research?",
+    #              "Do you spend more time developing software than conducting research?",
+    #              "Are you employed as a postdoctoral researcher?",
+    #              "Are you the person who “does computers” in your research group?")
+    # RSEname <- c('RSE.dev_software','RSE.dev_time',  'RSE.post_doc', 'RSE.does_computer')
+    # dfRSE <- df[RSEname]
+    # colnames(dfRSE) <- RSEItem
+    # dfRSE <- ifelse(dfRSE == '1', 'Yes', 'No')
+    # dfRSE <- as.data.frame(dfRSE)
+
+
+## @knitr RSEQ
     RSEItem <- c("Are you employed primarily to develop software for research?",
                  "Do you spend more time developing software than conducting research?",
                  "Are you employed as a postdoctoral researcher?",
                  "Are you the person who “does computers” in your research group?")
-    RSEname <- c('RSE.dev_software','RSE.dev_time',  'RSE.post_doc', 'RSE.does_computer')
-    dfRSE <- df[RSEname]
-    colnames(dfRSE) <- RSEItem
-    dfRSE <- ifelse(dfRSE == '1', 'Yes', 'No')
-    dfRSE <- as.data.frame(dfRSE)
-
-
-## @knitr RSEQ
     kable(RSEItem, col.names='RSE Questions')
 
 

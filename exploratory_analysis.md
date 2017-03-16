@@ -83,7 +83,7 @@ Here a plot to show where the participant drops the survey. We can see that as s
 
 ## A word on Research Software Engineer: how to identify an RSE?
 
-[//]: # FIXME INTRODUCE RSE IN THE INTRODUCTION ALREADY
+> [//]: # FIXME INTRODUCE RSE IN THE INTRODUCTION ALREADY
 
 The term *RSE* was coined in 2012 in a paper [1] that described the situation of people in academia who write software used by researchers. 
 At the time, little was known about software use in research, but even less was known about the people who develop, maintain and extend that code. The term was chosen because it fuses the two skills that are necessary to the role: an understanding of research, and an understanding of software engineering. 
@@ -95,9 +95,13 @@ However, as there were no control over the dissemination of the survey by the pa
 The [UKRSE Association](http://www.rse.ac.uk/) were the first to encounter this problem and as a consequence had developed a number of questions to help potential RSEs align themselves with the role. These questions are as follows:
 
 
-```
-## Error in inherits(x, "list"): object 'RSEItem' not found
-```
+
+|RSE Questions                                                        |
+|:--------------------------------------------------------------------|
+|Are you employed primarily to develop software for research?         |
+|Do you spend more time developing software than conducting research? |
+|Are you employed as a postdoctoral researcher?                       |
+|Are you the person who “does computers” in your research group?      |
 
 The above questions were devised to appeal to people who worked in a research environment but wrote software rather than papers, and were based on the experiences of a group of people who had worked in the RSE role. They were designed to identify aspects that, anecdotally at least, appeared to unite RSEs from all backgrounds. For example, many appeared to have been recruited into postdoctoral positions, and many were referred to as the person *who does computers* by their less technologically adept colleagues. 
 The above questions are broad, and even colloquial at times, to appeal to the intended audience and present the RSE community as inclusive. RSEs were said to have self-identified once they had joined the UKRSE Association.
