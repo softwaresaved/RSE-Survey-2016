@@ -177,7 +177,7 @@
 
 
 ## @knitr agePrep
-    ageFreq <- singleTabFreq(df$Socio.age, 'Age', order=TRUE)
+    ageFreq <- singleTabFreq(df$Socio.age, 'Age', order=FALSE)
 
 ## @knitr ageTable
     kable(ageFreq, digits=2, format= 'markdown')

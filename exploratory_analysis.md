@@ -201,13 +201,13 @@ We asked the participants to report the age
 
 
 
-|   |Age            | Total Respondents| Percent|
-|:--|:--------------|-----------------:|-------:|
-|1  |18 to 24 years |                 4|    1.48|
-|5  |55 to 64 years |                11|    4.07|
-|4  |45 to 54 years |                51|   18.89|
-|2  |25 to 34 years |                97|   35.93|
-|3  |35 to 44 years |               107|   39.63|
+|Age            | Total Respondents| Percent|
+|:--------------|-----------------:|-------:|
+|18 to 24 years |                 4|    1.48|
+|25 to 34 years |                97|   35.93|
+|35 to 44 years |               107|   39.63|
+|45 to 54 years |                51|   18.89|
+|55 to 64 years |                11|    4.07|
 
 ![plot of chunk agePlot](figure/agePlot-1.png)
 
